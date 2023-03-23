@@ -2,16 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:flutter/foundation.dart';
-import 'package:pluto/screens/mobile/mobile_market_place.dart';
-import 'package:pluto/screens/tablet/tablet_market_place.dart';
-import 'package:pluto/screens/web/web_market_place.dart';
+import 'package:pluto/screens/mobile/mobile_Services.dart';
+import 'package:pluto/screens/tablet/tablet_Services.dart';
+import 'package:pluto/screens/web/web_Services.dart';
 
-class Market_place extends StatefulWidget{
+class Services extends StatefulWidget{
   @override
-  Market_placeState createState()=>Market_placeState();
+  ServicesState createState()=>ServicesState();
 }
 
-class Market_placeState extends State<Market_place>{
+class ServicesState extends State<Services>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +21,13 @@ class Market_placeState extends State<Market_place>{
             builder: (BuildContext context, BoxConstraints constraints){
               if(constraints.maxWidth<=CONFIG.MOBILE_SCREEN_SIZE){
                 //device is mobile
-                return Mobile_Marketplace();
+                return Mobile_Services();
               } else if(constraints.maxWidth>CONFIG.MOBILE_SCREEN_SIZE && constraints.maxWidth<=CONFIG.TABLET_SCREEN_SIZE){
                 //device is tablet
-                return Tablet_Marketplace();
+                return Tablet_Services();
               } else {
                 //device is web
-                return Web_Marketplace();
+                return Web_Services();
               }
             }
         ),
