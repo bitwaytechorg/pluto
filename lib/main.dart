@@ -150,8 +150,8 @@ class AuthGate extends AnimatedWidget {
                     padding: EdgeInsets.only(bottom: 8),
                     child: Text(
                       action == AuthAction.signIn
-                          ? 'Welcome to  Mrs Jacked Plant! Please sign in to continue.'
-                          : 'Welcome to Mrs Jacked plant! please create a account to continue',
+                          ? 'Welcome to Pluto! Please sign in to continue.'
+                          : 'Welcome to Pluto! please create a account to continue',
                     ),
                   );
                 },
@@ -161,8 +161,8 @@ class AuthGate extends AnimatedWidget {
                       padding: EdgeInsets.only(top: 16),
                       child: Text(
                         action == AuthAction.signIn
-                            ? 'Welcome to Mrs Jacked Plants! please sign in to continue.'
-                            : 'Welcome to Mrs jacked Plants ! please create an account to continue',
+                            ? 'Welcome to Pluto! please sign in to continue.'
+                            : 'Welcome to Pluto ! please create an account to continue',
                         style: const TextStyle(color: Colors.grey),
                       ),
                     ),

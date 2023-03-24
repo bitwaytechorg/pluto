@@ -1,6 +1,8 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:mrs_jacked_app/components/auth_builder.dart';
+
+import '../../components/auth_builder.dart';
+
 
 class ForgetPassword extends StatelessWidget {
   final String? email;
@@ -12,8 +14,8 @@ class ForgetPassword extends StatelessWidget {
     return ForgotPasswordScreen(
       email:email,
       headerMaxExtent:200,
-      // headerBuilder:headerBuilder(),
-      // sideBuilder:sideBuilder(),
+      headerBuilder:headerBuilder(),
+      sideBuilder:sideBuilder(),
     ) ;
   }
 }
