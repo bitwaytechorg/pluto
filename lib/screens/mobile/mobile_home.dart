@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/slider_menu.dart';
 
 import '../../components/topbar.dart';
 
@@ -31,7 +32,7 @@ class MobileHomeState extends State<MobileHome> {
         top: true,
         child: Stack(
           children: [
-            Drawer(),
+            Slider_menu(),
             AnimatedContainer(
               width: MediaQuery.of(context).size.width,
               transform: Matrix4.translationValues(xOffset, yOffset, 0)
