@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/slider_menu.dart';
 
 import '../../components/topbar.dart';
 
@@ -31,7 +32,7 @@ class MobileHomeState extends State<MobileHome> {
         top: true,
         child: Stack(
           children: [
-            Drawer(),
+            Slider_menu(),
             AnimatedContainer(
               width: MediaQuery.of(context).size.width,
               transform: Matrix4.translationValues(xOffset, yOffset, 0)
@@ -45,19 +46,13 @@ class MobileHomeState extends State<MobileHome> {
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
                   onTap: toggleMenu,
-                  title: Image.asset("assets/images/logo.png", height: 35),
-                  background: Colors.grey[200]!,
+                  background: Colors.pink[200]!,
                   secondaryWidget: InkWell(
                     onTap: () => {},
                     child: Container(
                         margin: EdgeInsets.only(top: 3, right: 5),
-                        child: Image.asset(
-                          "assets/images/support.png",
-                          width: 35,
-                          height: 35,
                         )),
                   ),
-                ),
               ]),
             ),
           ],

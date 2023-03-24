@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/home.dart';
 
-class Drawer extends StatelessWidget {
+class Slider_menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +13,14 @@ class Drawer extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: Colors.blue,
+      padding: EdgeInsets.only(top: 70),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SingleChildScrollView(
             child: Container(
+              color: Colors.blue,
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +32,7 @@ class Drawer extends StatelessWidget {
                       onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
                       child: Row(
                         children: [
-                          Icon(Icons.ac_unit_outlined, color: Colors.white,size: 18,),
+                          Icon(Icons.ac_unit_outlined, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
                           Text('dashboard', style: TextStyle(color: Theme.of(context).primaryColor, fontSize:16,fontWeight: FontWeight.bold),)
 
@@ -46,7 +48,7 @@ class Drawer extends StatelessWidget {
                       onTap: ()=> { },
                       child: Row(
                         children: [
-                          Icon(Icons.face, color: Colors.white,size: 18,),
+                          Icon(Icons.face, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
                           Text('Profile', style: TextStyle(color: Theme.of(context).primaryColor, fontSize:16,fontWeight: FontWeight.bold),)
 
@@ -62,7 +64,7 @@ class Drawer extends StatelessWidget {
                       onTap: ()=> { },
                       child: Row(
                         children: [
-                          Icon(Icons.lock_clock_rounded, color: Colors.white,size: 18,),
+                          Icon(Icons.lock_clock_rounded, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
                           Text('Change Password', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 16, fontWeight: FontWeight.bold),)
                         ],
