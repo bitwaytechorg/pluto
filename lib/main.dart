@@ -19,8 +19,6 @@ import 'config/firebase_config.dart';
 import 'config/firebase_configration.dart';
 import 'config/firebase_remote_config.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
@@ -31,29 +29,30 @@ void main() async {
   ]);
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) =>runApp(MaterialApp(
-    title: "Pluto",
-   // theme: lightTheme,
-    // darkTheme: darkTheme,
-    home: FutureBuilder<FirebaseRemoteConfig>(
-      future: setupRemoteConfig(),
-      builder: (BuildContext context, AsyncSnapshot<FirebaseRemoteConfig> snapshot) {
-        return snapshot.hasData
-            ? AuthGate(remoteConfig: snapshot.requireData)
-            : Splash();
-      },
-    ),
-    debugShowCheckedModeBanner: false,
-    locale: const Locale('en', 'AU'),
-    supportedLocales: const [Locale('en', 'AU')],
-    localizationsDelegates: [
-      // FirebaseUILocalizations.withDefaultOverrides(const LabelOverrides()),
-      // GlobalMaterialLocalizations.delegate,
-      // GlobalWidgetsLocalizations.delegate,
-      // GlobalCupertinoLocalizations.delegate,
-      // FirebaseUILocalizations.delegate,
-    ],
-  )));
+      .then((value) => runApp(MaterialApp(
+            title: "Pluto",
+            // theme: lightTheme,
+            // darkTheme: darkTheme,
+            home: FutureBuilder<FirebaseRemoteConfig>(
+              future: setupRemoteConfig(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<FirebaseRemoteConfig> snapshot) {
+                return snapshot.hasData
+                    ? AuthGate(remoteConfig: snapshot.requireData)
+                    : Splash();
+              },
+            ),
+            debugShowCheckedModeBanner: false,
+            locale: const Locale('en', 'AU'),
+            supportedLocales: const [Locale('en', 'AU')],
+            localizationsDelegates: [
+              // FirebaseUILocalizations.withDefaultOverrides(const LabelOverrides()),
+              // GlobalMaterialLocalizations.delegate,
+              // GlobalWidgetsLocalizations.delegate,
+              // GlobalCupertinoLocalizations.delegate,
+              // FirebaseUILocalizations.delegate,
+            ],
+          )));
 }
 
 class AuthGate extends AnimatedWidget {
@@ -67,7 +66,7 @@ class AuthGate extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final mfaAction = AuthStateChangeAction<MFARequired>(
-          (context, state) async {
+      (context, state) async {
         print("IN FUN");
         await startMFAVerification(
           context: context,
@@ -114,20 +113,25 @@ class AuthGate extends AnimatedWidget {
                               builder: (context) => VerifyEmail()));
                     } else {
                       await setSession(state.user!.uid);
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    }
+                  }),
+                  AuthStateChangeAction<UserCreated>((context, state) {
+                    FirebaseFirestore.instance
+                        .collection("users")
+                        .doc(state.credential.user!.uid)
+                        .set({
+                      "uid": state.credential.user!.uid,
+                    });
+                    if (!state.credential.user!.emailVerified) {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Home()));
-                    }
-                  }),
-
-                  AuthStateChangeAction<UserCreated>((context, state) {
-
-                    FirebaseFirestore.instance.collection("users").doc(state.credential.user!.uid).set({"uid":state.credential.user!.uid,});
-                    if(!state.credential.user!.emailVerified){
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>VerifyEmail()));
-                    } else{
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
+                              builder: (context) => VerifyEmail()));
+                    } else {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Home()));
                     }
                   }),
                   mfaAction,
@@ -169,19 +173,20 @@ class AuthGate extends AnimatedWidget {
               //Render Your applicatiom if authenticated
               //and local session
               return FutureBuilder<bool>(
-                future: setSession(FirebaseAuth.instance.currentUser!.uid), // async work
+                future: setSession(
+                    FirebaseAuth.instance.currentUser!.uid), // async work
                 builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
                   switch (snapshot.connectionState) {
-                    case ConnectionState.waiting: return Splash();
+                    case ConnectionState.waiting:
+                      return Splash();
                     default:
                       if (snapshot.hasError) {
                         print("ERROR");
-                        return Center(child:Text('Error: ${snapshot.error}'));
+                        return Center(child: Text('Error: ${snapshot.error}'));
                       } else {
-
-                          return Home();
-                        }
+                        return Home();
                       }
+                  }
                 },
               );
             }
@@ -193,21 +198,22 @@ class AuthGate extends AnimatedWidget {
 
   Future<bool> setSession(String uid) async {
     //print(uid);
-    var result = await FirebaseFirestore.instance.collection("users").doc(uid).get();
+    var result =
+        await FirebaseFirestore.instance.collection("users").doc(uid).get();
     userData = result.data() as Map<String, dynamic>;
     //print("set user data");
     // print(userData["subscription_started"]);
     SESSION.uid = uid;
-    SESSION.email = userData.containsKey("email")?userData['email']:FirebaseAuth.instance.currentUser!.email;
-    SESSION.dob = userData["dob"]??"";
-    SESSION.firstName = userData["firstName"]??"";
-    SESSION.lastName = userData["lastName"]??"";
-    SESSION.phoneNumber = userData["phoneNumber"]??"";
-    SESSION.age = userData['age']??0;
-    SESSION.gender = userData["gender"]??"";
+    SESSION.email = userData.containsKey("email")
+        ? userData['email']
+        : FirebaseAuth.instance.currentUser!.email;
+    SESSION.dob = userData["dob"] ?? "";
+    SESSION.firstName = userData["firstName"] ?? "";
+    SESSION.lastName = userData["lastName"] ?? "";
+    SESSION.phoneNumber = userData["phoneNumber"] ?? "";
+    SESSION.age = userData['age'] ?? 0;
+    SESSION.gender = userData["gender"] ?? "";
 
     return true;
   }
 }
-
-
