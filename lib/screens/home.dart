@@ -12,6 +12,8 @@ class Home extends StatefulWidget{
 }
 
 class HomeState extends State<Home>{
+
+  bool isDrawerOpen = false;
   @override
   Widget build(BuildContext context) {
    return Scaffold(
