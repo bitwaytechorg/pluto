@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class WebHome extends StatefulWidget{
 
@@ -9,7 +10,9 @@ class WebHome extends StatefulWidget{
 class WebHomeState extends State<WebHome>{
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(child: Text("Web Home Page"),),
+    );
   }
 
 }
