@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 25),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -70,7 +71,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 25),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -83,7 +84,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 25),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -96,7 +97,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 25),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -108,11 +109,39 @@ class Slider_menu extends StatelessWidget {
                       ),
                     ),
                   ),
-
-        ],
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0,80,0,5),
+                    width: 250,
+                    decoration: BoxDecoration(
+                      border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),
+                    ),
+                    child: Text('Account',style: TextStyle(color:Colors.white)),
+                  ),
+                  Container(
+                      margin: EdgeInsets.symmetric(vertical: 30),
+                      child:InkWell(
+                          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
+                          child: Row(
+                            children: [
+                              Icon(Icons.delete_forever, color: Colors.black87,size: 18,),
+                              SizedBox(width: 10,),
+                              Text('Delete_account', style: TextStyle(color: Colors.black87, fontSize:16,fontWeight: FontWeight.bold),)
+                            ],
+                          )
+                      )),
+                  Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                          child: Row(
+                            children: [
+                              Icon(Icons.logout, color: Colors.black87,size: 18,),
+                              SizedBox(width: 10,),
+                              Text('logout', style: TextStyle(color: Colors.black87, fontSize:16,fontWeight: FontWeight.bold),)
+                            ],
+                          )
+                      )
+          ],),
       ),
 
-    ),
     ),
     ]
     ),
