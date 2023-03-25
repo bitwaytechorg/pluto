@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BorderedBtn extends StatelessWidget {
-  const BorderedBtn({Key? key}) : super(key: key);
+  String ButtonTitle;
+   BorderedBtn({Key? key, required this.ButtonTitle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
