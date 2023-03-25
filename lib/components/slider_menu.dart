@@ -20,21 +20,19 @@ class Slider_menu extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Container(
-              color: Colors.blue,
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    color: Colors.cyanAccent,
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     child:InkWell(
                       onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
                       child: Row(
                         children: [
                           Icon(Icons.ac_unit_outlined, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
-                          Text('dashboard', style: TextStyle(color: Theme.of(context).primaryColor, fontSize:16,fontWeight: FontWeight.bold),)
+                          Text('Dashboard', style: TextStyle(color: Colors.black87, fontSize:16,fontWeight: FontWeight.bold),)
 
                 ],
 
@@ -43,14 +41,14 @@ class Slider_menu extends StatelessWidget {
             ),
           ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     child:InkWell(
                       onTap: ()=> { },
                       child: Row(
                         children: [
                           Icon(Icons.face, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
-                          Text('Profile', style: TextStyle(color: Theme.of(context).primaryColor, fontSize:16,fontWeight: FontWeight.bold),)
+                          Text('Profile', style: TextStyle(color: Colors.black87, fontSize:16,fontWeight: FontWeight.bold),)
 
                         ],
 
@@ -59,14 +57,53 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
                         children: [
                           Icon(Icons.lock_clock_rounded, color: Colors.black,size: 18,),
                           SizedBox(width: 10,),
-                          Text('Change Password', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 16, fontWeight: FontWeight.bold),)
+                          Text('Change Password', style: TextStyle(color: Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: InkWell(
+                      onTap: ()=> { },
+                      child: Row(
+                        children: [
+                          Icon(Icons.connect_without_contact_outlined, color: Colors.black,size: 18,),
+                          SizedBox(width: 10,),
+                          Text('Social Page ', style: TextStyle(color: Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: InkWell(
+                      onTap: ()=> { },
+                      child: Row(
+                        children: [
+                          Icon(Icons.shopping_cart, color: Colors.black,size: 18,),
+                          SizedBox(width: 10,),
+                          Text('Market Place', style: TextStyle(color: Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: InkWell(
+                      onTap: ()=> { },
+                      child: Row(
+                        children: [
+                          Icon(Icons.settings, color: Colors.black,size: 18,),
+                          SizedBox(width: 10,),
+                          Text('Settings', style: TextStyle(color: Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),)
                         ],
                       ),
                     ),
