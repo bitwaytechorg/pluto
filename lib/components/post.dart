@@ -1,25 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pluto/models/post.dart';
 
 class PostSection extends StatefulWidget {
-  String userId;
-  String postId;
-  String postTitle;
-  String comments;
-  String like;
-  String dislike;
-  String imageUrl;
-  String profileUrl;
-
-
+  Post postData;
   PostSection({Key? key,
-    required this.userId,
-    required this.postId,
-    required this.postTitle,
-    required this.comments,
-    required this.like,
-    required this.dislike,
-    required this.imageUrl,
-    required this.profileUrl
+    required this.postData,
   }) : super(key: key);
 
   @override

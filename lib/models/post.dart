@@ -1,47 +1,66 @@
 import 'dart:convert';
 
 class Post{
-  String userId,
+  String posterUserId,
+     posterName,
+     posterDpUrl,
+     postLocation,
+     postGeoLocation,
       postId,
       postTitle,
-      comments,
-      like,
-      imageUrl,
-      profileUrl,
-      dislike;
+      commentsCount,
+      likeCount,
+      upVoteCount,
+      downVoteCount,
+      profileUrl;
+  //Map<String, dynamic> resource;
+
   Post({
-    this.userId='',
+    this.posterUserId='',
+    this.posterName='',
+    this.posterDpUrl='',
+    this.postLocation='',
+    this.postGeoLocation='',
     this.postId='',
     this.postTitle='',
-    this.comments='',
-    this.like='',
-    this.dislike='',
+    this.commentsCount='',
+    this.likeCount='',
+    this.upVoteCount='',
+    this.downVoteCount='',
     this.profileUrl='',
-    this.imageUrl=''
+   // required this.resource,
   });
   factory Post.fromJson(Map<String,dynamic> json){
     return Post(
-        userId:json['userId'].toString(),
+        posterUserId:json['posterUserId'].toString(),
+        posterName:json['posterName'].toString(),
+        posterDpUrl:json['posterDpUrl'].toString(),
+        postLocation:json['postLocation'].toString(),
         postId:json['postId'].toString(),
         postTitle:json['postTitle'].toString(),
-        comments:json['comments'].toString(),
-        like:json['like'].toString(),
-        dislike:json['dislike'].toString(),
+        commentsCount:json['commentsCount'].toString(),
+        likeCount:json['likeCount'].toString(),
+        upVoteCount:json['upVoteCount'].toString(),
+        downVoteCount:json['downVoteCount'].toString(),
         profileUrl:json['profileUrl'].toString(),
-        imageUrl:json['imageUrl'].toString()
+       // resource:json['resource'].toString(),
 
     );
   }
   factory Post.fromMap(Map<String,dynamic>json){
     return Post(
-        userId: json['userId'].toString(),
-        postId: json['postId'].toString(),
-        postTitle: json['postTitle'].toString(),
-        comments: json['comments'].toString(),
-        like: json['like'].toString(),
-        dislike: json['dislike'].toString(),
-        profileUrl: json['profileUrl'].toString(),
-        imageUrl: json['imageUrl'].toString()
+      posterUserId:json['posterUserId'].toString(),
+      posterName:json['posterName'].toString(),
+      posterDpUrl:json['posterDpUrl'].toString(),
+      postLocation:json['postLocation'].toString(),
+      postId:json['postId'].toString(),
+      postTitle:json['postTitle'].toString(),
+      commentsCount:json['commentsCount'].toString(),
+      likeCount:json['likeCount'].toString(),
+      upVoteCount:json['upVoteCount'].toString(),
+      downVoteCount:json['downVoteCount'].toString(),
+      profileUrl:json['profileUrl'].toString(),
+     // resource:json['resource'].toString(),
 
     );
   }
