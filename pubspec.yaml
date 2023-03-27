@@ -47,6 +47,7 @@ dependencies:
   firebase_ui_oauth_google: ^1.0.7
   firebase_remote_config: ^3.0.6
   cloud_firestore: ^4.0.4
+  font_awesome_flutter: ^10.2.1
 
 
 
