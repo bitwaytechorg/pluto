@@ -4,7 +4,7 @@ import 'dart:ui';
 double MOBILE_SCREEN_SIZE = 600;
 double TABLET_SCREEN_SIZE = 600;
 
-Color primaryColor = const Color(0xFF);
+Color primaryColor = const Color(0xFF159895);
 Color secondaryColor = const Color(0xFF);
 Color  lightGreen    = const Color(0xFF);
 Color secondaryGreen = const Color(0xFF);

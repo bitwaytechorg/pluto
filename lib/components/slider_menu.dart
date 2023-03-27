@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../config/config.dart';
 import '../screens/home.dart';
 
 class Slider_menu extends StatelessWidget {
@@ -13,7 +14,7 @@ class Slider_menu extends StatelessWidget {
 
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      color: Colors.lightBlue,
+      color: primaryColor,
       padding: EdgeInsets.only(top: 70),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
