@@ -46,7 +46,7 @@ class MobileHomeState extends State<MobileHome> {
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
                   onTap: toggleMenu,
-                  background: Colors.pink[200]!,
+                  background: Colors.transparent,
                   secondaryWidget: InkWell(
                     onTap: () => {},
                     child: Container(

@@ -21,9 +21,12 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: this.background,
       alignment: Alignment.topLeft,
       padding: EdgeInsets.symmetric(vertical: 10),
+      decoration:BoxDecoration(
+          color: this.background,
+          borderRadius: BorderRadius.only(topLeft:Radius.circular(isDrawerOpen ? 40 : 0.0))
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
