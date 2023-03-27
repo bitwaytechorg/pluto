@@ -16,7 +16,6 @@ import 'package:pluto/screens/home.dart';
 import 'package:pluto/screens/splash.dart';
 import 'components/auth_builder.dart';
 import 'config/firebase_config.dart';
-import 'config/firebase_configration.dart';
 import 'config/firebase_remote_config.dart';
 
 void main() async {

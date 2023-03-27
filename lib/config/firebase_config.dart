@@ -8,32 +8,32 @@ class DefaultFirebaseConfig {
     if (kIsWeb) {
       // Web
       return const FirebaseOptions(
-          apiKey: "AIzaSyBSdoz_4oCDLLpni8G4cFlAjGfpK2awrUk",
-          authDomain: "mrs-jacked.firebaseapp.com",
-          projectId: "mrs-jacked",
-          storageBucket: "mrs-jacked.appspot.com",
-          messagingSenderId: "487140142386",
-          appId: "1:487140142386:web:abc0e525c892aa39193b2b",
-          measurementId: "G-ZXDYBHKWV3"
+          apiKey: "AIzaSyBKe2ZBv4FZWju7m13TdA4QRDngpUQV01A",
+          authDomain: "petsoll.firebaseapp.com",
+          projectId: "petsoll",
+          storageBucket: "petsoll.appspot.com",
+          messagingSenderId: "378591221558",
+          appId: "1:378591221558:web:fba275fa0cb16b0fa88597",
+          measurementId: "G-4M0BSJ4FMQ"
       );
     } else if (Platform.isIOS || Platform.isMacOS) {
       // iOS and MacOS
       return const FirebaseOptions(
-        appId: '1:324875829005:ios:19d5501e79fb8249ddfa44',
-        apiKey: 'AIzaSyDQh0J-lcw1IaXc1UtV9cgbs6LDIiEJt8M',
-        projectId: 'mrs-jacked',
-        messagingSenderId: '487140142386',
-        iosBundleId: 'com.mrsjackedonplants',
-        storageBucket: "mrs-jacked.appspot.com",
+        appId: '1:378591221558:ios:f45282a00ab7d8e3a88597',
+        apiKey: 'AIzaSyAmdcU2C5AeUVBGXSpV_EgAmxirpl1X3ic',
+        projectId: 'petsoll',
+        messagingSenderId: '378591221558',
+        iosBundleId: 'com.bitwaytech.petsoll.ios',
+        storageBucket: "petsoll.appspot.com",
       );
     } else {
       // Android
       return const FirebaseOptions(
-        appId: '1:487140142386:android:21a6e47de17bb75b193b2b',
-        apiKey: 'AIzaSyDQh0J-lcw1IaXc1UtV9cgbs6LDIiEJt8M',
-        projectId: 'mrs-jacked',
-        storageBucket: "mrs-jacked.appspot.com",
-        messagingSenderId: '487140142386',
+        appId: '1:378591221558:android:2564f2fdf30d44e7a88597',
+        apiKey: 'AIzaSyCzzIgrjsXz7Q4DV26jbeEi5ZX5lYMWCQU',
+        projectId: 'petsoll',
+        storageBucket: "petsoll.appspot.com",
+        messagingSenderId: '378591221558',
       );
     }
   }
