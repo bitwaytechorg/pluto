@@ -39,7 +39,7 @@ class Slider_menu extends StatelessWidget {
                 children: [
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(0,80,0,5),
+                    padding: EdgeInsets.fromLTRB(0,200,0,5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),

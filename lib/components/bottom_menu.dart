@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/post.dart';
 import 'package:pluto/screens/information_page.dart';
+import 'package:pluto/screens/market_place.dart';
 import 'package:pluto/screens/notification.dart';
 
 import '../screens/home.dart';
@@ -43,7 +44,8 @@ class BottomMenu extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.push,
+              onTap: () => Navigator.pushReplacement(
+    context, MaterialPageRoute(builder: (context) => Market_place())),
               child: Container(
                 width: 30,
                 height: 30,
@@ -58,7 +60,8 @@ class BottomMenu extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.push,
+              onTap: () => Navigator.pushReplacement(
+    context, MaterialPageRoute(builder: (context) => Home())),
               child: Container(
                 width: 30,
                 height: 30,

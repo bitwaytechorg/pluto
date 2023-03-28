@@ -67,7 +67,7 @@ class Mobile_MraketPlaceState extends State<Mobile_MarketPlace> {
                 ),
                 Align(
                     alignment: Alignment.bottomCenter,
-                    child: BottomMenu(active: 'Information',)
+                    child: BottomMenu(active: 'Market Place'),
                 ),
               ]),
             ),
