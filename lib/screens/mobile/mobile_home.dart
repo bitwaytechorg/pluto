@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/bottom_menu.dart';
+import 'package:pluto/components/notification_alert.dart';
 import 'package:pluto/components/slider_menu.dart';
 
 import '../../components/scroll_behaviour.dart';
@@ -53,6 +54,7 @@ class MobileHomeState extends State<MobileHome> {
                     onTap: () => {},
                     child: Container(
                         margin: EdgeInsets.only(top: 3, right: 5),
+                      child: NotificationAlert(),
                         )),
                   ),
                 Expanded(

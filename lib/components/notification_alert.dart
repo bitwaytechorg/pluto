@@ -24,7 +24,6 @@ class _NotificationAlertState extends State<NotificationAlert> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            child: Text("1"),
           )
         ],
       ),

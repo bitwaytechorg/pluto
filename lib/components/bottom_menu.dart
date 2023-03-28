@@ -20,7 +20,7 @@ class BottomMenu extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-          boxShadow: [BoxShadow(color:Colors.grey[400]!,blurRadius: 3,spreadRadius:1)]
+
       ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
