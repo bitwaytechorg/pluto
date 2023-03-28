@@ -8,3 +8,4 @@ String phoneNumber = "";
 String dob = "";
 String gender = "";
 double age = 0;
+String profileUrl = "";
