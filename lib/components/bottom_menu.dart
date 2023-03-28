@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/post.dart';
+import 'package:pluto/screens/information_page.dart';
 import 'package:pluto/screens/notification.dart';
 
 import '../screens/home.dart';
@@ -19,8 +20,8 @@ class BottomMenu extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
       decoration: BoxDecoration(
         color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,7 +37,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.house,
                   size: 18,
                   color:
-                      active == "home" ? CONFIG.primaryColor:Colors.grey[400],
+                      active == "home" ? CONFIG.primaryColor : Colors.grey[400],
                 ),
               ),
             ),
@@ -49,8 +50,9 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.shop,
                   size: 18,
-                  color:
-                      active == "Market place" ? CONFIG.primaryColor: Colors.grey[400],
+                  color: active == "Market place"
+                      ? CONFIG.primaryColor
+                      : Colors.grey[400],
                 ),
               ),
             ),
@@ -64,12 +66,14 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.squarePlus,
                   size: 25,
                   color: active == "add post"
-                      ? CONFIG.primaryColor:Colors.grey[400],
+                      ? CONFIG.primaryColor
+                      : Colors.grey[400],
                 ),
               ),
             ),
             InkWell(
-              onTap: () => Navigator.push,
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InformationPage())),
               child: Container(
                 width: 30,
                 height: 30,
@@ -78,7 +82,8 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.bookOpenReader,
                   size: 18,
                   color: active == "Information"
-                      ? CONFIG.primaryColor: Colors.grey[400],
+                      ? CONFIG.primaryColor
+                      : Colors.grey[400],
                 ),
               ),
             ),
@@ -92,7 +97,8 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.dog,
                   size: 18,
                   color: active == "Pet finder"
-                      ? CONFIG.primaryColor: Colors.grey[400],
+                      ? CONFIG.primaryColor
+                      : Colors.grey[400],
                 ),
               ),
             ),
