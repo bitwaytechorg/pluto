@@ -89,9 +89,9 @@ class BottomMenu extends StatelessWidget {
                 height: 30,
                 alignment: Alignment.center,
                 child: Icon(
-                  FontAwesomeIcons.bell,
+                  FontAwesomeIcons.dog,
                   size: 18,
-                  color: active == "Notification"
+                  color: active == "Pet finder"
                       ? CONFIG.primaryColor: Colors.grey[400],
                 ),
               ),
