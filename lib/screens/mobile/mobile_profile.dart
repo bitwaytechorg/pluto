@@ -42,6 +42,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                                  ],
                                ),
                                Padding(
+
                                  padding: const EdgeInsets.symmetric(horizontal: 25),
                                  child: Column(
                                    children: [
