@@ -37,24 +37,7 @@ class Slider_menu extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
-                    child:InkWell(
-                      onTap: ()=> {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_Profile())),
-                      },
-                      child: Row(
-                        children: [
-                          Icon(Icons.face, color: Colors.white,size: 25,),
-                          SizedBox(width: 10,),
-                          Text('Profile', style: TextStyle(color: Colors.white, fontSize:16,fontWeight: FontWeight.bold),)
 
-                        ],
-
-                      ),
-
-                    ),
-                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0,80,0,5),
                     width: 250,
@@ -101,16 +84,21 @@ class Slider_menu extends StatelessWidget {
                             ],
                           )
                       )),
-                  Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                          child: Row(
-                            children: [
-                              Icon(Icons.logout, color: Colors.white,size: 25,),
-                              SizedBox(width: 10,),
-                              Text('logout', style: TextStyle(color: Colors.white, fontSize:16,fontWeight: FontWeight.bold),)
-                            ],
-                          )
-                      )
+                  InkWell(
+                    onTap: ()=> {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_Profile())),
+                    },
+                    child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                            child: Row(
+                              children: [
+                                Icon(Icons.logout, color: Colors.white,size: 25,),
+                                SizedBox(width: 10,),
+                                Text('logout', style: TextStyle(color: Colors.white, fontSize:16,fontWeight: FontWeight.bold),)
+                              ],
+                            )
+                        ),
+                  )
           ],),
       ),
 
