@@ -6,4 +6,3 @@ double TABLET_SCREEN_SIZE = 900;
 
 Color primaryColor = const Color(0xFF04847f);
 Color secondaryColor = const Color(0xFF26a69a);
-Color bottomColor = const Color(0xFF40513B);

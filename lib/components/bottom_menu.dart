@@ -20,7 +20,7 @@ class BottomMenu extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-          boxShadow: [BoxShadow(color:CONFIG.bottomColor!,blurRadius: 3,spreadRadius:1)]
+          boxShadow: [BoxShadow(color:Colors.grey[400]!,blurRadius: 3,spreadRadius:1)]
       ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,7 +36,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.house,
                   size: 18,
                   color:
-                      active == "home" ? CONFIG.primaryColor: CONFIG.bottomColor,
+                      active == "home" ? CONFIG.primaryColor:Colors.grey[400],
                 ),
               ),
             ),
@@ -50,7 +50,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.shop,
                   size: 18,
                   color:
-                      active == "Market place" ? CONFIG.primaryColor: CONFIG.bottomColor,
+                      active == "Market place" ? CONFIG.primaryColor: Colors.grey[400],
                 ),
               ),
             ),
@@ -64,7 +64,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.squarePlus,
                   size: 25,
                   color: active == "add post"
-                      ? CONFIG.primaryColor: CONFIG.bottomColor,
+                      ? CONFIG.primaryColor:Colors.grey[400],
                 ),
               ),
             ),
@@ -78,7 +78,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.bookOpenReader,
                   size: 18,
                   color: active == "Information"
-                      ? CONFIG.primaryColor: CONFIG.bottomColor,
+                      ? CONFIG.primaryColor: Colors.grey[400],
                 ),
               ),
             ),
@@ -92,7 +92,7 @@ class BottomMenu extends StatelessWidget {
                   FontAwesomeIcons.bell,
                   size: 18,
                   color: active == "Notification"
-                      ? CONFIG.primaryColor: CONFIG.bottomColor,
+                      ? CONFIG.primaryColor: Colors.grey[400],
                 ),
               ),
             ),
