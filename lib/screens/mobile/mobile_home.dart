@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/slider_menu.dart';
 
+import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
 
 class MobileHome extends StatefulWidget {
@@ -53,11 +55,25 @@ class MobileHomeState extends State<MobileHome> {
                         margin: EdgeInsets.only(top: 3, right: 5),
                         )),
                   ),
-              ]),
+                Expanded(
+                  child: ScrollConfiguration(
+                    behavior: MyBehavior(),
+                    child: SingleChildScrollView(
+                    child: buildContent(),
+                  ),
+                ),
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: BottomMenu()
+              ),
+                ]),
             ),
           ],
         ),
       ),
     );
   }
+
+  buildContent() {}
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopBar extends StatelessWidget {
   final Function() onTap;
-   bool isDrawerOpen;
+  bool isDrawerOpen;
   bool isMainPage;
   bool isPrimaryBack;
   Widget? secondaryWidget;
@@ -23,24 +24,24 @@ class TopBar extends StatelessWidget {
     return Container(
       alignment: Alignment.topLeft,
       padding: EdgeInsets.symmetric(vertical: 10),
-      decoration:BoxDecoration(
+      decoration: BoxDecoration(
           color: this.background,
-          borderRadius: BorderRadius.only(topLeft:Radius.circular(isDrawerOpen ? 40 : 0.0))
-      ),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(isDrawerOpen ? 40 : 0.0))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: 15,top: 5),
             child: InkWell(
               onTap: onTap,
               child: isDrawerOpen == false && isMainPage
                   ? Row(
                       children: [
                         Icon(
-                          Icons.menu,
-                          color: Colors.black,
+                          FontAwesomeIcons.barsStaggered,
+                          color: Colors.black,size: 20,
                         ),
                         SizedBox(
                           width: 10,
