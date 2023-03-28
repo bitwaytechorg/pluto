@@ -18,8 +18,9 @@ class VerifyEmail extends StatelessWidget {
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
         }),
         AuthCancelledAction((context) {
-          FirebaseUIAuth.signOut(context: context);
-          Navigator.pushReplacementNamed(context, '/');
+          // FirebaseUIAuth.signOut(context: context);
+          // Navigator.pushReplacementNamed(context, '/');
+          Navigator.pop(context);
 
         }),
       ],

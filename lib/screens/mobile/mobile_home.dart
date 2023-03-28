@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/Btns/borderedBtn.dart';
+import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/slider_menu.dart';
 
+import '../../components/Btns/secondaryBtn.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
 
@@ -75,5 +78,13 @@ class MobileHomeState extends State<MobileHome> {
     );
   }
 
-  buildContent() {}
+  buildContent() {
+    return Container(
+      child: Column(
+        children: [
+
+        ],
+      ),
+    );
+  }
 }

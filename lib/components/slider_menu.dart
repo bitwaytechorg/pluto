@@ -13,7 +13,7 @@ class Slider_menu extends StatelessWidget {
 
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      color: CONFIG.primaryColor,
+      color: CONFIG.secondaryColor,
       padding: EdgeInsets.only(top: 70),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
