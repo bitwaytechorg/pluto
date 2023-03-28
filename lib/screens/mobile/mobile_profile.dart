@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/components/avatar.dart';
 
@@ -86,7 +87,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                      ],
                    ),
                    Padding(
-                     padding: const EdgeInsets.only(left: 15, top: 10),
+                     padding: const EdgeInsets.only(left: 15, top: 18),
                      child: Align(
                        alignment: Alignment.centerLeft,
                          child: Text("Dileep Kumar",
@@ -110,7 +111,26 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                        ),
                      ),
                    ),
-                 //GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder)
+                 Padding(
+                   padding: const EdgeInsets.all(15),
+                   child: Text('chips area'),
+                 ),
+                 //GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder),
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                     children: [
+                       PrimaryBtn(ButtonTitle: 'Connect'),
+
+                       Container(
+                         height: 40,
+                         width: 40,
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.all(Radius.circular(40)),
+                           border: Border.all(width: 1, color: Colors.black.withAlpha(100)),
+                         ),
+                       )
+                     ],
+                   )
                  ],
                ),
              ),
