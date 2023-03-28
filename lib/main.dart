@@ -66,7 +66,6 @@ class AuthGate extends AnimatedWidget {
   Widget build(BuildContext context) {
     final mfaAction = AuthStateChangeAction<MFARequired>(
       (context, state) async {
-        print("IN FUN");
         await startMFAVerification(
           context: context,
           resolver: state.resolver,
@@ -216,3 +215,5 @@ class AuthGate extends AnimatedWidget {
     return true;
   }
 }
+
+
