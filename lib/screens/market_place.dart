@@ -21,7 +21,7 @@ class Market_placeState extends State<Market_place>{
             builder: (BuildContext context, BoxConstraints constraints){
               if(constraints.maxWidth<=CONFIG.MOBILE_SCREEN_SIZE){
                 //device is mobile
-                return Mobile_Marketplace();
+                return Mobile_MarketPlace();
               } else if(constraints.maxWidth>CONFIG.MOBILE_SCREEN_SIZE && constraints.maxWidth<=CONFIG.TABLET_SCREEN_SIZE){
                 //device is tablet
                 return Tablet_Marketplace();
