@@ -10,7 +10,7 @@ class Splash extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.blue,
       body: Center(
-        child:Image.asset("assets/images/logo.png", width: MediaQuery.of(context).size.width/2,),
+        child:Image.asset("assets/images/bird.jpg",),
       ),
     );
   }
