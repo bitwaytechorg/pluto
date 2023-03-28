@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/screens/mobile/mobile_information.dart';
 import 'package:pluto/screens/tablet/tablet_home.dart';
+import 'package:pluto/screens/tablet/tablet_information.dart';
 import 'package:pluto/screens/web/web_home.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/screens/web/web_information.dart';
 
 import 'mobile/mobile_home.dart';
 
@@ -35,13 +38,13 @@ class InformationPageState extends State<InformationPage>{
             builder: (BuildContext context, BoxConstraints constraints){
               if(constraints.maxWidth<=CONFIG.MOBILE_SCREEN_SIZE){
                 //device is mobile
-                return MobileHome();
+                return Mobile_Information();
               } else if(constraints.maxWidth>CONFIG.MOBILE_SCREEN_SIZE && constraints.maxWidth<=CONFIG.TABLET_SCREEN_SIZE){
                 //device is tablet
-                return TabletHome();
+                return Tablet_Information();
               } else {
                 //device is web
-                return WebHome();
+                return Web_Information();
               }
             }
         ),
