@@ -67,7 +67,7 @@ class Mobile_InformationState extends State<Mobile_Information> {
                 ),
                 Align(
                     alignment: Alignment.bottomCenter,
-                    child: BottomMenu(active: 'Information',)
+                    child: BottomMenu(active:'Information',),
                 ),
               ]),
             ),

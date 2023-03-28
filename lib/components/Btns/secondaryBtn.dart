@@ -8,15 +8,18 @@ class SecondaryBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 110,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: Colors.grey.withAlpha(40),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-        child: Text(buttonTitle, style: TextStyle(
-          color: CONFIG.primaryColor,
-        ),),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric( vertical: 10),
+          child: Text(buttonTitle, style: TextStyle(
+            color: CONFIG.primaryColor,
+          ),),
+        ),
       ),
     );
   }
