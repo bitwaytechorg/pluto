@@ -20,7 +20,7 @@ class BottomMenu extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
-          boxShadow: [BoxShadow(color:Colors.grey[200]!,blurRadius: 6,spreadRadius:3)]
+          boxShadow: [BoxShadow(color:CONFIG.bottomColor!,blurRadius: 3,spreadRadius:1)]
       ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,17 +32,11 @@ class BottomMenu extends StatelessWidget {
               child: Container(
                 width: 30,
                 height: 30,
-                padding: EdgeInsets.only(bottom: 2),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: active == "home"
-                        ? CONFIG.secondaryColor
-                        : Colors.white),
                 child: Icon(
                   FontAwesomeIcons.house,
                   size: 18,
                   color:
-                      active == "home" ? Colors.white: CONFIG.secondaryColor,
+                      active == "home" ? CONFIG.primaryColor: CONFIG.bottomColor,
                 ),
               ),
             ),
@@ -52,16 +46,11 @@ class BottomMenu extends StatelessWidget {
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: active == "Market place"
-                        ? CONFIG.secondaryColor
-                        : Colors.white),
                 child: Icon(
-                  FontAwesomeIcons.locationDot,
+                  FontAwesomeIcons.shop,
                   size: 18,
                   color:
-                      active == "Market place" ? Colors.white: CONFIG.secondaryColor,
+                      active == "Market place" ? CONFIG.primaryColor: CONFIG.bottomColor,
                 ),
               ),
             ),
@@ -71,17 +60,11 @@ class BottomMenu extends StatelessWidget {
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: active == "add post"
-                        ? CONFIG.secondaryColor
-                        : Colors.white),
                 child: Icon(
-                  FontAwesomeIcons.add,
-                  size: 18,
+                  FontAwesomeIcons.squarePlus,
+                  size: 25,
                   color: active == "add post"
-                      ? Colors.black
-                      : CONFIG.secondaryColor,
+                      ? CONFIG.primaryColor: CONFIG.bottomColor,
                 ),
               ),
             ),
@@ -91,17 +74,11 @@ class BottomMenu extends StatelessWidget {
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: active == "Information"
-                        ? CONFIG.secondaryColor
-                        : Colors.white),
                 child: Icon(
-                  FontAwesomeIcons.circleInfo,
+                  FontAwesomeIcons.bookOpenReader,
                   size: 18,
                   color: active == "Information"
-                      ? Colors.white
-                      : CONFIG.secondaryColor,
+                      ? CONFIG.primaryColor: CONFIG.bottomColor,
                 ),
               ),
             ),
@@ -111,17 +88,11 @@ class BottomMenu extends StatelessWidget {
                 width: 30,
                 height: 30,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: active == "Notification"
-                        ? CONFIG.secondaryColor
-                        : Colors.white),
                 child: Icon(
                   FontAwesomeIcons.bell,
                   size: 18,
                   color: active == "Notification"
-                      ? Colors.white
-                      : CONFIG.secondaryColor,
+                      ? CONFIG.primaryColor: CONFIG.bottomColor,
                 ),
               ),
             ),
