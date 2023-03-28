@@ -14,10 +14,14 @@ class BottomMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 60,
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(
+        color: Colors.white,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
+          boxShadow: [BoxShadow(color:Colors.grey[200]!,blurRadius: 6,spreadRadius:3)]
+      ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,8 +30,8 @@ class BottomMenu extends StatelessWidget {
               onTap: () => Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (context) => Home())),
               child: Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 padding: EdgeInsets.only(bottom: 2),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -36,17 +40,17 @@ class BottomMenu extends StatelessWidget {
                         : Colors.white),
                 child: Icon(
                   FontAwesomeIcons.house,
-                  size: 20,
+                  size: 18,
                   color:
-                      active == "home" ? Colors.black : CONFIG.secondaryColor,
+                      active == "home" ? Colors.white: CONFIG.secondaryColor,
                 ),
               ),
             ),
             InkWell(
               onTap: () => Navigator.push,
               child: Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -54,18 +58,18 @@ class BottomMenu extends StatelessWidget {
                         ? CONFIG.secondaryColor
                         : Colors.white),
                 child: Icon(
-                  FontAwesomeIcons.search,
-                  size: 20,
+                  FontAwesomeIcons.locationDot,
+                  size: 18,
                   color:
-                      active == "Market place" ? Colors.black : CONFIG.secondaryColor,
+                      active == "Market place" ? Colors.white: CONFIG.secondaryColor,
                 ),
               ),
             ),
             InkWell(
               onTap: () => Navigator.push,
               child: Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -74,7 +78,7 @@ class BottomMenu extends StatelessWidget {
                         : Colors.white),
                 child: Icon(
                   FontAwesomeIcons.add,
-                  size: 20,
+                  size: 18,
                   color: active == "add post"
                       ? Colors.black
                       : CONFIG.secondaryColor,
@@ -84,8 +88,8 @@ class BottomMenu extends StatelessWidget {
             InkWell(
               onTap: () => Navigator.push,
               child: Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -93,10 +97,10 @@ class BottomMenu extends StatelessWidget {
                         ? CONFIG.secondaryColor
                         : Colors.white),
                 child: Icon(
-                  FontAwesomeIcons.user,
-                  size: 20,
+                  FontAwesomeIcons.circleInfo,
+                  size: 18,
                   color: active == "Information"
-                      ? Colors.black
+                      ? Colors.white
                       : CONFIG.secondaryColor,
                 ),
               ),
@@ -104,8 +108,8 @@ class BottomMenu extends StatelessWidget {
             InkWell(
               onTap: () => Navigator.push,
               child: Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -114,9 +118,9 @@ class BottomMenu extends StatelessWidget {
                         : Colors.white),
                 child: Icon(
                   FontAwesomeIcons.bell,
-                  size: 20,
+                  size: 18,
                   color: active == "Notification"
-                      ? Colors.black
+                      ? Colors.white
                       : CONFIG.secondaryColor,
                 ),
               ),
