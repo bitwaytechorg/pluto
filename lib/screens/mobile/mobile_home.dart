@@ -67,7 +67,7 @@ class MobileHomeState extends State<MobileHome> {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: BottomMenu()
+                  child: BottomMenu(active: 'home',)
               ),
                 ]),
             ),

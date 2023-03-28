@@ -12,6 +12,7 @@ class BottomMenu extends StatelessWidget {
   String active;
   BottomMenu({this.active = "home"});
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +51,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.shop,
                   size: 18,
-                  color: active == "Market place"
+                  color: active == "Market_place"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),

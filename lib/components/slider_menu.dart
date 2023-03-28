@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../screens/home.dart';
+import '../screens/mobile/mobile_Profile.dart';
 
 class Slider_menu extends StatelessWidget {
 
@@ -28,7 +29,9 @@ class Slider_menu extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 20),
                     child:InkWell(
-                      onTap: ()=> { },
+                      onTap: ()=> {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_Profile())),
+                      },
                       child: Row(
                         children: [
                           Icon(Icons.face, color: Colors.white,size: 25,),
