@@ -56,7 +56,7 @@ class Slider_menu extends StatelessWidget {
               width: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.grey,
+                color: Colors.greenAccent.withAlpha(150),
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -87,7 +87,7 @@ class Slider_menu extends StatelessWidget {
                     child: Text('Account',style: TextStyle(color:Colors.white)),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 25),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -100,7 +100,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 25),
+                    margin: EdgeInsets.symmetric(vertical: 20),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -113,7 +113,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.symmetric(vertical: 30),
+                      margin: EdgeInsets.symmetric(vertical: 20),
                       child:InkWell(
                           onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
                           child: Row(
@@ -129,7 +129,7 @@ class Slider_menu extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_Profile())),
                     },
                     child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 10),
+                        margin: EdgeInsets.symmetric(vertical: 20),
                             child: Row(
                               children: [
                                 Icon(Icons.logout, color: Colors.white,size: 25,),
