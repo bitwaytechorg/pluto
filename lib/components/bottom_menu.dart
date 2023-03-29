@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/post.dart';
+import 'package:pluto/screens/add_post.dart';
 import 'package:pluto/screens/information_page.dart';
 import 'package:pluto/screens/market_place.dart';
 import 'package:pluto/screens/notification.dart';
+import 'package:pluto/screens/pet_finder.dart';
 
 import '../screens/home.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
@@ -12,7 +14,6 @@ import 'package:pluto/config/config.dart' as CONFIG;
 class BottomMenu extends StatelessWidget {
   String active;
   BottomMenu({this.active = "home"});
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,8 @@ class BottomMenu extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.pushReplacement(
-    context, MaterialPageRoute(builder: (context) => Market_place())),
+              onTap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => Market_place())),
               child: Container(
                 width: 30,
                 height: 30,
@@ -53,7 +54,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.shop,
                   size: 18,
-                  color: active == "Market_place"
+                  color: active == "Market Place"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),
@@ -61,7 +62,7 @@ class BottomMenu extends StatelessWidget {
             ),
             InkWell(
               onTap: () => Navigator.pushReplacement(
-    context, MaterialPageRoute(builder: (context) => Home())),
+                  context, MaterialPageRoute(builder: (context) => Addpost())),
               child: Container(
                 width: 30,
                 height: 30,
@@ -76,7 +77,7 @@ class BottomMenu extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.push(context,
+              onTap: () => Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => InformationPage())),
               child: Container(
                 width: 30,
@@ -92,7 +93,8 @@ class BottomMenu extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => Navigator.push,
+              onTap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => PetFinder())),
               child: Container(
                 width: 30,
                 height: 30,
@@ -100,7 +102,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.dog,
                   size: 18,
-                  color: active == "Pet finder"
+                  color: active == "Pet Finder"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),
