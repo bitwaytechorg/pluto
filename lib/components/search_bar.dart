@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 
 class SearchBar extends StatefulWidget {
   final double width;
@@ -102,10 +103,8 @@ class SearchBarState extends State<SearchBar>
         decoration: BoxDecoration(
           /// can add custom color or the color will be white
           color: widget.color,
-          //  borderRadius: BorderRadius.circular(5.0),
-          border: Border(
-              bottom: BorderSide(color: (toggle == 0) ?Colors.transparent:Colors.grey[300]!)
-          ),
+          borderRadius: BorderRadius.circular(20.0),
+          border: Border.all(color: (toggle == 0) ?Colors.transparent:Colors.grey[300]!),
           boxShadow: [
             BoxShadow(
               color: Colors.transparent,
@@ -120,7 +119,7 @@ class SearchBarState extends State<SearchBar>
             ///Using Animated Positioned widget to expand and shrink the widget
             AnimatedPositioned(
               duration: Duration(milliseconds: widget.animationDurationInMilli),
-              top: 6.0,
+              top: 3.0,
               right: 7.0,
               curve: Curves.easeOut,
               child: AnimatedOpacity(
@@ -178,7 +177,7 @@ class SearchBarState extends State<SearchBar>
               duration: Duration(milliseconds: widget.animationDurationInMilli),
               left: (toggle == 0) ? 20.0 : 40.0,
               curve: Curves.easeOut,
-              top: 11.0,
+              top: 6.0,
 
               ///Using Animated opacity to change the opacity of th textField while expanding
               child: AnimatedOpacity(
@@ -262,12 +261,12 @@ class SearchBarState extends State<SearchBar>
                       ///prefixIcon is of type Icon
                       icon: widget.prefixIcon != null
                           ? toggle == 1
-                          ? Icon(FontAwesomeIcons.xmark, color: Colors.red,)
+                          ? Icon(FontAwesomeIcons.xmark, color: CONFIG.primaryColor,)
                           : widget.prefixIcon!
                           : Icon(
                         toggle == 1 ? FontAwesomeIcons.xmark : Icons.search,
                         size: 20.0,
-                        color: toggle == 1?Colors.red:Colors.black,
+                        color: toggle == 1?CONFIG.primaryColor:Colors.black,
                       ),
                       onPressed: () {
                         setState(
