@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../screens/home.dart';
 import '../screens/mobile/mobile_Profile.dart';
@@ -28,7 +29,14 @@ class Slider_menu extends StatelessWidget {
               height:100,
               alignment: Alignment.center,
               margin: EdgeInsets.only(bottom: 20),
-              child:Avatar(size: 100, ImageURL:SESSION.profileUrl, )),
+              child:Avatar(size: 100, ImageURL:SESSION.profileUrl, )
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 70),
+            child: Text("Hello! User", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
+          ),
+
+          PrimaryBtn(ButtonTitle: "Set Profile"),
 
           ///menu items
           SingleChildScrollView(
