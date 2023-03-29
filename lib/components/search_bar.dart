@@ -58,7 +58,7 @@ class SearchBar extends StatefulWidget {
 ///toggle 1 => true or open
 int toggle = 0;
 
-class SearchBarState extends State<SearchBar>
+  class SearchBarState extends State<SearchBar>
     with SingleTickerProviderStateMixin {
   ///initializing the AnimationController
   late AnimationController _con;
