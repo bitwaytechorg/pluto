@@ -34,6 +34,7 @@ class Slider_menu extends StatelessWidget {
               margin: EdgeInsets.only(bottom: 20),
               child:Avatar(size: 100, ImageURL:SESSION.profileUrl, )
           ),
+          ///Profile
           Container(
             margin: EdgeInsets.only(left: 50),
             child: Text("Hello! User", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25)),
@@ -47,11 +48,10 @@ class Slider_menu extends StatelessWidget {
           onTap: ()=> Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => User_Profile())
           ),
-
           child: Padding(
             padding: EdgeInsets.only(left: 20, top: 20,),
             child: Container(
-              height: 50,
+              height: 40,
               width: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
