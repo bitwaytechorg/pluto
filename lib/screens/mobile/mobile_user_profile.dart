@@ -6,6 +6,7 @@ import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
+import 'package:pluto/global/session.dart' as SESSION;
 
 class Mobile_UserProfile extends StatefulWidget{
 
@@ -79,7 +80,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         Padding(
                           padding: EdgeInsets.only(top: 30, left: 30),
                           child: Avatar(
-                              size: 100, ImageURL: ' ',),
+                              size: 100, ImageURL:SESSION.profileUrl),
                         )
                       ]
                   ),
