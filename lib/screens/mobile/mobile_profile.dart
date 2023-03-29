@@ -37,6 +37,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
     "bootstrap",
     "html/css",
     "new"
+    "Dileep"
   ];
 
   double xOffset = 0;
@@ -75,7 +76,8 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
               child: Column(children: [
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
-                  onTap: toggleMenu,
+                  isMainPage: false,
+                  onTap: ()=>null,
                   background: Colors.transparent,
                   secondaryWidget: SearchBar(width:MediaQuery.of(context).size.width-65 , onSearch: (String searchText) {  },)
                 ),

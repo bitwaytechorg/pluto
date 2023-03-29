@@ -33,7 +33,7 @@ class TopBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 15,top: 5),
+            margin: EdgeInsets.only(left: 5,),
             child: InkWell(
               onTap: onTap,
               child: isDrawerOpen == false && isMainPage
@@ -52,8 +52,9 @@ class TopBar extends StatelessWidget {
                       width: 40,
                       height: 40,
                       child: Icon(
-                        Icons.arrow_back_ios,
-                        color: isPrimaryBack ? Colors.white : Colors.black87,
+                      FontAwesomeIcons.arrowLeft,
+                        color: isPrimaryBack ? Colors.white : Colors.black54,
+                        size: 20,
                       )),
             ),
           ),
