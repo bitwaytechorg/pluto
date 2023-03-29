@@ -19,7 +19,7 @@ class Mobile_Profile extends StatefulWidget{
 }
 
 class Mobile_ProfileState extends State<Mobile_Profile>{
-
+ String onTabActive ='activity';
   List chips =[
     "desing",
     "graphics",
@@ -107,7 +107,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
             children: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Avatar(size: 80, ImageURL: '/assets/images/bird.jpg'),
+                child: Avatar(size: 80, ImageURL: 'assets/images/bird.jpg'),
               ),
               Column(
                 children: [
@@ -233,9 +233,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
             ),
           ),
 
-
           Divider(endIndent: 5, indent: 5,),
-
 
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -244,20 +242,35 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
               children: [
                 Row(
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.table_chart_outlined, color:Colors.grey),
-                        SizedBox(width: 5,),
-                        Text("Activity",style: TextStyle(color: Colors.grey),)
-                      ],
+                    InkWell(
+                      onTap: (){
+                        setState(() {
+                          onTabActive="activity";
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.table_chart_outlined, color:onTabActive=="activity"?CONFIG.primaryColor:Colors.grey),
+                          SizedBox(width: 5,),
+                          Text("Activity",style: TextStyle(color: onTabActive=="activity"?CONFIG.primaryColor:Colors.grey),)
+                        ],
+                      ),
                     ),
                     SizedBox(width: 20,),
-                    Row(
-                      children: [
-                        Icon(Icons.account_box_outlined, color: Colors.grey,),
-                        SizedBox(width: 5,),
-                        Text("About", style: TextStyle(color: Colors.grey),)
-                      ],
+
+                    InkWell(
+                      onTap: (){
+                      setState(() {
+                        onTabActive="about";
+                      });
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.account_box_outlined, color:onTabActive=="about"?CONFIG.primaryColor:Colors.grey),
+                          SizedBox(width: 5,),
+                          Text("About", style: TextStyle(color: onTabActive=="about"?CONFIG.primaryColor:Colors.grey),)
+                        ],
+                      ),
                     ),
                   ],
                 ),
