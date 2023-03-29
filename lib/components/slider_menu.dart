@@ -42,7 +42,7 @@ class Slider_menu extends StatelessWidget {
           ),
         Container(
           margin: EdgeInsets.only(left: 70, top: 15),
-          child: Text("Edit Profile  >", style: TextStyle(color: Colors.white, fontSize: 18)),
+          child: Text("Edit Profile ", style: TextStyle(color: Colors.white, fontSize: 18)),
 
         ),
         InkWell(
