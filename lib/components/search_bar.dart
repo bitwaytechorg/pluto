@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 
 class SearchBar extends StatefulWidget {
   final double width;
@@ -260,12 +261,12 @@ class SearchBarState extends State<SearchBar>
                       ///prefixIcon is of type Icon
                       icon: widget.prefixIcon != null
                           ? toggle == 1
-                          ? Icon(FontAwesomeIcons.xmark, color: Colors.red,)
+                          ? Icon(FontAwesomeIcons.xmark, color: CONFIG.primaryColor,)
                           : widget.prefixIcon!
                           : Icon(
                         toggle == 1 ? FontAwesomeIcons.xmark : Icons.search,
                         size: 20.0,
-                        color: toggle == 1?Colors.red:Colors.black,
+                        color: toggle == 1?CONFIG.primaryColor:Colors.black,
                       ),
                       onPressed: () {
                         setState(
