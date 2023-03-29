@@ -35,9 +35,14 @@ class Slider_menu extends StatelessWidget {
               child:Avatar(size: 100, ImageURL:SESSION.profileUrl, )
           ),
           Container(
-            margin: EdgeInsets.only(left: 70),
-            child: Text("Hello! User", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
+            margin: EdgeInsets.only(left: 50),
+            child: Text("Hello! User", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25)),
           ),
+        Container(
+          margin: EdgeInsets.only(left: 70, top: 15),
+          child: Text("Edit Profile  >", style: TextStyle(color: Colors.white, fontSize: 18)),
+
+        ),
         InkWell(
           onTap: ()=> Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => User_Profile())
@@ -73,7 +78,7 @@ class Slider_menu extends StatelessWidget {
                 children: [
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(0,150,0,5),
+                    padding: EdgeInsets.fromLTRB(0,120,0,5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),
