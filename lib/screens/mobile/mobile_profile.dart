@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/global/session.dart' as SESSION;
 import 'package:pluto/components/avatar.dart';
 
 import '../../components/chips.dart';
 import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
+import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 
@@ -75,12 +77,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                   isDrawerOpen: isDrawerOpen,
                   onTap: toggleMenu,
                   background: Colors.transparent,
-                  secondaryWidget: InkWell(
-                      onTap: () => {},
-                      child: Container(
-                        margin: EdgeInsets.only(top: 3, right: 5),
-                        child: NotificationAlert(),
-                      )),
+                  secondaryWidget: SearchBar(width:MediaQuery.of(context).size.width-65 , onSearch: (String searchText) {  },)
                 ),
                 Expanded(
                   child: ScrollConfiguration(
@@ -107,7 +104,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
             children: [
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: Avatar(size: 80, ImageURL: 'assets/images/bird.jpg'),
+                child: Avatar(size: 80, ImageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
               ),
               Column(
                 children: [
@@ -213,25 +210,25 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
           ),
 
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Row(
-              children: [
-                PrimaryBtn(ButtonTitle: 'Connect', width: 260,height: 45,),
-                SizedBox(width: 15,),
-                Container(
-                    height: 42,
-                    width: 42,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                      border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
-
-                    ),
-                    child: Icon(Icons.more_horiz, color: CONFIG.primaryColor, size: 20,)
-                )
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          //   child: Row(
+          //     children: [
+          //       PrimaryBtn(ButtonTitle: 'store', width: 260,height: 45,),
+          //       SizedBox(width: 15,),
+          //       Container(
+          //           height: 42,
+          //           width: 42,
+          //           decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.all(Radius.circular(40)),
+          //             border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
+          //
+          //           ),
+          //           child: Icon(Icons.more_horiz, color: CONFIG.primaryColor, size: 20,)
+          //       )
+          //     ],
+          //   ),
+          // ),
 
           Divider(endIndent: 5, indent: 5,),
 
@@ -278,7 +275,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
               ],
             ),
           ),
-          Divider(thickness: 4, endIndent: 5, indent: 5,),
+          Divider(thickness: 1, endIndent: 5, indent: 5,),
         ],
       ),
     );
