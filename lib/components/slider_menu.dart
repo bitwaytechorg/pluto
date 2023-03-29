@@ -2,9 +2,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/screens/business_profile.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
 import '../screens/mobile/mobile_Profile.dart';
@@ -79,12 +81,25 @@ class Slider_menu extends StatelessWidget {
                 children: [
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(0,120,0,5),
+                    padding: EdgeInsets.fromLTRB(0,100,0,5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),
                     ),
                     child: Text('Account',style: TextStyle(color:Colors.white)),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    child: InkWell(
+                      onTap: ()=> { Navigator.push(context, MaterialPageRoute(builder: (context)=> Business_Profile())),},
+                      child: Row(
+                        children: [
+                          Icon(FontAwesomeIcons.addressCard, color: Colors.white,size: 25,),
+                          SizedBox(width: 10,),
+                          Text('Business Profile', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),)
+                        ],
+                      ),
+                    ),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 20),

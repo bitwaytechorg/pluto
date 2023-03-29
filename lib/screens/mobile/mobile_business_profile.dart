@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/avatar.dart';
 
+import '../../components/bottom_menu.dart';
 import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
+import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
-import 'package:pluto/global/session.dart' as SESSION;
 
-class Mobile_UserProfile extends StatefulWidget{
-
+class Mobile_BusinessProfile extends StatefulWidget {
   @override
-  Mobile_UserProfileState createState()=> Mobile_UserProfileState();
+  Mobile_BusinessProfileState createState() => Mobile_BusinessProfileState();
 }
 
-class Mobile_UserProfileState extends State<Mobile_UserProfile> {
+class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
@@ -39,27 +38,24 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
           children: [
             Slider_menu(),
             AnimatedContainer(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               transform: Matrix4.translationValues(xOffset, yOffset, 0)
                 ..scale(scalefactor)
                 ..rotateY(isDrawerOpen ? -0.5 : 0),
               duration: Duration(milliseconds: 250),
               decoration: BoxDecoration(
-                  color: Theme
-                      .of(context)
-                      .colorScheme
-                      .surface,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
               child: Column(children: [
                 TopBar(
-                  isDrawerOpen: isDrawerOpen,
-                  isMainPage: false,
-                  onTap: () => Navigator.pop(context),
-                  background: Colors.transparent,
-                ),
+                    isDrawerOpen: isDrawerOpen,
+                    isMainPage: false,
+                    onTap: () => Navigator.pop(context),
+                    background: Colors.transparent,
+                    secondaryWidget: SearchBar(
+                      width: MediaQuery.of(context).size.width - 65,
+                      onSearch: (String searchText) {},
+                    )),
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -68,7 +64,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     ),
                   ),
                 ),
-
               ]),
             ),
           ],
@@ -77,22 +72,5 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
     );
   }
 
-  buildContent() {
-    return Container(
-      child: Column(
-          children: [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Avatar(size: 80,
-                        ImageURL: "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"),
-                  ),
-                ]
-            ),
-          ]
-      ),
-    );
-  }
+  buildContent() {}
 }
