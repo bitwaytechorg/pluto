@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
 import 'package:pluto/components/avatar.dart';
-
 import '../../components/chips.dart';
-import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
@@ -105,75 +102,78 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Avatar(size: 80, ImageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
+              Flexible(
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Avatar(size: 90, ImageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
+                ),
               ),
               Container(
-                padding: EdgeInsets.only(right: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Text("200K", style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),),
-                            SizedBox(height:5),
-                            Text('Friends', style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),)
-                          ],
-                        ),
-                        Padding(
-
-                          padding: const EdgeInsets.symmetric(horizontal: 25),
-                          child: Column(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Column(
                             children: [
                               Text("200K", style: TextStyle(
                                 fontWeight: FontWeight.w500,
                               ),),
                               SizedBox(height:5),
-                              Text('Followers', style: TextStyle(
+                              Text('Friends', style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12,
                               ),)
                             ],
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Text("200K", style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),),
-                            SizedBox(height:5),
-                            Text('Following', style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),)
-                          ],
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8, top: 15),
-                      child: Row(
-                        children: [
-                          SecondaryBtn(buttonTitle:"Follow"),
-                          SizedBox(width: 10,),
-                          SecondaryBtn(buttonTitle: "Message")
+                          Padding(
+
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: Column(
+                              children: [
+                                Text("200K", style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                                SizedBox(height:5),
+                                Text('Followers', style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                ),)
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text("200K", style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                              ),),
+                              SizedBox(height:5),
+                              Text('Following', style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12,
+                              ),)
+                            ],
+                          )
                         ],
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8, top: 15),
+                        child: Row(
+                          children: [
+                            SecondaryBtn(buttonTitle:"Follow"),
+                            SizedBox(width: 10,),
+                            SecondaryBtn(buttonTitle: "Message")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top:20, bottom: 10),
+            margin: EdgeInsets.only(left:15, top:20, bottom: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
