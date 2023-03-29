@@ -77,7 +77,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
-                  onTap: ()=>null,
+                  onTap: ()=>Navigator.pop(context),
                   background: Colors.transparent,
                   secondaryWidget: SearchBar(width:MediaQuery.of(context).size.width-65 , onSearch: (String searchText) {  },)
                 ),
@@ -169,32 +169,31 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
               )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, top: 18),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text("Dileep Kumar",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20,
-                ),),
+          Container(
+            margin: EdgeInsets.only(top:20, bottom: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Dileep Kumar",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                  ),),
+                SizedBox(height: 10,),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),
+                    children: <TextSpan>[
+                      TextSpan(text: 'flutter developer ', style: TextStyle(color: Colors.blue)),
+                      TextSpan(text: 'wordpress developer'),
+                      TextSpan(text: ' web developer', style: TextStyle(decoration: TextDecoration.underline))
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
-
-          Padding(
-            padding: const EdgeInsets.only(left: 10, top:10),
-            child: RichText(
-              text: TextSpan(
-                style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),
-                children: <TextSpan>[
-                  TextSpan(text: 'flutter developer ', style: TextStyle(color: Colors.blue)),
-                  TextSpan(text: 'wordpress developer'),
-                  TextSpan(text: ' web developer', style: TextStyle(decoration: TextDecoration.underline))
-                ],
-              ),
-            ),
-          ),
-
           Container(
             height: 60,
             width: MediaQuery.of(context).size.width,

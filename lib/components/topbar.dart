@@ -39,10 +39,12 @@ class TopBar extends StatelessWidget {
               child: isDrawerOpen == false && isMainPage
                   ? Row(
                       children: [
-                        Icon(
+                        Container(
+                            margin:EdgeInsets.only(left: 10, top:5),
+                            child:Icon(
                           FontAwesomeIcons.barsStaggered,
                           color: Colors.black,size: 20,
-                        ),
+                        )),
                         SizedBox(
                           width: 10,
                         ),
