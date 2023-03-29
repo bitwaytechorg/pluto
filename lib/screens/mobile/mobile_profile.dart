@@ -109,63 +109,65 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                 ),
               ),
               Container(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Text("200K", style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),),
-                            SizedBox(height:5),
-                            Text('Friends', style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),)
-                          ],
-                        ),
-                        Padding(
-
-                          padding: const EdgeInsets.symmetric(horizontal: 25),
-                          child: Column(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Column(
                             children: [
                               Text("200K", style: TextStyle(
                                 fontWeight: FontWeight.w500,
                               ),),
                               SizedBox(height:5),
-                              Text('Followers', style: TextStyle(
+                              Text('Friends', style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12,
                               ),)
                             ],
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Text("200K", style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),),
-                            SizedBox(height:5),
-                            Text('Following', style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),)
-                          ],
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8, top: 15),
-                      child: Row(
-                        children: [
-                          SecondaryBtn(buttonTitle:"Follow"),
-                          SizedBox(width: 10,),
-                          SecondaryBtn(buttonTitle: "Message")
+                          Padding(
+
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: Column(
+                              children: [
+                                Text("200K", style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                                SizedBox(height:5),
+                                Text('Followers', style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                ),)
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text("200K", style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                              ),),
+                              SizedBox(height:5),
+                              Text('Following', style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12,
+                              ),)
+                            ],
+                          )
                         ],
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8, top: 15),
+                        child: Row(
+                          children: [
+                            SecondaryBtn(buttonTitle:"Follow"),
+                            SizedBox(width: 10,),
+                            SecondaryBtn(buttonTitle: "Message")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],
