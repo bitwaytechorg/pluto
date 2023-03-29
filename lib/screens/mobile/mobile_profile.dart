@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/Btns/secondaryBtn.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/components/avatar.dart';
 
 class Mobile_Profile extends StatefulWidget{
@@ -23,7 +24,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                      children: [
                        Padding(
                          padding: const EdgeInsets.all(10),
-                         child: Avatar(size: 80, ImageURL: 'assets/images/bird.jpg'),
+                         child: Avatar(size: 80, ImageURL: '/assets/images/bird.jpg'),
                        ),
                        Column(
                          children: [
@@ -92,7 +93,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                        alignment: Alignment.centerLeft,
                          child: Text("Dileep Kumar",
                          style: TextStyle(
-                           fontWeight: FontWeight.w600,
+                           fontWeight: FontWeight.w500,
                            fontSize: 20,
                          ),),
                      ),
@@ -102,7 +103,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                      padding: const EdgeInsets.only(left: 10, top:10),
                      child: RichText(
                        text: TextSpan(
-                         style: TextStyle(color: Colors.black, fontSize: 16),
+                         style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),
                          children: <TextSpan>[
                            TextSpan(text: 'flutter developer ', style: TextStyle(color: Colors.blue)),
                            TextSpan(text: 'wordpress developer'),
@@ -111,26 +112,83 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                        ),
                      ),
                    ),
-                 Padding(
-                   padding: const EdgeInsets.all(15),
-                   child: Text('chips area'),
-                 ),
-                 //GridView.builder(gridDelegate: gridDelegate, itemBuilder: itemBuilder),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                     children: [
-                       PrimaryBtn(ButtonTitle: 'Connect'),
 
-                       Container(
-                         height: 40,
-                         width: 40,
-                         decoration: BoxDecoration(
-                           borderRadius: BorderRadius.all(Radius.circular(40)),
-                           border: Border.all(width: 1, color: Colors.black.withAlpha(100)),
+              GridView.count(
+                shrinkWrap: true,
+               crossAxisCount: 4,
+                 crossAxisSpacing: 4.0,
+                 mainAxisSpacing: 8.0,
+                 children: List.generate(4, (index) {
+                 return Center(
+                  child: Container(
+                     height: 30,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                        border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
+
+                      ),
+                      child:Center(child: Text("chips")))
+
+                     );
+                  }
+                 )
+              ),
+
+
+                 Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 15),
+                     child: Row(
+                       children: [
+                         PrimaryBtn(ButtonTitle: 'Connect', width: 260,height: 45,),
+                         SizedBox(width: 15,),
+                         Container(
+                           height: 42,
+                           width: 42,
+                           decoration: BoxDecoration(
+                             borderRadius: BorderRadius.all(Radius.circular(40)),
+                             border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
+
+                           ),
+                           child: Icon(Icons.more_horiz, color: CONFIG.primaryColor, size: 20,)
+                         )
+                       ],
+                     ),
+                   ),
+
+
+                  Divider(endIndent: 5, indent: 5,),
+
+
+                   Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Row(
+                           children: [
+                             Row(
+                               children: [
+                                Icon(Icons.table_chart_outlined),
+                                 SizedBox(width: 5,),
+                                 Text("Activity")
+                               ],
+                             ),
+                             SizedBox(width: 20,),
+                             Row(
+                               children: [
+                                Icon(Icons.account_box_outlined),
+                                 SizedBox(width: 5,),
+                                 Text("About")
+                               ],
+                             ),
+                           ],
                          ),
-                       )
-                     ],
-                   )
+                         Icon(CupertinoIcons.slider_horizontal_3),
+                       ],
+                     ),
+                   ),
+                   Divider(thickness: 4, endIndent: 5, indent: 5,),
                  ],
                ),
              ),
