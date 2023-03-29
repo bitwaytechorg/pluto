@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:io' as io;
 import 'package:image_picker/image_picker.dart';
 
@@ -30,7 +31,7 @@ class AvatarState extends State<Avatar> {
           borderRadius: BorderRadius.circular(widget.size/2),
           //boxShadow: [BoxShadow(color:Colors.white,blurRadius: 2,spreadRadius: 4)]
         ),
-        child: ClipOval(child:widget.ImageURL!=''?Image.network(widget.ImageURL, fit: BoxFit.cover,):widget.isFile?Image.file(io.File(widget.ImageFile!.path,),fit: BoxFit.cover,):Image.asset("assets/avatar/default_avatar.svg",width: widget.size,height: widget.size,),)
+        child: ClipOval(child:widget.ImageURL!=''?Image.network(widget.ImageURL, fit: BoxFit.cover,):widget.isFile?Image.file(io.File(widget.ImageFile!.path,),fit: BoxFit.cover,):SvgPicture.asset("assets/avatar/default_avatar.svg",width: widget.size,height: widget.size,),)
     );
   }
 }
