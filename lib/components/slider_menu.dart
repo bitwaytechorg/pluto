@@ -3,10 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/Btns/primaryBtn.dart';
+import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
 import '../screens/mobile/mobile_Profile.dart';
 import 'package:pluto/global/session.dart' as SESSION;
+import '../screens/profile.dart';
 import 'avatar.dart';
 
 class Slider_menu extends StatelessWidget {
@@ -35,8 +38,31 @@ class Slider_menu extends StatelessWidget {
             margin: EdgeInsets.only(left: 70),
             child: Text("Hello! User", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
           ),
+        InkWell(
+          onTap: ()=> Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => User_Profile())
+          ),
 
-          PrimaryBtn(ButtonTitle: "Set Profile"),
+          child: Padding(
+            padding: EdgeInsets.only(left: 20, top: 20,),
+            child: Container(
+              height: 50,
+              width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.grey,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Center(
+                  child: Text("See Profile", style: TextStyle(
+                    color: Colors.white,
+                  ),),
+                ),
+              ),
+            ),
+          ),
+        ),
 
           ///menu items
           SingleChildScrollView(
@@ -47,7 +73,7 @@ class Slider_menu extends StatelessWidget {
                 children: [
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(0,200,0,5),
+                    padding: EdgeInsets.fromLTRB(0,150,0,5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),
