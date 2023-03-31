@@ -1,17 +1,13 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pluto/components/Btns/primaryBtn.dart';
-import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/business_profile.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
 import '../screens/mobile/mobile_Profile.dart';
 import 'package:pluto/global/session.dart' as SESSION;
-import '../screens/profile.dart';
 import 'avatar.dart';
 
 class Slider_menu extends StatelessWidget {
@@ -81,7 +77,7 @@ class Slider_menu extends StatelessWidget {
                 children: [
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(0,100,0,5),
+                    padding: EdgeInsets.fromLTRB(0,80,0,5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(bottom:BorderSide(color: Color(0xCCFFFFFF))),
@@ -89,7 +85,7 @@ class Slider_menu extends StatelessWidget {
                     child: Text('Account',style: TextStyle(color:Colors.white)),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
                       onTap: ()=> { Navigator.push(context, MaterialPageRoute(builder: (context)=> Business_Profile())),},
                       child: Row(
@@ -102,7 +98,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -115,7 +111,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20),
+                    margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
                       onTap: ()=> { },
                       child: Row(
@@ -128,7 +124,7 @@ class Slider_menu extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.symmetric(vertical: 20),
+                      margin: EdgeInsets.symmetric(vertical: 15),
                       child:InkWell(
                           onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Home())),
                           child: Row(
@@ -144,7 +140,7 @@ class Slider_menu extends StatelessWidget {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_Profile())),
                     },
                     child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
+                        margin: EdgeInsets.symmetric(vertical: 15),
                             child: Row(
                               children: [
                                 Icon(Icons.logout, color: Colors.white,size: 25,),

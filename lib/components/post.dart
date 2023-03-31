@@ -19,23 +19,27 @@ class _PostSectionState extends State<PostSection> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
              Row(children: [
+               SizedBox(width: 5,),
                Avatar(size: 50, ImageURL: 'https://people.com/thmb/SL7_3mF5irtEm4Kz8f63FWDrmPA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/dog-dating-1-a1a34ab3445740fcadf8699850c8333b.jpg'),
                SizedBox(width: 10,),
-               Column(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [
-                   Text("Dileep Kumar", style: TextStyle(color: Colors.black.withAlpha(140), fontSize: 18),),
-                   Text("Pets seller", style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),),
-                 ],
+               Container(
+                 width: MediaQuery.of(context).size.width-240,
+                 child: Column(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   children: [
+                     Text("Dileep Kumar", style: TextStyle(color: Colors.black.withAlpha(160), fontSize: 18),),
+                     Text("Pets seller ", style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),)
+                   ],
+                 ),
                ),
              ],),
               Icon(Icons.more_horiz),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 15),
             child: Text("Choose from our amazing collection of cute puppy pictures and images, all free to download! white and brown Cavalier King Charles Spaniel. 1616 248",
-              style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),),
+              style: TextStyle(color: Colors.grey, fontSize: 15),),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -58,7 +62,14 @@ class _PostSectionState extends State<PostSection> {
                      children: [
                        SizedBox(width: 15,),
                        Icon(Icons.thumb_down, color: Colors.black.withAlpha(140),size: 20,),
-                       Text("10")
+                       Text("138")
+                     ],
+                   ),
+                   Row(
+                     children: [
+                       SizedBox(width: 15,),
+                       Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,),
+                       Text("35")
                      ],
                    ),
 
