@@ -8,6 +8,8 @@ import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/global/session.dart' as SESSION;
 
+import '../home.dart';
+
 class Mobile_UserProfile extends StatefulWidget{
 
   @override
@@ -57,7 +59,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home())),
                   background: Colors.transparent,
                 ),
                 Expanded(

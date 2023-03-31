@@ -56,6 +56,7 @@ class _PostSectionState extends State<PostSection> {
                    ),
                    Row(
                      children: [
+                       SizedBox(width: 15,),
                        Icon(Icons.thumb_down, color: Colors.black.withAlpha(140),size: 20,),
                        Text("10")
                      ],
