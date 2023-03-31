@@ -5,6 +5,7 @@ String email = "";
 String phoneNumber = "";
 String dob = "";
 String gender = "";
+int age =0;
 String profileUrl = "";
 bool is_business = false;
 Map<String, dynamic> business_profile_data={};
