@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/bottom_menu.dart';
-import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
