@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
 import '../../components/Btns/secondaryBtn.dart';
@@ -17,6 +18,7 @@ class Mobile_UserProfile extends StatefulWidget {
 }
 
 class Mobile_UserProfileState extends State<Mobile_UserProfile> {
+  String onTabActive = 'activity';
   List chips = [
     '#design',
     '#computer',
@@ -93,13 +95,13 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: Avatar(
-                    size: 100,
+                    size: 120,
                     ImageURL:
                         "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(45.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Container(
                     child: Center(
                       child: Column(
@@ -119,7 +121,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                                     'Posts',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 12,
+                                      fontSize: 14,
                                     ),
                                   )
                                 ],
@@ -140,7 +142,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                                       'Followers',
                                       style: TextStyle(
                                         color: Colors.grey,
-                                        fontSize: 12,
+                                        fontSize: 14,
                                       ),
                                     )
                                   ],
@@ -159,7 +161,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                                     'Following',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 12,
+                                      fontSize: 14,
                                     ),
                                   )
                                 ],
@@ -188,7 +190,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: 5, top: 15, right: 225),
+            padding: EdgeInsets.only(left: 10, top: 15, right: 225),
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -219,25 +221,134 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 8, right: 8, top: 15),
+            padding: EdgeInsets.only(left: 10, right: 8, top: 15),
             child: Row(
               children: [
-                CustomBtn(
-                  height: 40,
-                  width: 180,
-                  buttonTitle: "Edit Profile", color: CONFIG.primaryColor),
-                SizedBox(
-                  width: 30,
+                InkWell(
+                  onTap: () => {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: CONFIG.primaryColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: CustomBtn(
+                        height: 40,
+                        width: 175,
+                        buttonTitle: "Edit Profile",
+                        color: CONFIG.primaryColor),
+                  ),
                 ),
-                CustomBtn(
-                  height: 40,
-                  width: 180,
-                  buttonTitle: "Share Profile", color: CONFIG.primaryColor),
+                SizedBox(
+                  width: 20,
+                ),
+                InkWell(
+                  onTap: () => {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: CONFIG.primaryColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: CustomBtn(
+                        height: 40,
+                        width: 175,
+                        buttonTitle: "Share Profile",
+                        color: CONFIG.primaryColor),
+                  ),
+                ),
               ],
             ),
-          )
-        ],
-      ),
+          ),
+          Divider(
+            endIndent: 5,
+            indent: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          onTabActive = "activity";
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.table_chart_outlined,
+                              color: onTabActive == "activity"
+                                  ? CONFIG.primaryColor
+                                  : Colors.grey),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Activity",
+                            style: TextStyle(
+                                color: onTabActive == "activity"
+                                    ? CONFIG.primaryColor
+                                    : Colors.grey),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 70,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          onTabActive = "about";
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.account_box_outlined,
+                              color: onTabActive == "about"
+                                  ? CONFIG.primaryColor
+                                  : Colors.grey),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "About",
+                            style: TextStyle(
+                                color: onTabActive == "about"
+                                    ? CONFIG.primaryColor
+                                    : Colors.grey),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 80,),
+
+                    InkWell(
+                      onTap: (){
+                        setState(() {
+                          onTabActive="Tag";
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Icon(FontAwesomeIcons.userTag,size: 20,color:onTabActive=="Tag"?CONFIG.primaryColor:Colors.grey),
+                          SizedBox(width: 5,),
+                          Text("Tag", style: TextStyle(color: onTabActive=="Tag"?CONFIG.primaryColor:Colors.grey),)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                  ],
+                ),
+          ),
+      ],
+            ),
     );
+
+
   }
 }
