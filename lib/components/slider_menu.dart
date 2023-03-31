@@ -56,7 +56,7 @@ class Slider_menu extends StatelessWidget {
                   width: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: Colors.greenAccent.withAlpha(150),
+                    color: Colors.greenAccent.withAlpha(100),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
