@@ -19,15 +19,6 @@ class Mobile_UserProfile extends StatefulWidget {
 
 class Mobile_UserProfileState extends State<Mobile_UserProfile> {
   String onTabActive = 'activity';
-  List chips = [
-    '#design',
-    '#computer',
-    '#flutter',
-    '#virtual',
-    '#reality',
-    '#beauty',
-    '#public',
-  ];
 
   double xOffset = 0;
   double yOffset = 0;
@@ -90,7 +81,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 padding: const EdgeInsets.all(10),
