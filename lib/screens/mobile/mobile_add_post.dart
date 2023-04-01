@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/bottom_menu.dart';
-import 'package:pluto/components/notification_alert.dart';
-import 'package:pluto/components/slider_menu.dart';
+import 'package:image_picker/image_picker.dart';
 
-import '../../components/scroll_behaviour.dart';
-import '../../components/topbar.dart';
+import '../home.dart';
+
 
 class Mobile_Addpost extends StatefulWidget {
   @override
@@ -13,76 +11,98 @@ class Mobile_Addpost extends StatefulWidget {
 }
 
 class Mobile_AddpostState extends State<Mobile_Addpost> {
-  double xOffset = 0;
-  double yOffset = 0;
-  double scalefactor = 1;
-  bool isDrawerOpen = false;
 
-  void toggleMenu() {
-    bool tmpStatus = !isDrawerOpen;
-    setState(() {
-      xOffset = tmpStatus ? 250 : 0;
-      yOffset = tmpStatus ? 50 : 0;
-      scalefactor = tmpStatus ? 0.91 : 1;
-      isDrawerOpen = tmpStatus;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         top: true,
-        child: Stack(
-          children: [
-            Slider_menu(),
-            AnimatedContainer(
-              width: MediaQuery.of(context).size.width,
-              transform: Matrix4.translationValues(xOffset, yOffset, 0)
-                ..scale(scalefactor)
-                ..rotateY(isDrawerOpen ? -0.5 : 0),
-              duration: Duration(milliseconds: 250),
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
-              child: Column(children: [
-                TopBar(
-                  isDrawerOpen: isDrawerOpen,
-                  onTap: toggleMenu,
-                  background: Colors.transparent,
-                  secondaryWidget: InkWell(
-                      onTap: () => {},
-                      child: Container(
-                        margin: EdgeInsets.only(top: 3, right: 5),
-                        child: NotificationAlert(),
-                      )),
-                ),
-                Expanded(
-                  child: ScrollConfiguration(
-                    behavior: MyBehavior(),
-                    child: SingleChildScrollView(
-                      child: buildContent(),
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        InkWell(
+                            onTap:(){ Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));},
+                            child: Icon(Icons.arrow_back, color: Colors.grey)),
+
+                        SizedBox(width: 15,),
+                        Text("Upload", style: TextStyle(
+                          fontSize: 20, color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),),
+                      ],
                     ),
-                  ),
+                    Icon(Icons.check, color: Colors.grey),
+                  ],
                 ),
-                Align(
-                    alignment: Alignment.bottomCenter,
-                    child: BottomMenu(active: 'add post',)
+              ),
+              Divider(color: Colors.grey,),
+
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 250,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withAlpha(100),
+                          borderRadius: BorderRadius.all(Radius.circular(5))
+                      ),
+
+                     // child: Text("Image Container"),
+                      //child: ImagePicker(),
+                    ),
+                    SizedBox(height: 15,),
+                    Align(alignment: Alignment.centerLeft,
+                        child: Text("Title", style: TextStyle(color: Colors.grey),)),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'fakjd fdajkj fdjac',
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Align(alignment: Alignment.centerLeft,
+                        child: Text("Desciption", style: TextStyle(color: Colors.grey),)),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Real Estate App designed by uix.martin',
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Align(alignment: Alignment.centerLeft,
+                        child: Text("Price", style: TextStyle(color: Colors.grey),)),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'fakjd fdajkj fdjac',
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Align(alignment: Alignment.centerLeft,
+                        child: Text("Category", style: TextStyle(color: Colors.grey),)),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: 'options',
+                      ),
+                    ),
+
+
+                  ],
                 ),
-              ]),
-            ),
-          ],
+              )
+
+
+            ],
+          ),
         ),
-      ),
-    );
-  }
-
-  buildContent() {
-    return Container(
-      child: Column(
-        children: [
-
-        ],
       ),
     );
   }
