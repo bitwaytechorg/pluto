@@ -78,7 +78,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                   isMainPage: false,
                   onTap: ()=>Navigator.pop(context),
                   background: Colors.transparent,
-                  secondaryWidget: SearchBar(width:MediaQuery.of(context).size.width-65 , onSearch: (String searchText) {  },)
+                  secondaryWidget: SearchBar(width:MediaQuery.of(context).size.width-65  , onSearch: (String searchText) {  },)
                 ),
                 Expanded(
                   child: ScrollConfiguration(
