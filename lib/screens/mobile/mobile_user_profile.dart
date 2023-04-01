@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
-import '../../components/Btns/secondaryBtn.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
@@ -86,7 +85,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
               Container(
                 padding: const EdgeInsets.all(10),
                 child: Avatar(
-                    size: 120,
+                    size: 100,
                     ImageURL:
                         "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"),
               ),
@@ -168,7 +167,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10, top: 15, right: 225),
+            padding: EdgeInsets.only(left: 10, top: 15, right: 210),
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
