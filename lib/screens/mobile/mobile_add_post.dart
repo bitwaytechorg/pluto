@@ -77,5 +77,13 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
     );
   }
 
-  buildContent() {}
+  buildContent() {
+    return Container(
+      child: Column(
+        children: [
+
+        ],
+      ),
+    );
+  }
 }
