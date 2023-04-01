@@ -92,7 +92,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Container(
                     child: Center(
                       child: Column(
@@ -159,19 +159,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                               )
                             ],
                           ),
-                          // Padding(
-                          //   padding:
-                          //       const EdgeInsets.only( right: 8, top: 15),
-                          //   child: Row(
-                          //     children: [
-                          //       SecondaryBtn(buttonTitle: "Follow"),
-                          //       SizedBox(
-                          //         width: 10,
-                          //       ),
-                          //       SecondaryBtn(buttonTitle: "Message")
-                          //     ],
-                          //   ),
-                          // )
                         ],
                       ),
                     ),
@@ -225,7 +212,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     ),
                     child: CustomBtn(
                         height: 40,
-                        width: 175,
+                        width: 155,
                         buttonTitle: "Edit Profile",
                         color: CONFIG.primaryColor),
                   ),
@@ -243,7 +230,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     ),
                     child: CustomBtn(
                         height: 40,
-                        width: 175,
+                        width: 155,
                         buttonTitle: "Share Profile",
                         color: CONFIG.primaryColor),
                   ),
@@ -288,7 +275,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                       ),
                     ),
                     SizedBox(
-                      width: 70,
+                      width: 60,
                     ),
                     InkWell(
                       onTap: () {
@@ -315,7 +302,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 80,),
+                    SizedBox(width: 60,),
 
                     InkWell(
                       onTap: (){
