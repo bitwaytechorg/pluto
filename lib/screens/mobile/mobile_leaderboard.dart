@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../components/bottom_menu.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
+import '../../components/avatar.dart';
 import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
@@ -13,6 +15,46 @@ class Mobile_Leaderboard extends StatefulWidget {
 }
 
 class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
+  List batches=[
+    "209",
+    "201",
+    "204",
+    "194",
+    "189",
+    "138",
+    "102",
+    "145",
+    "162",
+    "189",
+    "145",
+    "162",
+    "189",
+  ];
+  List points=[
+    "9209",
+    "9201",
+    "8204",
+    "7194",
+    "7189",
+    "6138",
+    "7102",
+    "6145",
+    "6162",
+    "5189",
+    "4145",
+    "3162",
+    "2189",
+  ];
+  List petOwners = [
+    "Dileep Kumar","Aaryan",
+    "Carolyn","Morgan",
+    "Lois","Wilson",
+    "Ernest","Rogers",
+    "Theresa","Patterson",
+    "Henry","Simmons",
+    "Michelle",
+  ];
+
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
@@ -74,6 +116,51 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
   }
 
   buildContent() {
-    return Container(child: Text("Leader Board Screen"),);
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text("Rank"),
+            // Avatar(size: 60, ImageURL: ''),
+            Text("pet owner name"),
+            Text("Points"),
+            Icon(FontAwesomeIcons.medal, color: Colors.red),
+
+          ],
+        ),
+
+        ListView.builder(
+          physics: ScrollPhysics(),
+          itemCount: 13,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+              height: 60,
+              width: MediaQuery.of(context).size.width-30,
+              decoration: BoxDecoration(
+                color: CONFIG.secondaryColor.withAlpha(20),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(index.toString()),
+                 // Avatar(size: 60, ImageURL: ''),
+                  Text(petOwners[index]),
+                  Text(points[index]),
+                  Text(batches[index], style: TextStyle(
+                    fontSize: 16, color: CONFIG.primaryColor,
+                  )),
+
+                ],
+              ),
+            );
+          },
+
+        ),
+      ],
+    );
   }
 }
