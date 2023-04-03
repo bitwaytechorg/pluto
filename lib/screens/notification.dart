@@ -27,12 +27,12 @@ class _NotificationPageState extends State<NotificationPage> {
   //   "It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. ",
   //
   // ];
-  // List days = [
-  //   "Today",
-  //   "This week",
-  //   "This month",
-  //   "Earlier",
-  // ];
+  List days = [
+    "Today",
+    "This week",
+    "This month",
+    "Earlier",
+  ];
 
 
   @override
@@ -129,14 +129,18 @@ class _NotificationPageState extends State<NotificationPage> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 200, bottom: 15),
-                        child: Text("Follow Request"),
+                        padding: const EdgeInsets.only(right: 200,bottom: 5),
+                        child: Text("Follow Request", style: TextStyle(fontWeight: FontWeight.bold),),
                       ),
-                      SizedBox(height: 10,),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 145,),
+                        child: Text("Approve or ignore request", style: TextStyle(fontSize: 13),),
+                      ),
 
                     ],
                   ),
-                )
+                ),
+
 
 
                 // BuildContent() {
@@ -206,5 +210,6 @@ class _NotificationPageState extends State<NotificationPage> {
         ],
       ),
     );
+
   }
 }
