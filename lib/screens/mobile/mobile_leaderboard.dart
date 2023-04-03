@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../../components/avatar.dart';
 import '../../components/notification_alert.dart';
@@ -45,6 +44,7 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
     "3162",
     "2189",
   ];
+
   List petOwners = [
     "Dileep Kumar","Aaryan",
     "Carolyn","Morgan",
@@ -99,6 +99,20 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
                         child: NotificationAlert(),
                       )),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 5, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Rank"),
+                      // Avatar(size: 60, ImageURL: ''),
+                      Text("pet owner"),
+                      Text("Points"),
+                      Icon(FontAwesomeIcons.medal, color: Colors.red),
+
+                    ],
+                  ),
+                ),
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -118,17 +132,6 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
   buildContent() {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("Rank"),
-            // Avatar(size: 60, ImageURL: ''),
-            Text("pet owner name"),
-            Text("Points"),
-            Icon(FontAwesomeIcons.medal, color: Colors.red),
-
-          ],
-        ),
 
         ListView.builder(
           physics: ScrollPhysics(),
@@ -144,7 +147,7 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(index.toString()),
                  // Avatar(size: 60, ImageURL: ''),
