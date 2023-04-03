@@ -46,7 +46,7 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
   ];
 
   List petOwners = [
-    "Dileep Kumar","Aaryan",
+    "Dileep","Aaryan",
     "Carolyn","Morgan",
     "Lois","Wilson",
     "Ernest","Rogers",
@@ -104,10 +104,10 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("Rank"),
+                      Text("Rank", style: TextStyle(fontSize:18,  color: Colors.black54),),
                       // Avatar(size: 60, ImageURL: ''),
-                      Text("pet owner"),
-                      Text("Points"),
+                      Text("Pet owner",style: TextStyle(fontSize:18,color: Colors.black54)),
+                      Text("Points", style: TextStyle(fontSize:18,color: Colors.black54)),
                       Icon(FontAwesomeIcons.medal, color: Colors.red),
 
                     ],
@@ -139,11 +139,12 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-              height: 60,
+              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
+              height: 50,
               width: MediaQuery.of(context).size.width-30,
               decoration: BoxDecoration(
-                color: CONFIG.secondaryColor.withAlpha(20),
+                color: CONFIG.secondaryColor.withAlpha(10),
+                border: Border.all(width: 0.2 , color: CONFIG.primaryColor),
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Row(
