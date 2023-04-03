@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/Btns/primaryBtn.dart';
+import '../components/avatar.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/search_bar.dart';
 import 'home.dart';
@@ -13,28 +14,16 @@ class NotificationPage extends StatefulWidget {
 }
 
 class _NotificationPageState extends State<NotificationPage> {
-  // List notifications = [
-  //   "t is used to develop applications ",
-  //   "method of creating applications",
-  //   "t is used to develop applications ",
-  //   "method of creating applications",
-  //   "t is used to develop applications ",
-  //   "method of creating applications",
-  // ];
-  double xOffset = 0;
-  double yOffset = 0;
-  double scalefactor = 1;
-  bool isDrawerOpen = false;
+  List notifications = [
+    "t is used to develop applications ",
+    "method of creating applications",
+    "A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. Having wonderful animation. shopping-cart amazon shopping ...",
+    "t is used to develop applications ",
+    "method of creating applications",
+    "t is used to develop applications ",
+    "method of creating applications",
+  ];
 
-  void toggleMenu() {
-    bool tmpStatus = !isDrawerOpen;
-    setState(() {
-      xOffset = tmpStatus ? 250 : 0;
-      yOffset = tmpStatus ? 50 : 0;
-      scalefactor = tmpStatus ? 0.91 : 1;
-      isDrawerOpen = tmpStatus;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,39 +100,33 @@ class _NotificationPageState extends State<NotificationPage> {
    return ListView.builder(
         shrinkWrap: true,
         scrollDirection:Axis.vertical,
-        itemCount: 50, itemBuilder: (BuildContext context, int index) {
+        itemCount: notifications.length, itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.only(top: 20, left: 10),
               child: Container(
-                height: 120,
                 width: 125,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.grey[100],
                 ),
-                    child: Padding(
-                      padding: EdgeInsets.only( left: 15),
-                      child: Row(
-                        children:[
-                          Container(
-                          child: Icon(
-                            FontAwesomeIcons.circleUser,
-                            size: 35,
-                            color: Colors.black87,
-                          ),
-                        ),
-                           Padding(
-                             padding: EdgeInsets.only(left: 30,bottom: 30),
-                             child: Text("HELLO USER ", style: TextStyle(fontSize: 20),)),
-                          Padding(
-                            padding: EdgeInsets.only(top: 25),
-                            child: Container(
-                              child: Text("Welcome to this page."),
-                            ),
-                          )
+                    child: Row(
+                      children:[
+                       Avatar(size: 60, ImageURL: '',),
+                         Padding(
+                           padding: const EdgeInsets.only(top: 20, left: 15),
+                           child: Column(
+                             children: [
+                               Text("User Name" , style: TextStyle(fontSize: 20, ),),
+                               SizedBox(height: 5,),
+                               Container(
+                                   width: MediaQuery.of(context).size.width-95,
+                                   child: Text(notifications[index]))
+                             ],
+                           ),
+                         )
+
 
                     ],
-                      ),
                     ),
                   ),
             
