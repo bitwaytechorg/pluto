@@ -15,7 +15,7 @@ class Mobile_PetFinder extends StatefulWidget {
 class Mobile_PetFinderState extends State<Mobile_PetFinder> {
 
   List petOwners = [
-    "Bruce","Cook",
+    "Dileep Kumar","Aaryan",
     "Carolyn","Morgan",
     "Albert","Walker",
     "Randy","Reed",
@@ -29,6 +29,42 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
     "Frank","Butler",
     "Shirley"
   ];
+
+  List location= [
+    "Chandigarh",
+    "Delhi",
+    "Haryana",
+    "HP",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "West Bengal",
+    "Daman and Diu",
+    "Lakshadweep",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Puducherry"];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +86,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
 
                     SizedBox(width: 15,),
                     Text("Pet Finder", style: TextStyle(
-                      fontSize: 20, color: Colors.grey,
+                      fontSize: 20, color: Colors.black54,
                       fontWeight: FontWeight.w400,
                     ),),
                   ],
@@ -79,6 +115,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
 
   buildContent() {
     return Container(
+      padding: EdgeInsets.only(bottom: 20, top: 5),
       child: Column(
         children: [
           Column(children: [
@@ -87,12 +124,12 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Breeders", style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.w400,
+                  fontSize: 25, fontWeight: FontWeight.w500,
                 ),),
               ),
             ),
             Container(
-              height: 120,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 itemCount: petOwners.length,
@@ -101,19 +138,39 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 120,
-                    width: 100,
+                    height: 260,
+                    width: 150,
                     decoration: BoxDecoration(
-                      color: CONFIG.secondaryColor.withAlpha(100),
+                      border: Border.all(width: 1, color: CONFIG.primaryColor),
+                      color: CONFIG.secondaryColor.withAlpha(20),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 10,),
-                        Avatar(size: 50, ImageURL: ''),
+                        Avatar(size: 60, ImageURL: ''),
+                        SizedBox(height: 5,),
                         Text(petOwners[index], style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 16, color: CONFIG.primaryColor,
                         )),
+                        SizedBox(height: 5,),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
+                           SizedBox(width: 3,),
+                           Text("Services: 3", style: TextStyle(
+                             fontSize: 15,
+                           )),
+                         ],
+                       ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
+                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
+                          ],
+                        )
                       ],
                     ),
                   );
@@ -133,7 +190,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               ),
             ),
             Container(
-              height: 120,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 itemCount: petOwners.length,
@@ -142,19 +199,39 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 120,
-                    width: 100,
+                    height: 260,
+                    width: 150,
                     decoration: BoxDecoration(
-                      color: CONFIG.secondaryColor.withAlpha(100),
+                      border: Border.all(width: 1, color: CONFIG.primaryColor),
+                      color: CONFIG.secondaryColor.withAlpha(20),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 10,),
-                        Avatar(size: 50, ImageURL: ''),
+                        Avatar(size: 60, ImageURL: ''),
+                        SizedBox(height: 5,),
                         Text(petOwners[index], style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 16, color: CONFIG.primaryColor,
                         )),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
+                            SizedBox(width: 3,),
+                            Text("Services: 3", style: TextStyle(
+                              fontSize: 15,
+                            )),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
+                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
+                          ],
+                        )
                       ],
                     ),
                   );
@@ -168,13 +245,13 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Breeders", style: TextStyle(
+                child: Text("Pets trainers", style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.w400,
                 ),),
               ),
             ),
             Container(
-              height: 120,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 itemCount: petOwners.length,
@@ -183,19 +260,39 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 120,
-                    width: 100,
+                    height: 260,
+                    width: 150,
                     decoration: BoxDecoration(
-                      color: CONFIG.secondaryColor.withAlpha(100),
+                      border: Border.all(width: 1, color: CONFIG.primaryColor),
+                      color: CONFIG.secondaryColor.withAlpha(20),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 10,),
-                        Avatar(size: 50, ImageURL: ''),
+                        Avatar(size: 60, ImageURL: ''),
+                        SizedBox(height: 5,),
                         Text(petOwners[index], style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 16, color: CONFIG.primaryColor,
                         )),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
+                            SizedBox(width: 3,),
+                            Text("Services: 3", style: TextStyle(
+                              fontSize: 15,
+                            )),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
+                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
+                          ],
+                        )
                       ],
                     ),
                   );
@@ -209,13 +306,13 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Breeders", style: TextStyle(
+                child: Text("Veterinary doctors", style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.w400,
                 ),),
               ),
             ),
             Container(
-              height: 120,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 itemCount: petOwners.length,
@@ -224,19 +321,100 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 120,
-                    width: 100,
+                    height: 260,
+                    width: 150,
                     decoration: BoxDecoration(
-                      color: CONFIG.secondaryColor.withAlpha(100),
+                      border: Border.all(width: 1, color: CONFIG.primaryColor),
+                      color: CONFIG.secondaryColor.withAlpha(20),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 10,),
-                        Avatar(size: 50, ImageURL: ''),
+                        Avatar(size: 60, ImageURL: ''),
+                        SizedBox(height: 5,),
                         Text(petOwners[index], style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 16, color: CONFIG.primaryColor,
                         )),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
+                            SizedBox(width: 3,),
+                            Text("Services: 3", style: TextStyle(
+                              fontSize: 15,
+                            )),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
+                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, bottom: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text("Pet walkers", style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.w400,
+                ),),
+              ),
+            ),
+            Container(
+              height: 200,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                itemCount: petOwners.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    height: 260,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: CONFIG.primaryColor),
+                      color: CONFIG.secondaryColor.withAlpha(20),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Avatar(size: 60, ImageURL: ''),
+                        SizedBox(height: 5,),
+                        Text(petOwners[index], style: TextStyle(
+                          fontSize: 16, color: CONFIG.primaryColor,
+                        )),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
+                            SizedBox(width: 3,),
+                            Text("Services: 3", style: TextStyle(
+                              fontSize: 15,
+                            )),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
+                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
+                          ],
+                        )
                       ],
                     ),
                   );

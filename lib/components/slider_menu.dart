@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/business_profile.dart';
+import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
 import '../screens/mobile/mobile_Profile.dart';
@@ -70,146 +71,134 @@ class Slider_menu extends StatelessWidget {
                       ),
                     ),
                   ),
+
                 ),
+              ),
+            ),
+            Container(
+              height: 40,
+              width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.greenAccent.withAlpha(100),
+              ),
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: InkWell(
+                onTap: (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Mobile_Leaderboard()));
+                },
+                  child: Center(child: Text("LEADERBOARD", style: TextStyle(color: Colors.white),))
               ),
             ),
 
             ///menu items
-            SingleChildScrollView(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 100, 0, 5),
-                      width: 250,
-                      decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(color: Color(0xCCFFFFFF))),
-                      ),
-                      child: Text('Account',
-                          style: TextStyle(color: Colors.white)),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 60, 0, 5),
+                    width: 250,
+                    decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(color: Color(0xCCFFFFFF))),
                     ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                      child: InkWell(
-                        onTap: () => {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Business_Profile())),
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.addressCard,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Business Profile',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                      child: InkWell(
-                        onTap: () => {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Settings',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 15),
-                      child: InkWell(
-                        onTap: () => {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.lock_clock_rounded,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              'Change Password',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: 15),
-                        child: InkWell(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Home())),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.delete_forever,
-                                  color: Colors.white,
-                                  size: 25,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Delete_account',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
-                            ))),
-                    InkWell(
+                    child: Text('Account',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 15),
+                    child: InkWell(
                       onTap: () => {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Mobile_Profile())),
+                                builder: (context) => Business_Profile())),
                       },
-                      child: Container(
-                          margin: EdgeInsets.symmetric(vertical: 15),
+                      child: Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.addressCard,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Business Profile',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 15),
+                    child: InkWell(
+                      onTap: () => {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.settings,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Settings',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 15),
+                    child: InkWell(
+                      onTap: () => {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.lock_clock_rounded,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Change Password',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                      margin: EdgeInsets.symmetric(vertical: 15),
+                      child: InkWell(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Home())),
                           child: Row(
                             children: [
                               Icon(
-                                Icons.logout,
+                                Icons.delete_forever,
                                 color: Colors.white,
                                 size: 25,
                               ),
@@ -217,17 +206,44 @@ class Slider_menu extends StatelessWidget {
                                 width: 10,
                               ),
                               Text(
-                                'logout',
+                                'Delete_account',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold),
                               )
                             ],
-                          )),
-                    )
-                  ],
-                ),
+                          ))),
+                  InkWell(
+                    onTap: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Mobile_Profile())),
+                    },
+                    child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 15),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'logout',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        )),
+                  )
+                ],
               ),
             ),
           ]),

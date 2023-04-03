@@ -22,11 +22,11 @@ class Mobile_Profile extends StatefulWidget{
 class Mobile_ProfileState extends State<Mobile_Profile>{
  String onTabActive ='activity';
   List chips =[
-    "desing",
-    "graphics",
-    "computer",
-    "flutter",
-    "java",
+    "Dogs",
+    "Cats",
+    "Birds",
+    "Fishes",
+
     "python",
     "react",
     "developers",
@@ -35,7 +35,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
     "new work",
     "bootstrap",
     "html/css",
-    "new"
+    "new",
     "Dileep"
   ];
 

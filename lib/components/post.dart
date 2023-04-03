@@ -12,7 +12,6 @@ class _PostSectionState extends State<PostSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           Row(
@@ -33,18 +32,18 @@ class _PostSectionState extends State<PostSection> {
                  ),
                ),
              ],),
-              Icon(Icons.more_horiz),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(Icons.more_horiz),
+              ),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(10, 8, 10, 15),
+            padding: const EdgeInsets.fromLTRB(15, 8, 10, 15),
             child: Text("Choose from our amazing collection of cute puppy pictures and images, all free to download! white and brown Cavalier King Charles Spaniel. 1616 248",
               style: TextStyle(color: Colors.grey, fontSize: 15),),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Custom_Image(imageUrl: 'https://www.dogstrust.org.uk/images/800x600/assets/2022-08/sophia_sophie_sbt_puppies_leeds_dogstrust.jpg',),
-          ),
+          Custom_Image(imageUrl: 'https://www.dogstrust.org.uk/images/800x600/assets/2022-08/sophia_sophie_sbt_puppies_leeds_dogstrust.jpg',),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Row(
