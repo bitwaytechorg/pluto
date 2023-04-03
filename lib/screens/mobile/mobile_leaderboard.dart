@@ -28,6 +28,10 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
     "145",
     "162",
     "189",
+    "138",
+    "102",
+    "145",
+    "162",
   ];
   List points=[
     "9209",
@@ -43,6 +47,10 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
     "4145",
     "3162",
     "2189",
+    "6138",
+    "7102",
+    "6145",
+    "6162",
   ];
 
   List petOwners = [
@@ -53,6 +61,8 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
     "Theresa","Patterson",
     "Henry","Simmons",
     "Michelle",
+    "Ernest","Rogers",
+    "Theresa","Patterson",
   ];
 
   double xOffset = 0;
@@ -100,15 +110,15 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 5, right: 20),
+                  padding: const EdgeInsets.only(top: 10, bottom: 10, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text("Rank", style: TextStyle(fontSize:18,  color: Colors.black54),),
+                      Text("Rank", style: TextStyle(fontSize:14,  color: Colors.black54),),
                       // Avatar(size: 60, ImageURL: ''),
-                      Text("Pet owner",style: TextStyle(fontSize:18,color: Colors.black54)),
-                      Text("Points", style: TextStyle(fontSize:18,color: Colors.black54)),
-                      Icon(FontAwesomeIcons.medal, color: Colors.red),
+                      Text("Pet owner",style: TextStyle(fontSize:14,color: Colors.black54)),
+                      Text("Points", style: TextStyle(fontSize:14,color: Colors.black54)),
+                      Icon(FontAwesomeIcons.medal, size:20, color: Colors.red),
 
                     ],
                   ),
@@ -135,28 +145,25 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
 
         ListView.builder(
           physics: ScrollPhysics(),
-          itemCount: 13,
+          itemCount: petOwners.length,
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
-              height: 50,
-              width: MediaQuery.of(context).size.width-30,
+              height: 45,
+              width: MediaQuery.of(context).size.width-25,
               decoration: BoxDecoration(
-                color: CONFIG.secondaryColor.withAlpha(10),
-                border: Border.all(width: 0.2 , color: CONFIG.primaryColor),
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                //color: CONFIG.secondaryColor.withAlpha(10),
+                border: Border.all(width: 0.03 , color: CONFIG.primaryColor),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(index.toString()),
+                  Text(index.toString(), style: TextStyle(color: Colors.black54),),
                  // Avatar(size: 60, ImageURL: ''),
-                  Text(petOwners[index]),
-                  Text(points[index]),
-                  Text(batches[index], style: TextStyle(
-                    fontSize: 16, color: CONFIG.primaryColor,
-                  )),
+                  Text(petOwners[index], style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),),
+                  Text(points[index], style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),),
+                  Text(batches[index], style: TextStyle(color: CONFIG.primaryColor, fontWeight: FontWeight.bold),
+                  ),
 
                 ],
               ),

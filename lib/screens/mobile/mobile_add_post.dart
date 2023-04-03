@@ -77,14 +77,6 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                     ),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.centerLeft,
-                        child: Text("Price", style: TextStyle(color: Colors.grey),)),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: 'fakjd fdajkj fdjac',
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.centerLeft,
                         child: Text("Category", style: TextStyle(color: Colors.grey),)),
                     TextField(
                       decoration: InputDecoration(
