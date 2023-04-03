@@ -15,13 +15,23 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   List notifications = [
-    "t is used to develop applications ",
-    "method of creating applications",
-    "A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. Having wonderful animation. shopping-cart amazon shopping ...",
-    "t is used to develop applications ",
-    "method of creating applications",
-    "t is used to develop applications ",
-    "method of creating applications",
+    "It is used to develop applications,A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "method of creating applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "method of creating applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. ",
+    "method of creating applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "method of creating applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.",
+    "It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter.It is used to develop applications.A beautiful, extreme smooth and quite nice shoping app interface UI by using Dart + Flutter. ",
+
+  ];
+  List days = [
+    "Today",
+    "This week",
+    "This month",
+    "Earlier",
   ];
 
 
@@ -76,7 +86,9 @@ class _NotificationPageState extends State<NotificationPage> {
                         border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
 
                       ),
-                      child: Icon(Icons.more_vert_sharp, color: CONFIG.primaryColor, size: 25,)
+                      child: InkWell(
+                        onTap: ()=> {},
+                          child: Icon(Icons.more_vert_sharp, color: CONFIG.primaryColor, size: 25,))
                   )
                 ],
               ),
@@ -86,7 +98,6 @@ class _NotificationPageState extends State<NotificationPage> {
               ),
 
               Divider(color: Colors.grey),
-              SearchBar(width: 470, onSearch: (String searchText) {  },),
                Expanded(
                    child: BuildContent()),
       ],
@@ -102,34 +113,59 @@ class _NotificationPageState extends State<NotificationPage> {
         scrollDirection:Axis.vertical,
         itemCount: notifications.length, itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.only(top: 20, left: 10),
+            padding: const EdgeInsets.only(top: 20, left: 10,),
               child: Container(
                 width: 125,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.grey[100],
                 ),
-                    child: Row(
-                      children:[
-                       Avatar(size: 60, ImageURL: '',),
-                         Padding(
-                           padding: const EdgeInsets.only(top: 20, left: 15),
-                           child: Column(
-                             children: [
-                               Text("User Name" , style: TextStyle(fontSize: 20, ),),
-                               SizedBox(height: 5,),
-                               Container(
-                                   width: MediaQuery.of(context).size.width-95,
-                                   child: Text(notifications[index]))
-                             ],
-                           ),
-                         )
+                    child: Column(
+                      children: [
+                        Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 5, left: 300,),
+                              child: Text("2 Apr",),
+                            ),
+                            Row(
+                              children:[
+                               Avatar(size: 65, ImageURL: '',),
+                                 Column(
+                                   children: [
+                                     Text("User Name" , style: TextStyle(fontSize: 20, ),
+                                     ),
+                                     SizedBox(height: 10,),
+                                     Padding(
+                                       padding: const EdgeInsets.only(left: 20,),
+                                       child: Container(
+                                           width: MediaQuery.of(context).size.width-110,
+                                           child: Text(notifications[index], style: TextStyle(fontSize: 13),)),
+                                     )
+                                   ],
+                                 )],
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10, left: 10, top: 25),
+                          child: Row(
+                            children: [
+                              Text(" Marked as read", style: TextStyle(fontSize: 15),),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 240),
+                                child: Icon(FontAwesomeIcons.trashCan, size: 20,),
+                              ),
 
+                            ],
+                          ),
+                        )
 
-                    ],
+                      ],
+
                     ),
                   ),
-            
+
               );
         });
    
