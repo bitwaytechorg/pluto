@@ -184,7 +184,7 @@ class _NotificationPageState extends State<NotificationPage> {
           ),
         ]),
         SizedBox(
-          height: 30,
+          height: 10,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
