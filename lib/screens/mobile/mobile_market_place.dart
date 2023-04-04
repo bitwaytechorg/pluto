@@ -77,5 +77,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
     );
   }
 
-  buildContent() {}
+  buildContent() {
+
+  }
 }

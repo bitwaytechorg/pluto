@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
+import '../../components/UserCard.dart';
 import '../../components/scroll_behaviour.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../home.dart';
@@ -136,44 +137,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 260,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: CONFIG.primaryColor),
-                      color: CONFIG.secondaryColor.withAlpha(20),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Avatar(size: 60, ImageURL: ''),
-                        SizedBox(height: 5,),
-                        Text(petOwners[index], style: TextStyle(
-                          fontSize: 16, color: CONFIG.primaryColor,
-                        )),
-                        SizedBox(height: 5,),
-                       Row(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                           Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-                           SizedBox(width: 3,),
-                           Text("Services: 3", style: TextStyle(
-                             fontSize: 15,
-                           )),
-                         ],
-                       ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
                 },
 
               ),
@@ -197,44 +161,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 260,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: CONFIG.primaryColor),
-                      color: CONFIG.secondaryColor.withAlpha(20),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Avatar(size: 60, ImageURL: ''),
-                        SizedBox(height: 5,),
-                        Text(petOwners[index], style: TextStyle(
-                          fontSize: 16, color: CONFIG.primaryColor,
-                        )),
-                        SizedBox(height: 5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-                            SizedBox(width: 3,),
-                            Text("Services: 3", style: TextStyle(
-                              fontSize: 15,
-                            )),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
                 },
 
               ),
@@ -258,44 +185,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 260,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: CONFIG.primaryColor),
-                      color: CONFIG.secondaryColor.withAlpha(20),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Avatar(size: 60, ImageURL: ''),
-                        SizedBox(height: 5,),
-                        Text(petOwners[index], style: TextStyle(
-                          fontSize: 16, color: CONFIG.primaryColor,
-                        )),
-                        SizedBox(height: 5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-                            SizedBox(width: 3,),
-                            Text("Services: 3", style: TextStyle(
-                              fontSize: 15,
-                            )),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
                 },
 
               ),
@@ -319,44 +209,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 260,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: CONFIG.primaryColor),
-                      color: CONFIG.secondaryColor.withAlpha(20),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Avatar(size: 60, ImageURL: ''),
-                        SizedBox(height: 5,),
-                        Text(petOwners[index], style: TextStyle(
-                          fontSize: 16, color: CONFIG.primaryColor,
-                        )),
-                        SizedBox(height: 5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-                            SizedBox(width: 3,),
-                            Text("Services: 3", style: TextStyle(
-                              fontSize: 15,
-                            )),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
                 },
 
               ),
@@ -380,44 +233,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    height: 260,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: CONFIG.primaryColor),
-                      color: CONFIG.secondaryColor.withAlpha(20),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Avatar(size: 60, ImageURL: ''),
-                        SizedBox(height: 5,),
-                        Text(petOwners[index], style: TextStyle(
-                          fontSize: 16, color: CONFIG.primaryColor,
-                        )),
-                        SizedBox(height: 5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-                            SizedBox(width: 3,),
-                            Text("Services: 3", style: TextStyle(
-                              fontSize: 15,
-                            )),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-                            Text(location[index], style: TextStyle(), softWrap: true, maxLines: 2,)
-                          ],
-                        )
-                      ],
-                    ),
-                  );
+                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
                 },
 
               ),
