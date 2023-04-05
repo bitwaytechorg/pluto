@@ -6,6 +6,7 @@ import 'package:pluto/components/search_bar.dart';
 import '../../components/bottom_menu.dart';
 import '../../components/chips.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import '../../components/productCard.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
@@ -22,6 +23,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
     "responsive",
   ];
 
+  String filter = "grid";
 
   double xOffset = 0;
   double yOffset = 0;
@@ -60,13 +62,39 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                   isDrawerOpen: isDrawerOpen,
                   onTap: toggleMenu,
                   background: Colors.transparent,
-                  secondaryWidget: InkWell(
-                      onTap: (){},
-                      child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          child: Text("Filter"))),
+                  secondaryWidget: Row(
+                    children: [
+                      SearchBar(width: 240, onSearch: (String searchText) {  },),
+                      InkWell(
+                          onTap: ()=> PopupMenuButton<int>(
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                value: 1,
+                                child: Text(
+                                  "List",
+                                  style:
+                                  TextStyle( fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                value: 2,
+                                child: Text(
+                                  "Grid",
+                                  style:
+                                  TextStyle( fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            ],
+                            elevation: 4,
+                            padding: EdgeInsets.symmetric(horizontal: 50),
+                          ),
+                          child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              child: Icon(Icons.filter_list_alt))),
+                    ],
+                  ),
                 ),
-                SearchBar(width: 250, onSearch: (String searchText) {  },),
+
                 Container(
                   height: 60,
                   width: MediaQuery.of(context).size.width,
@@ -105,38 +133,46 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
   buildContent() {
       return Column(children: [
-        Container(
-          height: 70,
-          width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-            border: Border.all(width: 0.5, color: CONFIG.primaryColor),
-          ),
-          child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            Row(children: [
-              Avatar(size: 50, ImageURL: ''),
-              SizedBox(width: 10,),
-              Column(children: [
-                SizedBox(height: 10,),
-                Text("Main Text", style: TextStyle(fontSize: 18),),
-                Text("sec Text",style: TextStyle(fontSize: 15, color: Colors.grey),),
-              ],),
-            ],),
-            Text("More"),
-          ],),
-        ),
+        // Container(
+        //   height: 70,
+        //   width: MediaQuery.of(context).size.width,
+        //   padding: EdgeInsets.symmetric(horizontal: 10),
+        //   decoration: BoxDecoration(
+        //     border: Border.all(width: 0.5, color: CONFIG.primaryColor),
+        //   ),
+        //   child: Row(
+        //      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //     Row(children: [
+        //       Avatar(size: 50, ImageURL: ''),
+        //       SizedBox(width: 10,),
+        //       Column(children: [
+        //         SizedBox(height: 10,),
+        //         Text("Main Text", style: TextStyle(fontSize: 18),),
+        //         Text("sec Text",style: TextStyle(fontSize: 15, color: Colors.grey),),
+        //       ],),
+        //     ],),
+        //     Text("More"),
+        //   ],),
+        // ),
 
         Container(
-          height: 150,
-          width: MediaQuery.of(context).size.width/3,
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-            border: Border.all(width: 0.5, color: CONFIG.primaryColor),
+          height: MediaQuery.of(context).size.height-55,
+          margin: EdgeInsets.symmetric(horizontal: 5),
+          child: GridView.builder(
+            itemCount: 13,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4
+            ),
+
+            itemBuilder: (context, index) => ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
           ),
-          child: Text('userCard'),
         ),
+
+       // ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
+
       ],);
 
   }
