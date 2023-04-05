@@ -138,6 +138,7 @@ class _NotificationPageState extends State<NotificationPage> {
               Divider(color: Colors.grey),
               Expanded(
                 child: SingleChildScrollView(
+
                     physics: ScrollPhysics(), child: buildContent()),
               )
             ],

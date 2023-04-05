@@ -34,7 +34,7 @@ class _ProductCardState extends State<ProductCard> {
           ], ),
         Container(
             margin: EdgeInsets.only(left: 10),
-            child: Align(alignment: Alignment.centerLeft, child: Text(widget.productName, style: TextStyle(fontSize: 17 , ), softWrap: true, maxLines: 2,))),
+            child: Align(alignment: Alignment.centerLeft, child: Text(widget.productName, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 17 , ), softWrap: true, maxLines: 2,))),
         Container(
             margin: EdgeInsets.only(left: 10, top: 7, bottom: 4 ),
             child: Align(alignment: Alignment.centerLeft, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),))),
