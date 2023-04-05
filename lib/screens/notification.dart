@@ -94,7 +94,7 @@ class _NotificationPageState extends State<NotificationPage> {
                             width: 15,
                           ),
                           Text(
-                            "NotificationPages",
+                            "Notifications",
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
@@ -137,9 +137,13 @@ class _NotificationPageState extends State<NotificationPage> {
               ),
               Divider(color: Colors.grey),
               Expanded(
-                child: SingleChildScrollView(
-                    physics: ScrollPhysics(), child: buildContent()),
-              )
+                child: ScrollConfiguration(
+                  behavior: MyBehavior(),
+                  child: SingleChildScrollView(
+                    child: buildContent(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -198,6 +202,7 @@ class _NotificationPageState extends State<NotificationPage> {
         Container(
           child: ListView.builder(
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               itemCount: today.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
@@ -212,6 +217,7 @@ class _NotificationPageState extends State<NotificationPage> {
         ),
         ListView.builder(
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemCount: yesterday.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
@@ -228,6 +234,7 @@ class _NotificationPageState extends State<NotificationPage> {
         ),
         ListView.builder(
             shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             itemCount: thisMonth.length,
             itemBuilder: (BuildContext context, int index) {
               return Container(
