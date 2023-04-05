@@ -3,56 +3,42 @@ import 'package:pluto/config/config.dart' as CONFIG;
 
 import 'avatar.dart';
 
-class UserCard extends StatefulWidget {
-  String name;
-  int services;
-  String location;
-  UserCard({Key? key, required this.name, required this.services, required this.location}) : super(key: key);
+class ProductCard extends StatefulWidget {
+  String productName;
+  double productPrice;
+  ProductCard({Key? key, required this.productName, required this.productPrice}) : super(key: key);
 
   @override
-  State<UserCard> createState() => _UserCardState();
+  State<ProductCard> createState() => _ProductCardState();
 }
 
-class _UserCardState extends State<UserCard> {
+class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      height: 260,
+    return  Container(
+      height: 190,
       width: 150,
+      padding: EdgeInsets.only(left: 10, right: 10, top: 5,),
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: CONFIG.primaryColor),
-        color: CONFIG.secondaryColor.withAlpha(20),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        border: Border.all(width: 0.1, color: CONFIG.primaryColor),
+        borderRadius: BorderRadius.all(Radius.circular(5))
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Avatar(size: 60, ImageURL: ''),
-          SizedBox(height: 5,),
-          Text(widget.name, style: TextStyle(
-            fontSize: 16, color: CONFIG.primaryColor,
-          )),
-          SizedBox(height: 5,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.home_repair_service,size: 18, color: CONFIG.secondaryColor,),
-              SizedBox(width: 3,),
-              Text("Services: ${widget.services}", style: TextStyle(
-                fontSize: 15,
-              )),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-              Text(widget.location, style: TextStyle(), softWrap: true, maxLines: 2,)
-            ],
-          )
-        ],
-      ),
+      child: Column( children: [
+        Stack(
+          children: [
+            Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqwq2r9y2JkZe8KSbEYG6VycyreR0Mop-ZoQ&usqp=CAU',
+             height: 100,
+              width: 120,
+            ),
+            Align(alignment: Alignment.topRight, child: Icon(Icons.favorite_border, color: Colors.pink,)),
+          ], ),
+        Container(
+            margin: EdgeInsets.only(left: 10),
+            child: Align(alignment: Alignment.centerLeft, child: Text(widget.productName, style: TextStyle(fontSize: 17 , ), softWrap: true, maxLines: 2,))),
+        Container(
+            margin: EdgeInsets.only(left: 10, top: 7, bottom: 4 ),
+            child: Align(alignment: Alignment.centerLeft, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),))),
+      ],),
     );
   }
 }
