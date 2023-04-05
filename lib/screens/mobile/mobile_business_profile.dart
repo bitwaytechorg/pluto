@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
 import '../../components/chips.dart';
+import '../../components/post.dart';
+import '../../components/productCard.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
@@ -15,7 +17,7 @@ class Mobile_BusinessProfile extends StatefulWidget {
 }
 
 class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
-  String onTabActive = 'store';
+  String onTabActive = 'product';
   List chips = [
     "#Dog",
     "#Cat",
@@ -274,53 +276,53 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
               children: [
                 Row(
                   children: [
+                    // InkWell(
+                    //   onTap: () {
+                    //     setState(() {
+                    //       onTabActive = "store";
+                    //     });
+                    //   },
+                    //   child: Row(
+                    //     children: [
+                    //       Icon(Icons.store_mall_directory_outlined,size: 30,
+                    //           color: onTabActive == "store"
+                    //               ? CONFIG.primaryColor
+                    //               : Colors.grey),
+                    //       SizedBox(
+                    //         width: 5,
+                    //       ),
+                    //       Text(
+                    //         "Store",
+                    //         style: TextStyle(
+                    //             color: onTabActive == "store"
+                    //                 ? CONFIG.primaryColor
+                    //                 : Colors.grey, fontSize: 15),
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   width: 150,
+                    // ),
                     InkWell(
                       onTap: () {
                         setState(() {
-                          onTabActive = "store";
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Icon(Icons.store_mall_directory_outlined,size: 30,
-                              color: onTabActive == "store"
-                                  ? CONFIG.primaryColor
-                                  : Colors.grey),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Store",
-                            style: TextStyle(
-                                color: onTabActive == "store"
-                                    ? CONFIG.primaryColor
-                                    : Colors.grey, fontSize: 15),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 150,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          onTabActive = "activity";
+                          onTabActive = "product";
                         });
                       },
                       child: Row(
                         children: [
                           Icon(Icons.table_chart,
-                              color: onTabActive == "activity"
+                              color: onTabActive == "product"
                                   ? CONFIG.primaryColor
                                   : Colors.grey),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            "Activity",
+                            "Product",
                             style: TextStyle(
-                                color: onTabActive == "activity"
+                                color: onTabActive == "product"
                                     ? CONFIG.primaryColor
                                     : Colors.grey),
                           )
@@ -329,9 +331,26 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     ),
                   ],
                 ),
+                Icon(CupertinoIcons.slider_horizontal_3, color:Colors.grey),
               ],
             ),
           ),
+          Divider(thickness: 1, endIndent: 5, indent: 5,),
+          Container(
+            height: MediaQuery.of(context).size.height-55,
+            margin: EdgeInsets.symmetric(horizontal: 5),
+            child: GridView.builder(
+              itemCount: 13,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4
+              ),
+
+              itemBuilder: (context, index) => ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
+            ),
+          ),
+
         ],
       ),
     );
