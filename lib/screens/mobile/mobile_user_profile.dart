@@ -216,24 +216,24 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         color: CONFIG.primaryColor),
                   ),
                 ),
-                SizedBox(
-                  width: 20,
-                ),
-                InkWell(
-                  onTap: () => {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: CONFIG.primaryColor,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: CustomBtn(
-                        height: 40,
-                        width: 155,
-                        buttonTitle: "Share Profile",
-                        color: CONFIG.primaryColor),
-                  ),
-                ),
+                // SizedBox(
+                //   width: 20,
+                // ),
+                // InkWell(
+                //   onTap: () => {},
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //       shape: BoxShape.rectangle,
+                //       color: CONFIG.primaryColor,
+                //       borderRadius: BorderRadius.circular(10),
+                //     ),
+                //     child: CustomBtn(
+                //         height: 40,
+                //         width: 155,
+                //         buttonTitle: "Share Profile",
+                //         color: CONFIG.primaryColor),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -273,47 +273,47 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      width: 60,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          onTabActive = "about";
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Icon(Icons.account_box_outlined,
-                              color: onTabActive == "about"
-                                  ? CONFIG.primaryColor
-                                  : Colors.grey),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "About",
-                            style: TextStyle(
-                                color: onTabActive == "about"
-                                    ? CONFIG.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 60,),
+                    // SizedBox(
+                    //   width: 60,
+                    // ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     setState(() {
+                    //       onTabActive = "about";
+                    //     });
+                    //   },
+                    //   child: Row(
+                    //     children: [
+                    //       Icon(Icons.account_box_outlined,
+                    //           color: onTabActive == "about"
+                    //               ? CONFIG.primaryColor
+                    //               : Colors.grey),
+                          // SizedBox(
+                          //   width: 5,
+                          // ),
+                          // Text(
+                          //   "About",
+                          //   style: TextStyle(
+                          //       color: onTabActive == "about"
+                          //           ? CONFIG.primaryColor
+                          //           : Colors.grey),
+                          // )
+                      //   ],
+                      // ),
+                    // ),
+                    SizedBox(width: 100,),
 
                     InkWell(
                       onTap: (){
                         setState(() {
-                          onTabActive="Tag";
+                          onTabActive="Share Profile";
                         });
                       },
                       child: Row(
                         children: [
-                          Icon(FontAwesomeIcons.userTag,size: 20,color:onTabActive=="Tag"?CONFIG.primaryColor:Colors.grey),
+                          Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),
                           SizedBox(width: 5,),
-                          Text("Tag", style: TextStyle(color: onTabActive=="Tag"?CONFIG.primaryColor:Colors.grey),)
+                          Text("Share Profile", style: TextStyle(color: onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),)
                         ],
                       ),
                     ),

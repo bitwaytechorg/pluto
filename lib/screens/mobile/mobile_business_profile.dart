@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/screens/store_page.dart';
 import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
 import '../../components/chips.dart';
@@ -17,7 +18,7 @@ class Mobile_BusinessProfile extends StatefulWidget {
 }
 
 class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
-  String onTabActive = 'product';
+  String onTabActive = 'activity';
   List chips = [
     "#Dog",
     "#Cat",
@@ -63,6 +64,9 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                   borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
               child: Column(children: [
                 TopBar(
+                  title: Padding(
+                      padding: EdgeInsets.only(right: 180, top: 5),
+                      child: Text("Business Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
                   onTap: () => Navigator.pop(context),
@@ -230,7 +234,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
             child: Row(
               children: [
                 InkWell(
-                  onTap: () => {},
+                  onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Store()),)},
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -240,7 +244,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     child: CustomBtn(
                         height: 40,
                         width: 155,
-                        buttonTitle: "Store",
+                        buttonTitle: "Follow ",
                         color: CONFIG.primaryColor),
                   ),
                 ),
@@ -258,7 +262,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     child: CustomBtn(
                         height: 40,
                         width: 155,
-                        buttonTitle: "",
+                        buttonTitle: "Store",
                         color: CONFIG.primaryColor),
                   ),
                 ),
@@ -307,22 +311,22 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     InkWell(
                       onTap: () {
                         setState(() {
-                          onTabActive = "product";
+                          onTabActive = "activity";
                         });
                       },
                       child: Row(
                         children: [
                           Icon(Icons.table_chart,
-                              color: onTabActive == "product"
+                              color: onTabActive == "activity"
                                   ? CONFIG.primaryColor
                                   : Colors.grey),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            "Product",
+                            "Activity",
                             style: TextStyle(
-                                color: onTabActive == "product"
+                                color: onTabActive == "activity"
                                     ? CONFIG.primaryColor
                                     : Colors.grey),
                           )
