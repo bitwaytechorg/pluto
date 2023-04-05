@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/search_bar.dart';
+import 'package:pluto/screens/product_detail.dart';
 
 import '../../components/bottom_menu.dart';
 import '../../components/chips.dart';
@@ -167,7 +167,11 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
               crossAxisSpacing: 4
             ),
 
-            itemBuilder: (context, index) => ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
+            itemBuilder: (context, index) => InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
+              },
+                child: ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,)),
           ),
         ),
 

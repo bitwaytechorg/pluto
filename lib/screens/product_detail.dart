@@ -4,12 +4,14 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/tablet/tablet_product_detail.dart';
 import 'package:pluto/screens/web/web_product_detail.dart';
 
-class Mobile_product_detail extends StatefulWidget{
+import 'mobile/mobile_product_detail.dart';
+
+class Product_detail extends StatefulWidget{
   @override
-  Mobile_product_detailState createState()=>Mobile_product_detailState();
+  Product_detailState createState()=>Product_detailState();
 }
 
-class Mobile_product_detailState extends State<Mobile_product_detail>{
+class Product_detailState extends State<Product_detail>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
