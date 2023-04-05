@@ -22,7 +22,8 @@ class _ProductCardState extends State<ProductCard> {
       padding: EdgeInsets.only(left: 10, right: 10, top: 5,),
       decoration: BoxDecoration(
         border: Border.all(width: 0.1, color: CONFIG.primaryColor),
-        borderRadius: BorderRadius.all(Radius.circular(5))
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+        color: Colors.grey.shade50,
       ),
       child: Column( children: [
         Stack(

@@ -4,6 +4,7 @@ import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
 import '../../components/UserCard.dart';
+import '../../components/cText.dart';
 import '../../components/scroll_behaviour.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../home.dart';
@@ -96,7 +97,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               ],
             ),
           ),
-          Divider(color: Colors.grey,),
+          Container(height:0.3,width: MediaQuery.of(context).size.width, color: Colors.grey,),
           Expanded(
             child: ScrollConfiguration(
               behavior: MyBehavior(),
@@ -124,9 +125,9 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Breeders", style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.w500,
-                ),),
+                child: CText(text:"Breaders",
+                  fontSize: 25, fontWeight: FontWeight.w400,
+                ),
               ),
             ),
             Container(
@@ -148,9 +149,9 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Grooming", style: TextStyle(
+                child: CText(text:"Grooming",
                   fontSize: 25, fontWeight: FontWeight.w400,
-                ),),
+                ),
               ),
             ),
             Container(
@@ -172,9 +173,9 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Pets trainers", style: TextStyle(
+                child: CText(text:"Pets Trainers",
                   fontSize: 25, fontWeight: FontWeight.w400,
-                ),),
+                ),
               ),
             ),
             Container(
@@ -196,9 +197,9 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Veterinary doctors", style: TextStyle(
+                child: CText(text:"Veterinary doctors",
                   fontSize: 25, fontWeight: FontWeight.w400,
-                ),),
+                 ),
               ),
             ),
             Container(
@@ -220,9 +221,9 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
               padding: const EdgeInsets.only(left: 10, bottom: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Pet walkers", style: TextStyle(
+                child: CText(text:"Pet walkers",
                   fontSize: 25, fontWeight: FontWeight.w400,
-                ),),
+                ),
               ),
             ),
             Container(

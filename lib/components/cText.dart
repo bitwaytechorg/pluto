@@ -17,7 +17,7 @@ class CText extends StatelessWidget {
       fontWeight: fontWeight,
       color: color,
     ),
-    softWrap: true,
+     softWrap: true,
       overflow: TextOverflow.ellipsis ,
       maxLines: maxLines,
     );
