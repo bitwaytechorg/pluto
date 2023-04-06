@@ -8,6 +8,7 @@ import '../../components/cText.dart';
 import '../../components/scroll_behaviour.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../home.dart';
+import 'mobile_Profile.dart';
 
 class Mobile_PetFinder extends StatefulWidget {
   @override
@@ -138,7 +139,12 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Mobile_Profile()));
+                    },
+                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -162,7 +168,12 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
+                  return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => Mobile_Profile()));
+                      },
+                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -186,7 +197,12 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
+                  return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => Mobile_Profile()));
+                      },
+                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -210,7 +226,12 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
+                  return InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => Mobile_Profile()));
+                      },
+                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -234,7 +255,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
-                  return UserCard(name: petOwners[index], services: 3, location: location[index],);
+                  return InkWell(child: UserCard(name: petOwners[index], services: 3, location: location[index],));
                 },
 
               ),
