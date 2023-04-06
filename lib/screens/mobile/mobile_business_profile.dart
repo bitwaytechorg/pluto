@@ -215,6 +215,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
             width: MediaQuery.of(context).size.width,
             child: ListView.builder(
                 shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: chips.length,
                 itemBuilder: (context, index) {
@@ -234,7 +235,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
             child: Row(
               children: [
                 InkWell(
-                  onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Store()),)},
+                  onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StoreInfo()),)},
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -244,7 +245,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     child: CustomBtn(
                         height: 40,
                         width: 155,
-                        buttonTitle: "Follow ",
+                        buttonTitle: "Store ",
                         color: CONFIG.primaryColor),
                   ),
                 ),
@@ -262,7 +263,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                     child: CustomBtn(
                         height: 40,
                         width: 155,
-                        buttonTitle: "Store",
+                        buttonTitle: "Follow",
                         color: CONFIG.primaryColor),
                   ),
                 ),
