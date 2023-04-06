@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/screens/store_page.dart';
 
+import '../components/Btns/customBtn.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
 import 'business_profile.dart';
+import 'package:pluto/config/config.dart'as CONFIG;
 
 class AddProductForm extends StatefulWidget {
   const AddProductForm({Key? key}) : super(key: key);
@@ -111,6 +113,47 @@ class _AddProductFormState extends State<AddProductForm> {
           TextField(
             decoration: InputDecoration(
               hintText: 'options',
+            ),
+          ),
+          SizedBox(height: 40,),
+          Padding(
+            padding: EdgeInsets.only(left: 10, right: 8, top: 15),
+            child: Row(
+              children: [
+                InkWell(
+                  onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Business_Profile()),)},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: CONFIG.primaryColor,
+                      //borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: CustomBtn(
+                        height: 40,
+                        width: 155,
+                        buttonTitle: "Add Product",
+                        color: CONFIG.primaryColor),
+                  ),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                InkWell(
+                  onTap: () => {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: CONFIG.primaryColor,
+                     // borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: CustomBtn(
+                        height: 40,
+                        width: 155,
+                        buttonTitle: "",
+                        color: CONFIG.primaryColor),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

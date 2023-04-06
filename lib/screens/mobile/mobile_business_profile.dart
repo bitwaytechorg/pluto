@@ -341,20 +341,20 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
             ),
           ),
           Divider(thickness: 1, endIndent: 5, indent: 5,),
-          Container(
-            height: MediaQuery.of(context).size.height-55,
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            child: GridView.builder(
-              itemCount: 13,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4
-              ),
-
-              itemBuilder: (context, index) => ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
-            ),
-          ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height-55,
+          //   margin: EdgeInsets.symmetric(horizontal: 5),
+          //   child: GridView.builder(
+          //     itemCount: 13,
+          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 2,
+          //         mainAxisSpacing: 4,
+          //         crossAxisSpacing: 4
+          //     ),
+          //
+          //     itemBuilder: (context, index) => ProductCard(productName: 'Good for food hghj gjk hiuh', productPrice: 435,),
+          //   ),
+          // ),
 
         ],
       ),
