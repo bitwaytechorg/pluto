@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/bottom_menu.dart';
-import 'package:pluto/components/notification_alert.dart';
+import 'package:pluto/components/post.dart';
 import 'package:pluto/components/slider_menu.dart';
-
 import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
+import '../home.dart';
 
 class MobileHome extends StatefulWidget {
   @override
@@ -48,15 +48,11 @@ class MobileHomeState extends State<MobileHome> {
               child: Column(children: [
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
-                  onTap: toggleMenu,
+                  isMainPage: false,
+                  onTap: () => Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Home())),
                   background: Colors.transparent,
-                  secondaryWidget: InkWell(
-                    onTap: () => {},
-                    child: Container(
-                        margin: EdgeInsets.only(top: 3, right: 5),
-                      child: NotificationAlert(),
-                        )),
-                  ),
+                ),
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -77,5 +73,15 @@ class MobileHomeState extends State<MobileHome> {
     );
   }
 
-  buildContent() {}
+  buildContent() {
+    return Column(
+      children: [
+        PostSection(),
+        PostSection(),
+        PostSection(),
+
+
+      ],
+    );
+  }
 }

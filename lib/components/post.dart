@@ -45,7 +45,7 @@ class _PostSectionState extends State<PostSection> {
           ),
           Custom_Image(imageUrl: 'https://www.dogstrust.org.uk/images/800x600/assets/2022-08/sophia_sophie_sbt_puppies_leeds_dogstrust.jpg',),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -54,6 +54,7 @@ class _PostSectionState extends State<PostSection> {
                    Row(
                      children: [
                        Icon(Icons.thumb_up, color: Colors.black.withAlpha(140),size: 20,),
+                       SizedBox(width: 5,),
                        Text("300"),
                      ],
                    ),
@@ -61,6 +62,7 @@ class _PostSectionState extends State<PostSection> {
                      children: [
                        SizedBox(width: 15,),
                        Icon(Icons.thumb_down, color: Colors.black.withAlpha(140),size: 20,),
+                       SizedBox(width: 5,),
                        Text("138")
                      ],
                    ),
@@ -68,13 +70,14 @@ class _PostSectionState extends State<PostSection> {
                      children: [
                        SizedBox(width: 15,),
                        Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,),
+                       SizedBox(width:5,),
                        Text("35")
                      ],
                    ),
 
                  ],
                ),
-                Icon(Icons.share, color: Colors.black.withAlpha(140),),
+                Icon(Icons.share, size: 20, color: Colors.black.withAlpha(140),),
 
               ],
             ),
