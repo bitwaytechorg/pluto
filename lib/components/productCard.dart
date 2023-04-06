@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
 import 'avatar.dart';
+import 'cText.dart';
 
 class ProductCard extends StatefulWidget {
   String productName;
@@ -21,7 +22,8 @@ class _ProductCardState extends State<ProductCard> {
       padding: EdgeInsets.only(left: 10, right: 10, top: 5,),
       decoration: BoxDecoration(
         border: Border.all(width: 0.1, color: CONFIG.primaryColor),
-        borderRadius: BorderRadius.all(Radius.circular(5))
+        borderRadius: BorderRadius.all(Radius.circular(5)),
+        color: Colors.grey.shade50,
       ),
       child: Column( children: [
         Stack(
@@ -34,7 +36,7 @@ class _ProductCardState extends State<ProductCard> {
           ], ),
         Container(
             margin: EdgeInsets.only(left: 10),
-            child: Align(alignment: Alignment.centerLeft, child: Text(widget.productName, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 17 , ), softWrap: true, maxLines: 2,))),
+            child: Align(alignment: Alignment.centerLeft, child: CText(text:widget.productName, maxLines: 2, fontSize: 17,))),
         Container(
             margin: EdgeInsets.only(left: 10, top: 7, bottom: 4 ),
             child: Align(alignment: Alignment.centerLeft, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),))),

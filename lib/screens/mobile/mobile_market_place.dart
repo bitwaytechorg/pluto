@@ -98,6 +98,9 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                 Container(
                   height: 60,
                   width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 0.3, color: Colors.grey),)
+                  ),
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -110,7 +113,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                       }
                   ),
                 ),
-                Divider(),
+
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -157,7 +160,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
         // ),
 
         Container(
-          height: MediaQuery.of(context).size.height-55,
+          height: MediaQuery.of(context).size.height-250,
           margin: EdgeInsets.symmetric(horizontal: 5),
           child: GridView.builder(
             itemCount: 13,

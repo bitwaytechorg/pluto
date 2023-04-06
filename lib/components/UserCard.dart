@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
 import 'avatar.dart';
+import 'cText.dart';
 
 class UserCard extends StatefulWidget {
   String name;
@@ -21,8 +22,8 @@ class _UserCardState extends State<UserCard> {
       height: 260,
       width: 150,
       decoration: BoxDecoration(
-        border: Border.all(width: 1, color: CONFIG.primaryColor),
-        color: CONFIG.secondaryColor.withAlpha(20),
+        border: Border.all( width: 0.3, color: CONFIG.primaryColor),
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
@@ -44,11 +45,13 @@ class _UserCardState extends State<UserCard> {
               )),
             ],
           ),
+          SizedBox(height: 5,),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.location_on,size: 18, color: CONFIG.secondaryColor,),
-              Text(widget.location, style: TextStyle(), softWrap: true, maxLines: 2,)
+              CText(text:widget.location, fontSize: 15, maxLines: 2,)
             ],
           )
         ],
