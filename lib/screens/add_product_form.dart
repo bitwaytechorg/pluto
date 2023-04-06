@@ -117,7 +117,7 @@ class _AddProductFormState extends State<AddProductForm> {
           ),
           SizedBox(height: 40,),
           Padding(
-            padding: EdgeInsets.only(left: 10, right: 8, top: 15),
+            padding: EdgeInsets.only(left: 100, right: 50, top: 20),
             child: Row(
               children: [
                 InkWell(
@@ -135,26 +135,8 @@ class _AddProductFormState extends State<AddProductForm> {
                         color: CONFIG.primaryColor),
                   ),
                 ),
-                SizedBox(
-                  width: 30,
-                ),
-                InkWell(
-                  onTap: () => {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: CONFIG.primaryColor,
-                     // borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: CustomBtn(
-                        height: 40,
-                        width: 155,
-                        buttonTitle: "",
-                        color: CONFIG.primaryColor),
-                  ),
-                ),
-              ],
-            ),
+    ],
+              ),
           ),
         ],
       ),

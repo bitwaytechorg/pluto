@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
+import 'package:pluto/screens/user_profile_form.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
@@ -197,12 +198,13 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
               ),
             ),
           ),
+          SizedBox(height: 10,),
           Padding(
             padding: EdgeInsets.only(left: 10, right: 8, top: 15),
             child: Row(
               children: [
                 InkWell(
-                  onTap: () => {},
+                  onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> UserProfileForm())),
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -301,7 +303,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                       //   ],
                       // ),
                     // ),
-                    SizedBox(width: 100,),
+                    SizedBox(width: 150,),
 
                     InkWell(
                       onTap: (){

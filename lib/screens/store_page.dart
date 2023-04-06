@@ -17,6 +17,13 @@ class StoreInfo extends StatefulWidget {
 }
 
 class StoreInfoState extends State<StoreInfo> {
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
@@ -81,10 +88,10 @@ class StoreInfoState extends State<StoreInfo> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 20,),
+                      SizedBox(width: 30,),
                       Container(
-                        margin: EdgeInsets.only(top: 5),
-                              child: Icon(Icons.more_vert_sharp)),
+                        margin: EdgeInsets.only(top: 5, right: 2),
+                              child: Icon(Icons.settings)),
     ],
                   ),
                 ),
