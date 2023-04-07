@@ -54,6 +54,10 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                   borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
               child: Column(children: [
                 TopBar(
+                  title: Padding(
+                    padding: const EdgeInsets.only(right: 250, top: 7),
+                    child: Text("Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  ),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
                   onTap: () => Navigator.pushReplacement(
