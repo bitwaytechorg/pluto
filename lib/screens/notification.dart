@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../components/avatar.dart';
+import '../components/cText.dart';
 import '../components/scroll_behaviour.dart';
 import 'package:pluto/components/notification.dart';
 import 'home.dart';
@@ -14,35 +15,35 @@ class NotificationPage extends StatefulWidget {
 class _NotificationPageState extends State<NotificationPage> {
   List today = [
     "new massage",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
+    "Today It is used to develop applications Today It is used to develop applications Today It is used to develop applications",
+    "Today It is  to develop applications",
+    "Today It is used to develop applications",
+    "Today It is used to develop applications",
   ];
 
   List yesterday = [
     "new massage",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
+    "yesterday It is used to develop applications",
+    "yesterday It is used to develop applications",
+    "yesterday It is used to develop applications",
+    "yesterday It is used to develop applications",
   ];
 
   List thisMonth = [
     "new massage",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
+    "thisMonth It is used to develop applications",
+    "thisMonth It is used to develop applications",
+    "thisMonth It is used to develop applications",
+    "thisMonth It is used to develop applications",
   ];
 
   List Notification = [
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
-    "It is used to develop applications",
+    "Notification It is used to develop applications",
+    "Notification It is used to develop applications",
+    "Notification It is used to develop applications",
+    "Notification It is used to develop applications",
+    "Notification It is used to develop applications",
+    "Notification It is used to develop applications",
     "It is used to develop applications",
     "It is used to develop applications",
     "It is used to develop applications",
@@ -94,7 +95,7 @@ class _NotificationPageState extends State<NotificationPage> {
                             width: 15,
                           ),
                           Text(
-                            "NotificationPages",
+                            "Notifications",
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
@@ -154,50 +155,39 @@ class _NotificationPageState extends State<NotificationPage> {
   buildContent() {
     return Column(
       children: [
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Flexible(
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: Avatar(
-                  size: 80,
-                  ImageURL:
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
+        Container(
+          margin: EdgeInsets.only(left: 15, top: 10, bottom: 5),
+          child: Row( children: [
+            Avatar(
+                size: 60,
+                ImageURL:
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
+            SizedBox(width: 10,),
+            Container(
+              child: Column(
+                children: [
+                  Align( alignment: Alignment.centerLeft,
+                    child: Container(
+                      width: 150,
+                      child: CText( text:"Follow Request", fontSize: 17, fontWeight: FontWeight.w600,),
+                    ),
+                  ),
+                  SizedBox(height: 3,),
+                  CText( text:"Approve or ignore request", fontSize: 13,),
+                ],
+              ),
             ),
-          ),
-          Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 200, bottom: 5),
-                  child: Text(
-                    "Follow Request",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 145,
-                  ),
-                  child: Text(
-                    "Approve or ignore request",
-                    style: TextStyle(fontSize: 13),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ]),
+          ]),
+        ),
         SizedBox(
           height: 10,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
+          padding: const EdgeInsets.only(left: 25, top: 5,bottom: 10),
           child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Today",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )),
+              child: CText( text:"Today", fontSize: 17, fontWeight: FontWeight.w600,)
+          ),
         ),
         Container(
           child: ListView.builder(
@@ -207,13 +197,15 @@ class _NotificationPageState extends State<NotificationPage> {
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   child: NotificationItems(
-                      notification: Notification[index], time: time[index]),
+                      notification: today[index], time: time[index]),
                 );
               }),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
-          child: Align(alignment: Alignment.centerLeft, child: Text("Yesterday", style: TextStyle(fontWeight: FontWeight.bold))),
+          padding: const EdgeInsets.only(left: 25, top: 15, bottom: 10 ),
+          child: Align(alignment: Alignment.centerLeft,
+              child: CText(text:"Yesterday", fontSize: 17, fontWeight: FontWeight.w600,)
+          ),
         ),
         ListView.builder(
           shrinkWrap: true,
@@ -222,15 +214,17 @@ class _NotificationPageState extends State<NotificationPage> {
           itemBuilder: (BuildContext context, int index) {
             return Container(
               child: NotificationItems(
-                notification: Notification[index],
+                notification: yesterday[index],
                 time: time[index],
               ),
             );
           },
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
-          child: Align(alignment: Alignment.centerLeft, child: Text("This Month",style: TextStyle(fontWeight: FontWeight.bold))),
+          padding: const EdgeInsets.only(left: 25, top: 15, bottom: 10),
+          child: Align(alignment: Alignment.centerLeft,
+              child: CText(text:"This Month", fontSize: 17, fontWeight: FontWeight.w600,)
+          ),
         ),
         ListView.builder(
             shrinkWrap: true,
@@ -239,7 +233,7 @@ class _NotificationPageState extends State<NotificationPage> {
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 child: NotificationItems(
-                  notification: Notification[index],
+                  notification: thisMonth[index],
                   time: time[index],
                 ),
               );

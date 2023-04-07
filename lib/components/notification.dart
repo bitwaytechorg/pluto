@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'avatar.dart';
+import 'cText.dart';
 import 'notification.dart';
 
 class NotificationItems extends StatefulWidget {
@@ -16,23 +17,29 @@ class _NotificationItemsState extends State<NotificationItems> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8),
       child: Container(child: Column(
         children: [
           Container(
-            height: 50,
+            padding: EdgeInsets.only(bottom: 5),
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(width: 0.1)),
+              color: Colors.grey.withAlpha(10)
+            ),
+            height: 60,
             child: Row(
               children: [
                 Padding(
                   padding:EdgeInsets.only(top: 5, left: 15),
                   child: Avatar(size: 40, ImageURL: ""),
                 ),
-                Padding(
-                    padding: EdgeInsets.only(left: 15, ),
-                    child: Text( widget.notification)),
+                Container(
+                  width: MediaQuery.of(context).size.width-160,
+                    padding:EdgeInsets.only(top: 5, left: 15),
+                    child: CText( text:widget.notification, fontSize: 15, maxLines: 2,)),
                 Padding(
                   padding: const EdgeInsets.only(left: 50),
-                  child: Text(widget.time),
+                  child:CText( text:widget.time, fontSize: 13,),
                 ),
               ],
             ),

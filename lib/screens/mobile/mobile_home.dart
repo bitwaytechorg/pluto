@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/post.dart';
 import 'package:pluto/components/slider_menu.dart';
+import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
 import '../home.dart';
@@ -48,10 +49,14 @@ class MobileHomeState extends State<MobileHome> {
               child: Column(children: [
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
-                  isMainPage: false,
-                  onTap: () => Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => Home())),
+                  onTap: toggleMenu,
                   background: Colors.transparent,
+                  secondaryWidget: InkWell(
+                      onTap: () => {},
+                      child: Container(
+                        margin: EdgeInsets.only(top: 3, right: 5),
+                        child: NotificationAlert(),
+                      )),
                 ),
                 Expanded(
                   child: ScrollConfiguration(

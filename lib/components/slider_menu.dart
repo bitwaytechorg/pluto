@@ -31,9 +31,7 @@ class Slider_menu extends StatelessWidget {
                 height: 100,
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(bottom: 20),
-                child: Avatar(
-                  size: 100,
-                  ImageURL: SESSION.profileUrl,
+                child: Avatar( size: 100, ImageURL: SESSION.profileUrl,
                 ),
               ),
             ),
