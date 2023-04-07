@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/custom_image.dart';
-import 'package:pluto/models/post.dart';
+
+
+import 'cText.dart';
 
 class PostSection extends StatefulWidget {
   @override
@@ -22,19 +24,18 @@ class _PostSectionState extends State<PostSection> {
                Avatar(size: 50, ImageURL: 'https://people.com/thmb/SL7_3mF5irtEm4Kz8f63FWDrmPA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/dog-dating-1-a1a34ab3445740fcadf8699850c8333b.jpg'),
                SizedBox(width: 10,),
                Container(
-                 width: MediaQuery.of(context).size.width-240,
+                 width: MediaQuery.of(context).size.width-200,
                  child: Column(
-                   mainAxisAlignment: MainAxisAlignment.start,
                    children: [
-                     Text("Dileep Kumar", style: TextStyle(color: Colors.black.withAlpha(160), fontSize: 18),),
-                     Text("Pets seller ", style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),)
+                     Container( width: MediaQuery.of(context).size.width, child: CText(text:"Dileep Kumar")),
+                     Container(width: MediaQuery.of(context).size.width, child: CText(text:"4h ago", fontSize: 12,)),
                    ],
                  ),
                ),
              ],),
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: Icon(Icons.more_horiz),
+                child: Icon(Icons.more_vert),
               ),
             ],
           ),

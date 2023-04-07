@@ -8,7 +8,8 @@ class UserCard extends StatefulWidget {
   String name;
   int services;
   String location;
-   UserCard({Key? key, required this.name, required this.services, required this.location}) : super(key: key);
+  String profileURL;
+   UserCard({Key? key, required this.name, required this.services, required this.location, this.profileURL=''}) : super(key: key);
 
   @override
   State<UserCard> createState() => _UserCardState();
@@ -29,8 +30,8 @@ class _UserCardState extends State<UserCard> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Avatar(size: 60, ImageURL: ''),
-          SizedBox(height: 5,),
+          Avatar(size: 80, ImageURL:widget.profileURL),
+          SizedBox(height: 10,),
           Text(widget.name, style: TextStyle(
             fontSize: 16, color: CONFIG.primaryColor,
           )),

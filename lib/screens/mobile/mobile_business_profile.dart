@@ -4,10 +4,7 @@ import 'package:pluto/screens/store_page.dart';
 import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
 import '../../components/chips.dart';
-import '../../components/post.dart';
-import '../../components/productCard.dart';
 import '../../components/scroll_behaviour.dart';
-import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
@@ -64,9 +61,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                   borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
               child: Column(children: [
                 TopBar(
-                  title: Padding(
-                      padding: EdgeInsets.only(right: 180, top: 5),
-                      child: Text("Business Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
+                  title: Text("Business Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
                   onTap: () => Navigator.pop(context),

@@ -5,9 +5,10 @@ import 'avatar.dart';
 import 'cText.dart';
 
 class ProductCard extends StatefulWidget {
+  String itemPic;
   String productName;
   double productPrice;
-  ProductCard({Key? key, required this.productName, required this.productPrice}) : super(key: key);
+  ProductCard({Key? key, required this.productName, required this.productPrice, this.itemPic=''}) : super(key: key);
 
   @override
   State<ProductCard> createState() => _ProductCardState();
@@ -28,7 +29,7 @@ class _ProductCardState extends State<ProductCard> {
       child: Column( children: [
         Stack(
           children: [
-            Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqwq2r9y2JkZe8KSbEYG6VycyreR0Mop-ZoQ&usqp=CAU',
+            Image.network(widget.itemPic,
              height: 100,
               width: 120,
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
 import '../../components/UserCard.dart';
@@ -16,6 +15,39 @@ class Mobile_PetFinder extends StatefulWidget {
 }
 
 class Mobile_PetFinderState extends State<Mobile_PetFinder> {
+
+  List profileURL=[
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg",
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg",
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg",
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg",
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg",
+    "https://images.unsplash.com/photo-1587402092301-725e37c70fd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+    "https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160",
+    "https://paradepets.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg",
+    "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/11/11/Pictures/_b39a21a8-e577-11e8-bdc4-2ad11fc65eb2.jpg"
+  ];
 
   List petOwners = [
     "Dileep Kumar","Aaryan",
@@ -144,7 +176,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => Mobile_Profile()));
                     },
-                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
+                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -173,7 +205,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                         Navigator.push(context, MaterialPageRoute(
                             builder: (context) => Mobile_Profile()));
                       },
-                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
+                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -202,7 +234,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                         Navigator.push(context, MaterialPageRoute(
                             builder: (context) => Mobile_Profile()));
                       },
-                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
+                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
                 },
 
               ),
@@ -231,7 +263,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                         Navigator.push(context, MaterialPageRoute(
                             builder: (context) => Mobile_Profile()));
                       },
-                      child: UserCard(name: petOwners[index], services: 3, location: location[index],));
+                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
                 },
 
               ),
