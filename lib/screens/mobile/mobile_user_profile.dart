@@ -92,7 +92,9 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                 child: Avatar(
                     size: 100,
                     ImageURL:
-                        "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"),
+                        // "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"
+                  SESSION.profileUrl
+                  ),
               ),
               Expanded(
                 child: Padding(
