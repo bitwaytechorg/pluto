@@ -245,7 +245,7 @@ class UserProfileFormState extends State<UserProfileForm> {
 
           //add button to edit
                   Padding(
-                    padding: EdgeInsets.only(left: 50, right: 50),
+                    padding: EdgeInsets.only(left: 130, right: 50, top: 10),
                     child: ElevatedButton(
                         onPressed: () async {
                           SESSION.firstName = firstname.text.toString();
