@@ -117,14 +117,14 @@ class UserProfileFormState extends State<UserProfileForm> {
         children: [
           //show top area
           Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 30),
             child: Column(
               children: [
                 InkWell(
                     onTap:(){
                       pickImage();
                     },
-                    child:Avatar(size: 100, ImageURL: SESSION.profileUrl, ImageFile: file,isFile: file.path!=""?true:false,)),
+                    child:Avatar(size: 200, ImageURL: SESSION.profileUrl, ImageFile: file,isFile: file.path!=""?true:false,)),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
@@ -156,7 +156,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 10, top: 15, bottom: 10),
+                              left: 10, top: 10, bottom: 10),
                           child: Text(
                             "First Name",
                             style: Theme.of(context).textTheme.caption,
@@ -245,7 +245,7 @@ class UserProfileFormState extends State<UserProfileForm> {
 
           //add button to edit
                   Padding(
-                    padding: EdgeInsets.only(left: 130, right: 50, top: 10),
+                    padding: EdgeInsets.only(left: 120, right: 50, top: 10),
                     child: ElevatedButton(
                         onPressed: () async {
                           SESSION.firstName = firstname.text.toString();
