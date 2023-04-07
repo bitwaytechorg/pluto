@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,8 +10,9 @@ import '../components/avatar.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
-import 'package:pluto/global/session.dart'as SESSION;
-import 'package:pluto/config/config.dart'as CONFIG;
+import 'package:pluto/global/session.dart' as SESSION;
+import 'package:pluto/config/config.dart' as CONFIG;
+import 'dart:io' as io;
 
 class UserProfileForm extends StatefulWidget {
   const UserProfileForm({Key? key}) : super(key: key);
@@ -20,16 +22,16 @@ class UserProfileForm extends StatefulWidget {
 }
 
 class UserProfileFormState extends State<UserProfileForm> {
-  String onTabActive = 'activity';
-
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
   bool isDrawerOpen = false;
-  XFile file=XFile("");
-  String filePath="";
+
+  XFile file = XFile("");
+  String filePath = "";
   final ImagePicker _picker = ImagePicker();
-  String message ="";
+  late UploadTask uploadTask;
+  String message = "";
 
   void toggleMenu() {
     bool tmpStatus = !isDrawerOpen;
@@ -40,6 +42,7 @@ class UserProfileFormState extends State<UserProfileForm> {
       isDrawerOpen = tmpStatus;
     });
   }
+
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -51,8 +54,8 @@ class UserProfileFormState extends State<UserProfileForm> {
     lastname.text = SESSION.lastName;
     email.text = SESSION.email;
     phone.text = SESSION.phoneNumber;
-
   }
+
   Future<void> pickImage() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
@@ -91,7 +94,9 @@ class UserProfileFormState extends State<UserProfileForm> {
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
                   onTap: () => Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => Mobile_UserProfile())),
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Mobile_UserProfile())),
                   background: Colors.transparent,
                 ),
                 Expanded(
@@ -121,14 +126,19 @@ class UserProfileFormState extends State<UserProfileForm> {
             child: Column(
               children: [
                 InkWell(
-                    onTap:(){
+                    onTap: () {
                       pickImage();
                     },
-                    child:Avatar(size: 200, ImageURL: SESSION.profileUrl, ImageFile: file,isFile: file.path!=""?true:false,)),
+                    child: Avatar(
+                      size: 200,
+                      ImageURL: SESSION.profileUrl,
+                      ImageFile: file,
+                      isFile: file.path != "" ? true : false,
+                    )),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    SESSION.firstName+" "+SESSION.lastName,
+                    SESSION.firstName + " " + SESSION.lastName,
                     style: Theme.of(context)
                         .textTheme
                         .headline6!
@@ -138,13 +148,17 @@ class UserProfileFormState extends State<UserProfileForm> {
               ],
             ),
           ),
-          Divider( color: CONFIG.primaryColor, indent: 20, endIndent: 20,),
+          Divider(
+            color: CONFIG.primaryColor,
+            indent: 20,
+            endIndent: 20,
+          ),
           Container(
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                     decoration: BoxDecoration(
@@ -230,7 +244,6 @@ class UserProfileFormState extends State<UserProfileForm> {
                             style: Theme.of(context).textTheme.caption,
                           ),
                         ),
-
                         TextFormField(
                           controller: dob,
                           decoration: InputDecoration(
@@ -240,44 +253,73 @@ class UserProfileFormState extends State<UserProfileForm> {
                             hintText: SESSION.dob,
                           ),
                         ),
-                ],
-              )),
+                      ],
+                    )),
 
-          //add button to edit
-                  Padding(
-                    padding: EdgeInsets.only(left: 120, right: 50, top: 10),
-                    child: ElevatedButton(
-                        onPressed: () async {
-                          SESSION.firstName = firstname.text.toString();
-                          SESSION.lastName = lastname.text;
-                          SESSION.email = email.text;
-                          SESSION.phoneNumber = phone.text;
-                          SESSION.dob = dob.text;
+                //add button to edit
+                Padding(
+                  padding: const EdgeInsets.only(left: 120),
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        if (file.path != "") {
+                          //upload file
+                          Reference ref = FirebaseStorage.instance
+                              .ref('display-picture/' + file.name);
+                          final metadata = SettableMetadata(
+                            contentType: file.mimeType,
+                          );
+                          uploadTask = ref.putFile(io.File(file.path), metadata);
+                          uploadTask.snapshotEvents.listen((event) async {
+                            double progress = (event.bytesTransferred.toDouble() /
+                                    event.totalBytes.toDouble()) *
+                                100;
 
-                          //save in database
-                          await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).update({
-                            "firstName": SESSION.firstName,
-                            "lastName": SESSION.lastName,
-                            "email": SESSION.email,
-                            "phoneNumber": SESSION.phoneNumber,
-                            "gender":SESSION.gender,
-                            "dob": SESSION.dob
+                            setState(() {
+                              message =
+                                  "Uploading Image...${progress.floor().toString()}%";
+                            });
+                            if (event.state == TaskState.success) {
+                              String tmp_path = await ref.getDownloadURL();
+                              SESSION.profileUrl = tmp_path;
+                              FirebaseFirestore.instance
+                                  .collection("users")
+                                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                                  .update({"profilePhoto": SESSION.profileUrl});
+                              setState(() {
+                                message = "Image Uploaded!";
+                              });
+                            }
                           });
-                          setState(() {
-                            message="Profile Updated!";
+                        }
+                        SESSION.firstName = firstname.text.toString();
+                        SESSION.lastName = lastname.text;
+                        SESSION.email = email.text;
+                        SESSION.phoneNumber = phone.text;
+                        SESSION.dob = dob.text;
 
-                          });
-                        },
-                        child: Text("Update")),
-                  ),
-
+                        //save in database
+                        await FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(FirebaseAuth.instance.currentUser!.uid)
+                            .update({
+                          "firstName": SESSION.firstName,
+                          "lastName": SESSION.lastName,
+                          "email": SESSION.email,
+                          "phoneNumber": SESSION.phoneNumber,
+                          "gender": SESSION.gender,
+                          "dob": SESSION.dob
+                        });
+                        setState(() {
+                          message = "Profile Updated!";
+                        });
+                      },
+                      child: Text("Update")),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
-    ),
-
-    ],
-    ),
     );
-
   }
-  }
+}
