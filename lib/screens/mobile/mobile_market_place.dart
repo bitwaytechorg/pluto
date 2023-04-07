@@ -32,8 +32,6 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
     "https://cdn.shopify.com/s/files/1/0410/0744/8216/products/Untitleddesign-131_1080x.png?v=1609744055",
     "https://cdn.shopify.com/s/files/1/0312/8826/2795/products/ACANADogPuppyRecipeFront2kgEMEAAPAC_700x700.jpg?v=1668589008",
     "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
-
-
   ];
 
   String viewType='Grid';
