@@ -15,8 +15,8 @@ class NotificationPage extends StatefulWidget {
 class _NotificationPageState extends State<NotificationPage> {
   List today = [
     "new massage",
-    "Today It is used to develop applications Today It is used to develop applications Today It is used to develop applications",
-    "Today It is  to develop applications",
+    "Today It is used to develop app lica ti ons Today It is used to develop applications Today It is used to develop applications",
+    "Today It is  to develop ap pli cati ons",
     "Today It is used to develop applications",
     "Today It is used to develop applications",
   ];

@@ -34,11 +34,11 @@ class _NotificationItemsState extends State<NotificationItems> {
                   child: Avatar(size: 40, ImageURL: ""),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width-160,
+                  width: MediaQuery.of(context).size.width-110,
                     padding:EdgeInsets.only(top: 5, left: 15),
                     child: CText( text:widget.notification, fontSize: 15, maxLines: 2,)),
                 Padding(
-                  padding: const EdgeInsets.only(left: 50),
+                  padding: const EdgeInsets.only(left: 10),
                   child:CText( text:widget.time, fontSize: 13,),
                 ),
               ],
