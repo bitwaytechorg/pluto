@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/screens/home.dart';
 import 'package:pluto/screens/store_page.dart';
 import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
@@ -64,7 +65,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                   title: Text("Business Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home())),
                   background: Colors.transparent,
                 ),
                 Expanded(

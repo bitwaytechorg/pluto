@@ -30,13 +30,6 @@ class StoreInfoState extends State<StoreInfo> {
     "https://cdn.shopify.com/s/files/1/0312/8826/2795/products/ACANADogPuppyRecipeFront2kgEMEAAPAC_700x700.jpg?v=1668589008",
     "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
   ];
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
