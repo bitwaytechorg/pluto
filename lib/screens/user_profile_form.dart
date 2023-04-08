@@ -48,6 +48,7 @@ class UserProfileFormState extends State<UserProfileForm> {
   TextEditingController email = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController dob = TextEditingController();
+
   @override
   void initState() {
     firstname.text = SESSION.firstName;
