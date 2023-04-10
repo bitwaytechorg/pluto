@@ -24,7 +24,7 @@ class _ProductCardState extends State<ProductCard> {
       decoration: BoxDecoration(
         border: Border.all(width: 0.1, color: CONFIG.primaryColor),
         borderRadius: BorderRadius.all(Radius.circular(5)),
-        color: Colors.grey.shade50,
+        color: Colors.white,
       ),
       child: Column( children: [
         Stack(
