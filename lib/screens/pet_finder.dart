@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/screens/mobile/mobile_add_post.dart';
 import 'package:pluto/screens/mobile/mobile_pet_finder.dart';
-import 'package:pluto/screens/tablet/tablet_add_post.dart';
 import 'package:pluto/screens/tablet/tablet_pet_finder.dart';
-import 'package:pluto/screens/web/web_add_post.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/web/web_pet_finder.dart';
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/bottom_menu.dart';
 import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
+import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 
@@ -47,20 +48,21 @@ class Mobile_InformationState extends State<Mobile_Information> {
                 ..rotateY(isDrawerOpen ? -0.5 : 0),
               duration: Duration(milliseconds: 250),
               decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0),
+              ),
               child: Column(children: [
                 TopBar(
                   isDrawerOpen: isDrawerOpen,
                   onTap: toggleMenu,
                   background: Colors.transparent,
-                  secondaryWidget: InkWell(
-                      onTap: () => {},
-                      child: Container(
-                        margin: EdgeInsets.only(top: 3, right: 5),
-                        child: NotificationAlert(),
-                      )),
+                  secondaryWidget: Row(
+                    children: [
+                      SearchBar(width: 260, onSearch: (String searchText) {  },),
+                    ],
+                  ),
                 ),
+
                 Expanded(
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
@@ -70,8 +72,8 @@ class Mobile_InformationState extends State<Mobile_Information> {
                   ),
                 ),
                 Align(
-                    alignment: Alignment.bottomCenter,
-                    child: BottomMenu(active:'Information',),
+                  alignment: Alignment.bottomCenter,
+                  child: BottomMenu(active: 'Information'),
                 ),
               ]),
             ),
