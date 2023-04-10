@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
 import '../../components/UserCard.dart';
 import '../../components/cText.dart';
+import '../../components/cta_banner.dart';
 import '../../components/scroll_behaviour.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../home.dart';
@@ -151,150 +153,148 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
   buildContent() {
     return Container(
       padding: EdgeInsets.only(bottom: 20, top: 5),
-      child: Column(
-        children: [
-          Column(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CText(text:"Breaders",
-                  fontSize: 25, fontWeight: FontWeight.w400,
-                ),
-              ),
+      child: Column(children: [
+       CtaBanner(),
+
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Breaders",
+              fontSize: 25, fontWeight: FontWeight.w400,
             ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: petOwners.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Mobile_Profile()));
-                    },
-                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+          ),
+        ),
+        Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: petOwners.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => Mobile_Profile()));
                 },
+                  child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+            },
 
-              ),
-            ),
+          ),
+        ),
 
-            SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CText(text:"Grooming",
-                  fontSize: 25, fontWeight: FontWeight.w400,
-                ),
-              ),
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Grooming",
+              fontSize: 25, fontWeight: FontWeight.w400,
             ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: petOwners.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Mobile_Profile()));
-                      },
-                      child: UserCard( name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
-                },
+          ),
+        ),
+        Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: petOwners.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => Mobile_Profile()));
+                  },
+                  child: UserCard( name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+            },
 
-              ),
-            ),
+          ),
+        ),
 
-            SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CText(text:"Pets Trainers",
-                  fontSize: 25, fontWeight: FontWeight.w400,
-                ),
-              ),
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Pets Trainers",
+              fontSize: 25, fontWeight: FontWeight.w400,
             ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: petOwners.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Mobile_Profile()));
-                      },
-                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
-                },
+          ),
+        ),
+        Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: petOwners.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => Mobile_Profile()));
+                  },
+                  child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+            },
 
-              ),
-            ),
+          ),
+        ),
 
-            SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CText(text:"Veterinary doctors",
-                  fontSize: 25, fontWeight: FontWeight.w400,
-                 ),
-              ),
-            ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: petOwners.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Mobile_Profile()));
-                      },
-                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
-                },
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Veterinary doctors",
+              fontSize: 25, fontWeight: FontWeight.w400,
+             ),
+          ),
+        ),
+        Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: petOwners.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => Mobile_Profile()));
+                  },
+                  child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+            },
 
-              ),
-            ),
+          ),
+        ),
 
-            SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CText(text:"Pet walkers",
-                  fontSize: 25, fontWeight: FontWeight.w400,
-                ),
-              ),
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Pet walkers",
+              fontSize: 25, fontWeight: FontWeight.w400,
             ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: petOwners.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(child: UserCard(name: petOwners[index], services: 3, location: location[index],));
-                },
+          ),
+        ),
+        Container(
+          height: 200,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            itemCount: petOwners.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(child: UserCard(name: petOwners[index], services: 3, location: location[index],));
+            },
 
-              ),
-            ),
-          ],)
-        ],
-      ),
+          ),
+        ),
+      ],),
     );
 
   }
