@@ -6,7 +6,6 @@ import 'package:pluto/screens/business_profile.dart';
 import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
-import '../screens/mobile/mobile_Profile.dart';
 import 'package:pluto/global/session.dart' as SESSION;
 import 'avatar.dart';
 

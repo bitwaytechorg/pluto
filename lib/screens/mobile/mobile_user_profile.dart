@@ -181,7 +181,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Bhumika Tiwari",
+              SESSION.firstName + " " + SESSION.lastName,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
