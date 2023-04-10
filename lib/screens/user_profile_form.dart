@@ -118,7 +118,6 @@ class UserProfileFormState extends State<UserProfileForm> {
 
   buildContent() {
     return Container(
-      color: CONFIG.primaryColor,
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
@@ -151,7 +150,7 @@ class UserProfileFormState extends State<UserProfileForm> {
             ),
           ),
           Divider(
-            color: Colors.white,
+            color: CONFIG.primaryColor,
             indent: 20,
             endIndent: 20,
           ),
@@ -175,7 +174,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 10, bottom: 10),
                           child: Text(
                             "First Name",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: CONFIG.primaryColor),
                           ),
                         ),
                         TextFormField(
@@ -192,7 +191,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Last Name",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: CONFIG.primaryColor),
                           ),
                         ),
                         TextFormField(
@@ -209,7 +208,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Email",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: CONFIG.primaryColor),
                           ),
                         ),
                         TextFormField(
@@ -226,7 +225,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Phone ",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: CONFIG.primaryColor),
                           ),
                         ),
                         TextFormField(
@@ -243,7 +242,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "DOB",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: CONFIG.primaryColor),
                           ),
                         ),
                         TextFormField(
@@ -263,7 +262,10 @@ class UserProfileFormState extends State<UserProfileForm> {
                 Padding(
                   padding: const EdgeInsets.only(left: 120),
                   child: ElevatedButton(
-                      onPressed: () async {
+                    style: ElevatedButton.styleFrom(
+                      primary: CONFIG.primaryColor
+                    ),
+                   onPressed: () async {
                         if (file.path != "") {
                           //upload file
                           Reference ref = FirebaseStorage.instance

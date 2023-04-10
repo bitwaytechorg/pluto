@@ -126,7 +126,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                 ),
                 Align(
                     alignment: Alignment.bottomCenter,
-                    child: BottomMenu(active: 'Market Place'),
+                    child: BottomMenu(active: 'MarketPlace'),
                 ),
               ]),
             ),

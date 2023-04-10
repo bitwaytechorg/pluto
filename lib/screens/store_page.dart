@@ -8,6 +8,7 @@ import '../components/productCard.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 
 class StoreInfo extends StatefulWidget {
   @override
@@ -130,6 +131,7 @@ class StoreInfoState extends State<StoreInfo> {
 
   buildContent() {
     return Container(
+      color: CONFIG.primaryColor,
       height: MediaQuery.of(context).size.height - 55,
       margin: EdgeInsets.symmetric(horizontal: 5),
       child: GridView.builder(
