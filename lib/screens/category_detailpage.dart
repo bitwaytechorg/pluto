@@ -123,20 +123,19 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           ),
         ),
         SizedBox(height: 20,),
-        Padding(
-          padding: EdgeInsets.only(right: 25),
-          child: Row(
-            textDirection: TextDirection.rtl,
-            children: [
-            InkWell(
-              child: Text("More...", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: CONFIG.primaryColor)
-                ),
-              onTap: ()=> {},
-            )
-          ],
-
+        Container(
+          width: 200,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: CONFIG.primaryColor,
           ),
-        )
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text("Average sizes and life \n expectancy of the breed", textAlign: TextAlign.center, style: TextStyle(color: Colors.white),),
+        ),
+        ),
+
       ],
 
     );
