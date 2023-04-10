@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../components/bottom_menu.dart';
 import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
@@ -8,11 +7,16 @@ import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 
 class Mobile_Information extends StatefulWidget {
+
+
   @override
   Mobile_InformationState createState() => Mobile_InformationState();
 }
 
 class Mobile_InformationState extends State<Mobile_Information> {
+
+
+
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
@@ -77,5 +81,8 @@ class Mobile_InformationState extends State<Mobile_Information> {
     );
   }
 
-  buildContent() {}
+  buildContent() {
+
+  }
+
 }
