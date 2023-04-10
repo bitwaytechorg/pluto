@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/business_profile.dart';
+import 'package:pluto/screens/category_detailpage.dart';
 import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
@@ -138,7 +139,7 @@ class Slider_menu extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
-                      onTap: () => {},
+                      onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context)=> CategoryDetailPage())),
                       child: Row(
                         children: [
                           Icon(
