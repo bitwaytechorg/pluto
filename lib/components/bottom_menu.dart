@@ -54,7 +54,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.shop,
                   size: 18,
-                  color: active == "Market Place"
+                  color: active == "MarketPlace"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),
@@ -70,7 +70,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.squarePlus,
                   size: 25,
-                  color: active == "add post"
+                  color: active == "AddPost"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),
@@ -102,7 +102,7 @@ class BottomMenu extends StatelessWidget {
                 child: Icon(
                   FontAwesomeIcons.dog,
                   size: 18,
-                  color: active == "Pet Finder"
+                  color: active == "PetFinder"
                       ? CONFIG.primaryColor
                       : Colors.grey[400],
                 ),
