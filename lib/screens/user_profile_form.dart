@@ -118,6 +118,7 @@ class UserProfileFormState extends State<UserProfileForm> {
 
   buildContent() {
     return Container(
+      color: CONFIG.primaryColor,
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
@@ -131,7 +132,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                       pickImage();
                     },
                     child: Avatar(
-                      size: 200,
+                      size: 150,
                       ImageURL: SESSION.profileUrl,
                       ImageFile: file,
                       isFile: file.path != "" ? true : false,
@@ -150,7 +151,7 @@ class UserProfileFormState extends State<UserProfileForm> {
             ),
           ),
           Divider(
-            color: CONFIG.primaryColor,
+            color: Colors.white,
             indent: 20,
             endIndent: 20,
           ),
@@ -174,7 +175,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 10, bottom: 10),
                           child: Text(
                             "First Name",
-                            style: Theme.of(context).textTheme.caption,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         TextFormField(
@@ -191,7 +192,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Last Name",
-                            style: Theme.of(context).textTheme.caption,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         TextFormField(
@@ -208,7 +209,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Email",
-                            style: Theme.of(context).textTheme.caption,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         TextFormField(
@@ -225,7 +226,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "Phone ",
-                            style: Theme.of(context).textTheme.caption,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         TextFormField(
@@ -242,7 +243,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               left: 10, top: 15, bottom: 10),
                           child: Text(
                             "DOB",
-                            style: Theme.of(context).textTheme.caption,
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                         TextFormField(
@@ -258,6 +259,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                     )),
 
                 //add button to edit
+                SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.only(left: 120),
                   child: ElevatedButton(

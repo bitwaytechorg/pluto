@@ -94,10 +94,21 @@ class StoreInfoState extends State<StoreInfo> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 15,),
-                      Container(
-                        margin: EdgeInsets.only(top: 5, right: 2),
-                              child: Icon(Icons.settings)),
+                      SizedBox(width: 30,),
+                      PopupMenuButton(
+                        itemBuilder: (BuildContext context) => [
+                          PopupMenuItem(child: Text("ABCDE"),
+                          ),
+                          PopupMenuItem(child: Text("FGHI"),),
+                          PopupMenuItem(child: Text("KLMNO")),
+                          PopupMenuItem(child: Text("PQRST")),
+                          PopupMenuItem(child: Text("UVWXYZ")),
+
+                        ],
+                        child: Container(
+                          margin: EdgeInsets.only(top: 5, right: 7),
+                                child: Icon(Icons.settings)),
+                      ),
     ],
                   ),
                 ),
