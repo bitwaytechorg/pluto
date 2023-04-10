@@ -70,7 +70,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
     "Delhi",
     "Haryana",
     "HP",
-    "Jammu and Kashmir",
+    "JK",
     "Jharkhand",
     "Karnataka",
     "Kerala",
@@ -205,7 +205,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
                         Navigator.push(context, MaterialPageRoute(
                             builder: (context) => Mobile_Profile()));
                       },
-                      child: UserCard(name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
+                      child: UserCard( name: petOwners[index],profileURL: profileURL[index], services: 3, location: location[index],));
                 },
 
               ),
