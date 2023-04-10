@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pluto/components/avatar.dart';
+import 'package:pluto/components/petCard.dart';
 import '../../components/bottom_menu.dart';
-import '../../components/notification_alert.dart';
+import '../../components/cText.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 
 class Mobile_Information extends StatefulWidget {
 
@@ -58,7 +61,7 @@ class Mobile_InformationState extends State<Mobile_Information> {
                   background: Colors.transparent,
                   secondaryWidget: Row(
                     children: [
-                      SearchBar(width: 260, onSearch: (String searchText) {  },),
+                      SearchBar( width: 260, onSearch: (String searchText) {  },),
                     ],
                   ),
                 ),
@@ -84,7 +87,89 @@ class Mobile_InformationState extends State<Mobile_Information> {
   }
 
   buildContent() {
+      return Container(
+        child: Column(children: [
 
+          Padding(
+            padding: const EdgeInsets.only(left: 10, bottom: 10),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: CText(text:"Suggestion",
+                fontSize: 22, fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+
+          Container(
+            height: 140,
+            width: MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              itemCount: 9,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 140,
+                  width: 100,
+
+                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    color: Colors.grey.withAlpha(40),
+                  ),
+                  child: Column(children: [
+                    SizedBox(height: 5,),
+                    Avatar(size: 60, ImageURL: 'https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg'),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: CText(text:"A complete guide for your pet at hindustantimes.com." , fontSize: 13, maxLines: 2,),
+                    ),
+                    SizedBox(height: 10,),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Align(
+                          alignment: Alignment.centerRight,
+                          child: CText(text: "More...", fontSize: 12, color: CONFIG.primaryColor,)),
+                    ),
+                  ],),
+                );
+              },
+
+            ),
+          ),
+
+
+          SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, bottom: 10),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: CText(text:"Category",
+                fontSize: 22, fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          Container(
+            height: 210,
+            width: MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              itemCount: 9,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                    onTap: (){
+
+                    },
+                   child: PetCard(),
+                );
+              },
+
+            ),
+          ),
+
+        ],),
+      );
   }
 
 }
