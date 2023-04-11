@@ -56,7 +56,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                   ),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
-                  onTap:()=> Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home())),
+                  onTap:()=> Navigator.pop(context),
                   background: Colors.transparent,
                 ),
                 Expanded(

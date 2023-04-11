@@ -10,6 +10,8 @@ import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
+import '../category_detailpage.dart';
+
 class Mobile_Information extends StatefulWidget {
 
 
@@ -159,7 +161,7 @@ class Mobile_InformationState extends State<Mobile_Information> {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                     onTap: (){
-
+                      Navigator.push(context, CupertinoPageRoute(builder: (context)=>CategoryDetailPage()));
                     },
                    child: PetCard(),
                 );

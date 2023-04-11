@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
-
 import 'Btns/primaryBtn.dart';
-import 'avatar.dart';
 import 'cText.dart';
 class CtaBanner extends StatefulWidget {
   const CtaBanner({Key? key}) : super(key: key);
