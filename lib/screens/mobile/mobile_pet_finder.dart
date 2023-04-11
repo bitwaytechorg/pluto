@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
 import '../../components/UserCard.dart';
@@ -154,7 +153,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
     return Container(
       padding: EdgeInsets.only(bottom: 20, top: 5),
       child: Column(children: [
-       CtaBanner(),
+       CtaBanner(title: 'your pet, your responsibility', description: 'Make sure pets get regular veterinary care along with a good diet, fresh water, shelter, and exercise', imageURL: '',),
 
         Padding(
           padding: const EdgeInsets.only(left: 10, bottom: 10),

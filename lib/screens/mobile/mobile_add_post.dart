@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/scroll_behaviour.dart';
@@ -10,7 +11,12 @@ class Mobile_Addpost extends StatefulWidget {
 }
 
 class Mobile_AddpostState extends State<Mobile_Addpost> {
+  bool loading = false;
+ final databaseRef = FirebaseDatabase.instance.ref("Post");
 
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final categoryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,8 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                         children: [
                           InkWell(
                               onTap:(){ Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));},
-                              child: Icon(Icons.arrow_back, color: Colors.grey)),
+                              child: Icon(Icons.arrow_back, color: Colors.grey)
+                          ),
 
                           SizedBox(width: 15,),
                           Text("Upload", style: TextStyle(
@@ -41,7 +48,11 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                           ),),
                         ],
                       ),
-                      Icon(Icons.check, color: Colors.grey),
+                      InkWell(
+                          onTap: (){
+
+                          },
+                          child: Icon(Icons.check, color: Colors.grey)),
                     ],
                   ),
                 ),
@@ -66,6 +77,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                       Align(alignment: Alignment.centerLeft,
                           child: Text("Title", style: TextStyle(color: Colors.grey),)),
                       TextField(
+                        controller: titleController,
                         decoration: InputDecoration(
                           hintText: '...',
                         ),
@@ -74,6 +86,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                       Align(alignment: Alignment.centerLeft,
                           child: Text("Desciption", style: TextStyle(color: Colors.grey),)),
                       TextField(
+                        controller: descriptionController,
                         decoration: InputDecoration(
                           hintText: '...',
                         ),
@@ -82,6 +95,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                       Align(alignment: Alignment.centerLeft,
                           child: Text("Category", style: TextStyle(color: Colors.grey),)),
                       TextField(
+                        controller: categoryController,
                         decoration: InputDecoration(
                           hintText: 'options',
                         ),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -226,12 +227,21 @@ class Slider_menu extends StatelessWidget {
                             SizedBox(
                               width: 10,
                             ),
-                            Text(
-                              'logout',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: (){
+                                FirebaseAuth.instance.signOut().then((value) {
+
+                                }).catchError((e){
+                                  print(e);
+                                });
+                              },
+                              child: Text(
+                                'logout',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             )
                           ],
                         )),

@@ -3,7 +3,9 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'Btns/primaryBtn.dart';
 import 'cText.dart';
 class CtaBanner extends StatefulWidget {
-  const CtaBanner({Key? key}) : super(key: key);
+  String title, description, imageURL;
+
+  CtaBanner({Key? key, required this.title, required this.description, required this.imageURL }) : super(key: key);
 
   @override
   State<CtaBanner> createState() => _CtaBannerState();
@@ -26,9 +28,9 @@ class _CtaBannerState extends State<CtaBanner> {
               width: MediaQuery.of(context).size.width-160,
               child: Column(children: [
                 SizedBox(height: 20,),
-                CText(text: 'The unconditional love of pet. ', fontSize: 16, fontWeight: FontWeight.bold,),
+                CText(text: widget.title, fontSize: 16, fontWeight: FontWeight.bold,),
                 SizedBox(height: 10,),
-                CText(text: 'decrease stress, improve heart health, and even help children with their ',
+                CText(text: widget.description,
                   maxLines: 2, fontSize: 13,),
                 SizedBox(height: 15,),
                 Align(
