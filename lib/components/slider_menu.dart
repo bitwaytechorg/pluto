@@ -235,7 +235,7 @@ class Slider_menu extends StatelessWidget {
                                   print(e);
                                 });
                               },
-                              child: Text(
+                              child:const Text(
                                 'logout',
                                 style: TextStyle(
                                     color: Colors.white,
