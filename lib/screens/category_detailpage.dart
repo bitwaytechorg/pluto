@@ -21,6 +21,16 @@ class CategoryDetailPage extends StatefulWidget {
 }
 
 class _CategoryDetailPageState extends State<CategoryDetailPage> {
+  List facts = [
+    "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
+    "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
+    "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
+    "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
+    "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
+    "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
+
+
+  ];
   List title = [
     "Overview",
     "History",
@@ -151,6 +161,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         SizedBox(
           height: 5,
         ),
+
         Container(
           height: 80,
           width: MediaQuery.of(context).size.width,
@@ -205,9 +216,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 70),
+          padding: const EdgeInsets.only(left: 10),
           child: Column(
-
               children: [
             Row(
               children: [
@@ -351,46 +361,59 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         ),
         SizedBox(height: 10,),
 
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-                child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-              ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-            child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-            child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-            child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-            child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-            child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-            child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-            child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-          ),
-    ],
-          ),
+    //     Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: Column(
+    //         children: [
+    //           Padding(
+    //             padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+    //             child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
+    //           ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
+    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
+    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
+    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
+    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
+    //       ),
+    //       Padding(
+    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
+    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
+    //       ),
+    // ],
+    //       ),
+    //     ),
+        Container(
+          child: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: facts.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
+                  child: Container(
+                    child: Text(facts[index]),
+                  ),
+                );
+              }),
         ),
-
       ],
     );
   }
