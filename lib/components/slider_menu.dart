@@ -140,7 +140,7 @@ class Slider_menu extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
-                      onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context)=> CategoryDetailPage())),
+                      onTap: () => {},
                       child: Row(
                         children: [
                           Icon(
