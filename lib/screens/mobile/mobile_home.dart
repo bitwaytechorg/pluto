@@ -85,7 +85,6 @@ class MobileHomeState extends State<MobileHome> {
         PostSection(),
         PostSection(),
 
-
       ],
     );
   }

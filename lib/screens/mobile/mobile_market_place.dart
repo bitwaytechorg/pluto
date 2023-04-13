@@ -34,7 +34,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
     "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
   ];
 
-  String viewType='Grid';
+  String viewType='List';
   List chips =[
     "Dogs",
     "Cats",

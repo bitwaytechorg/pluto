@@ -106,7 +106,7 @@ class Mobile_LeaderboardState extends State<Mobile_Leaderboard> {
                       onTap: () => {},
                       child: Container(
                         margin: EdgeInsets.only(top: 3, right: 5),
-                        child: NotificationAlert(),
+                        child: Container(),
                       )),
                 ),
                 Padding(
