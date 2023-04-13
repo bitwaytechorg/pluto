@@ -186,14 +186,17 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                     fontSize: 20,
                   ),),
                 SizedBox(height: 10,),
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),
-                    children: <TextSpan>[
-                      TextSpan(text: 'flutter developer ', style: TextStyle(color: Colors.blue)),
-                      TextSpan(text: 'wordpress developer'),
-                      TextSpan(text: ' web developer', style: TextStyle(decoration: TextDecoration.underline))
-                    ],
+                Padding(
+                  padding: const EdgeInsets.only(right:20),
+                  child: RichText(
+                    text: TextSpan(
+                      style: TextStyle(color: Colors.black.withAlpha(120), fontSize: 15),
+                      children: <TextSpan>[
+                        TextSpan(text: 'flutter developer ', style: TextStyle(color: Colors.blue)),
+                        TextSpan(text: 'wordpress developer'),
+                        TextSpan(text: ' web developer', style: TextStyle(decoration: TextDecoration.underline))
+                      ],
+                    ),
                   ),
                 )
               ],
