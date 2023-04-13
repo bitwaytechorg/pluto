@@ -6,7 +6,6 @@ import 'package:pluto/screens/store_page.dart';
 
 import '../components/avatar.dart';
 import '../components/cText.dart';
-import '../components/chips.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
@@ -28,15 +27,6 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
     "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
     "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
     "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
-  ];
-  List title = [
-    "Overview",
-    "History",
-    "Apperance",
-    "--------",
-    "--------",
-    "--------",
-    "--------",
   ];
 
   double xOffset = 0;
@@ -172,7 +162,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                   tabs: [
                     Tab(text: 'Overview'),
                     Tab(text: 'Facts'),
-                    Tab(text: 'Apperance'),
+                    Tab(text: 'Activity'),
                     Tab(text: 'History'),
                   ],
                 ),
@@ -181,7 +171,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                 height: 600, //height of TabBarView
                 decoration: BoxDecoration(
                     border: Border(
-                        top: BorderSide(color: Colors.grey, width: 0.5))),
+                        top: BorderSide(color: Colors.grey, width: 0.5)
+                    )
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),
                   child: TabBarView(
@@ -429,21 +421,26 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                           ],
                         ),
                       ),
-                      Container(
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: facts.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, bottom: 20),
-                                child: Container(
-                                  child: Text(facts[index]),
-                                ),
-                              );
-                            }),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: facts.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10, bottom: 20),
+                                  child: Container(
+                                    child: Text(facts[index]),
+                                  ),
+                                );
+                              }),
+                        ),
                       ),
+                      Container( child: Center(child: Text("Hello ")),),
+                      Container( child: Center(child: Text("User")),),
                     ],
                   ),
                 ),

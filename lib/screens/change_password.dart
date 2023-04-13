@@ -68,7 +68,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
                   child: Column(children: [
                     Container(
-                        color:CONFIG.primaryColor,
+                        color:CONFIG.secondaryColor,
                         child:TopBar(
                             isDrawerOpen: isDrawerOpen,
                             onTap: toggleMenu,
@@ -79,7 +79,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       children: [
                         Container(
                           height: 80,
-                          color: CONFIG.primaryColor,
+                          color: CONFIG.secondaryColor,
                         ),
                         //Content
                         buildContentBlock(),
@@ -132,9 +132,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                       left: 10, top: 15, bottom: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: CText(text:
                       "Old password",
-                      style: Theme.of(context).textTheme.caption,
+                      fontSize: 15,
                     ),
                   ),
                 ),
@@ -147,9 +147,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                       left: 10, top: 15, bottom: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: CText(text:
                       "New password",
-                      style: Theme.of(context).textTheme.caption,
+                      fontSize: 15,
                     ),
                   ),
                 ),
@@ -162,9 +162,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                       left: 10, top: 15, bottom: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: CText(text:
                       "Confirm password",
-                      style: Theme.of(context).textTheme.caption,
+                      fontSize: 15,
                     ),
                   ),
                 ),
