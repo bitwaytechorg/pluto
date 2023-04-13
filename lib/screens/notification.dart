@@ -84,10 +84,7 @@ class _NotificationPageState extends State<NotificationPage> {
                         children: [
                           InkWell(
                               onTap: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()));
+                               Navigator.pop(context);
                               },
                               child:
                                   Icon(Icons.arrow_back, color: Colors.grey)),

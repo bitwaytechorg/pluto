@@ -8,6 +8,7 @@ import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import '../screens/home.dart';
 import 'package:pluto/global/session.dart' as SESSION;
+import '../screens/setting.dart';
 import 'avatar.dart';
 
 class Slider_menu extends StatelessWidget {
@@ -139,7 +140,9 @@ class Slider_menu extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 15),
                     child: InkWell(
-                      onTap: () => {},
+                      onTap: () => {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings())),
+                      },
                       child: Row(
                         children: [
                           Icon(

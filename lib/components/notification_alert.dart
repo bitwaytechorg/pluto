@@ -14,7 +14,7 @@ class _NotificationAlertState extends State<NotificationAlert> {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: InkWell(
-        onTap: ()=> Navigator.pushReplacement(
+        onTap: ()=> Navigator.push(
             context, MaterialPageRoute(builder: (context) => NotificationPage())),
         child: Stack(
           children: [
