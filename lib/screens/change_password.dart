@@ -5,6 +5,7 @@ import 'package:pluto/components/slider_menu.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
 import '../components/avatar.dart';
+import '../components/cText.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/topbar.dart';
 
@@ -122,10 +123,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                 Divider( color: CONFIG.primaryColor,),
                 Padding(
                   padding: const EdgeInsets.only(top: 10 , bottom: 10),
-                  child: Text("Update Your Password",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                  child: CText(text:"Update Your Password",
+                   fontSize: 20,
                   ),
                 ),
                 Padding(
