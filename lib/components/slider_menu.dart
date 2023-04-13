@@ -195,10 +195,26 @@ class Slider_menu extends StatelessWidget {
                   Container(
                       margin: EdgeInsets.symmetric(vertical: 15),
                       child: InkWell(
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Home())),
+                          onTap: (){
+                            showDialog(
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                title: const Text("Alert!"),
+                                content: const Text("Do you want to delete your account!"),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(ctx).pop();
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(14),
+                                      child: const Text("OK"),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                           child: Row(
                             children: [
                               Icon(

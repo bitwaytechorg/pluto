@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/screens/user_profile_form.dart';
+import '../../components/follow_list.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
@@ -108,7 +109,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                               Column(
                                 children: [
                                   Text(
-                                    "200",
+                                    "293",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -126,6 +127,34 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 25),
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'Username',)));
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "200K",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        'Followers',
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 14,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'Username',)));
+                                },
                                 child: Column(
                                   children: [
                                     Text(
@@ -136,7 +165,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                                     ),
                                     SizedBox(height: 5),
                                     Text(
-                                      'Followers',
+                                      'Following',
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14,
@@ -144,24 +173,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                                     )
                                   ],
                                 ),
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "200K",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    'Following',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
                               )
                             ],
                           ),

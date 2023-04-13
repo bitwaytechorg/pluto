@@ -4,7 +4,9 @@ import 'package:pluto/components/Btns/secondaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
 import 'package:pluto/components/avatar.dart';
+import 'package:pluto/screens/mobile/mobile_messages.dart';
 import '../../components/chips.dart';
+import '../../components/follow_list.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
@@ -116,45 +118,60 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                     children: [
                       Row(
                         children: [
-                          Column(
-                            children: [
-                              Text("200K", style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ),),
-                              SizedBox(height:5),
-                              Text('Friends', style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                              ),)
-                            ],
-                          ),
-                          Padding(
-
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'User name',)));
+                            },
                             child: Column(
                               children: [
                                 Text("200K", style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                 ),),
                                 SizedBox(height:5),
-                                Text('Followers', style: TextStyle(
+                                Text('Friends', style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 12,
                                 ),)
                               ],
                             ),
                           ),
-                          Column(
-                            children: [
-                              Text("200K", style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ),),
-                              SizedBox(height:5),
-                              Text('Following', style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                              ),)
-                            ],
+                          Padding(
+
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'User name',)));
+                              },
+                              child: Column(
+                                children: [
+                                  Text("200K", style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                  ),),
+                                  SizedBox(height:5),
+                                  Text('Followers', style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12,
+                                  ),)
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'User name',)));
+                            },
+                            child: Column(
+                              children: [
+                                Text("200K", style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                                SizedBox(height:5),
+                                Text('Following', style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                ),)
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -164,7 +181,11 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
                           children: [
                             SecondaryBtn(buttonTitle:"Follow"),
                             SizedBox(width: 10,),
-                            SecondaryBtn(buttonTitle: "Message")
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileMessages()));
+                              },
+                                child: SecondaryBtn(buttonTitle: "Message"))
                           ],
                         ),
                       )
