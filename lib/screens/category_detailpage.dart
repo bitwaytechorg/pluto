@@ -28,8 +28,6 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
     "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
     "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
     "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
-
-
   ];
   List title = [
     "Overview",
@@ -161,258 +159,297 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         SizedBox(
           height: 5,
         ),
-
-        Container(
-          height: 80,
-          width: MediaQuery.of(context).size.width,
-          child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: title.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                  child: SecondaryBtn(
-                    buttonTitle: title[index],
-                  ),
-                );
-              }),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 15, left: 15),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Wrap(
-                        children: [
-                          Text(
-                              "Dogs come in many shapes and sizes. The smallest breeds include the toy and miniature varieties, "
-                              "such as the Toy Poodle, Papillon, Chihuahua, and Shih Tzu. These dogs usually weigh only 5 to 10 pounds (2.3 to 4.5 kilograms), "
-                              "or even less. Medium-sized dogs include many of the terriers and spaniels, which weigh in the 10 to 50 pound (4.5 to 23 kilograms) range."
-                              " Larger still are the retrievers, shepherds, and setters, which often weigh 65 to 100 pounds (30 to 45 kilograms). Finally, the giant breeds, "
-                              "such as the Mastiff, Komondor, and Saint Bernard, can approach or exceed 200 pounds (91 kilograms). Of course, sizes vary within breeds,"
-                              " with males usually being larger than females. Mixed-breed dogs include all size ranges."),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
+        DefaultTabController(
+          length: 4, // length of tabs
+          initialIndex: 0,
           child: Column(
-              children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: CText( text: 'Origin:', color: CONFIG.primaryColor,fontSize: 16,),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                child: TabBar(
+                  labelColor: Colors.green,
+                  unselectedLabelColor: Colors.black,
+                  tabs: [
+                    Tab(text: 'Overview'),
+                    Tab(text: 'Facts'),
+                    Tab(text: 'Apperance'),
+                    Tab(text: 'History'),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 45),
-                  child: CText( text: 'Germany',fontSize: 16,),
-                ),
-              ],
-            ),
-            SizedBox(height: 5,),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: CText( text: 'Height:',color: CONFIG.primaryColor,fontSize: 16,),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40),
-                  child: CText( text: 'Dogs = 59-70 sm',fontSize: 16,),
-                ),
-              ],
-            ),
-            SizedBox(height: 5,),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: CText( text: 'Weight:',color: CONFIG.primaryColor,fontSize: 16,),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 40),
-                  child: CText( text: "Dogs = 30-40 kg",fontSize: 16,),
-                ),
-              ],
-            ),
-            SizedBox(height: 5,),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: CText( text: 'Life Span:',color: CONFIG.primaryColor,fontSize: 16,),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: CText( text: '10-13 years',fontSize: 16,),
-                ),
-              ],
-            ),
-
-          ]),
-        ),
-        SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Container(
-            child: Row(
-              children: [
-                CText(text: "Breed Characteristics:", color: Colors.black87),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: CText( text: 'Aggressiveness:', color: CONFIG.primaryColor, fontSize: 16,),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 150),
-                child: CText( text: 'Low',fontSize: 16,),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 5,),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: CText( text: 'Activity:', color: CONFIG.primaryColor,fontSize: 16,),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 200),
-                child: CText( text: 'Very high',fontSize: 16,),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 5,),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: CText( text: 'Attitude towards loneliness:', color: CONFIG.primaryColor,fontSize: 16,),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: CText( text: 'Does not tolerate',fontSize: 16,),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 5,),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: CText( text: 'Complexity of care:', color: CONFIG.primaryColor,fontSize: 16,),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 130),
-                child: CText( text: 'Low',fontSize: 16,),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Row(
-            children:[
-              CText(text: 'Basic Facts:-', color: Colors.black87,),
-
-            ],
-          ),
-        ),
-        SizedBox(height: 10,),
-
-    //     Padding(
-    //       padding: const EdgeInsets.all(8.0),
-    //       child: Column(
-    //         children: [
-    //           Padding(
-    //             padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-    //             child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-    //           ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
-    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-    //         child: Text(" Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older."),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 10,bottom: 10, top: 10, right: 10),
-    //         child: Text( "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style."),
-    //       ),
-    // ],
-    //       ),
-    //     ),
-        Container(
-          child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: facts.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                  child: Container(
-                    child: Text(facts[index]),
+              Container(
+                height: 600, //height of TabBarView
+                decoration: BoxDecoration(
+                    border: Border(
+                        top: BorderSide(color: Colors.grey, width: 0.5))),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: TabBarView(
+                    children: <Widget>[
+                      Container(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                right: 15,
+                                left: 15,
+                              ),
+                              child: Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Wrap(
+                                        children: [
+                                          Text(
+                                              "Dogs come in many shapes and sizes. The smallest breeds include the toy and miniature varieties, "
+                                              "such as the Toy Poodle, Papillon, Chihuahua, and Shih Tzu. These dogs usually weigh only 5 to 10 pounds (2.3 to 4.5 kilograms), "
+                                              "or even less. Medium-sized dogs include many of the terriers and spaniels, which weigh in the 10 to 50 pound (4.5 to 23 kilograms) range."
+                                              " Larger still are the retrievers, shepherds, and setters, which often weigh 65 to 100 pounds (30 to 45 kilograms). Finally, the giant breeds, "
+                                              "such as the Mastiff, Komondor, and Saint Bernard, can approach or exceed 200 pounds (91 kilograms). Of course, sizes vary within breeds,"
+                                              " with males usually being larger than females. Mixed-breed dogs include all size ranges."),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Column(children: [
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: CText(
+                                        text: 'Origin:',
+                                        color: CONFIG.primaryColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 45),
+                                      child: CText(
+                                        text: 'Germany',
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: CText(
+                                        text: 'Height:',
+                                        color: CONFIG.primaryColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 40),
+                                      child: CText(
+                                        text: 'Dogs = 59-70 sm',
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: CText(
+                                        text: 'Weight:',
+                                        color: CONFIG.primaryColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 40),
+                                      child: CText(
+                                        text: "Dogs = 30-40 kg",
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: CText(
+                                        text: 'Life Span:',
+                                        color: CONFIG.primaryColor,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 20),
+                                      child: CText(
+                                        text: '10-13 years',
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    CText(
+                                        text: "Breed Characteristics:",
+                                        color: Colors.black87),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: CText(
+                                      text: 'Aggressiveness:',
+                                      color: CONFIG.primaryColor,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 150),
+                                    child: CText(
+                                      text: 'Low',
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: CText(
+                                      text: 'Activity:',
+                                      color: CONFIG.primaryColor,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 200),
+                                    child: CText(
+                                      text: 'Very high',
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8),
+                                    child: CText(
+                                      text: 'Attitude towards loneliness:',
+                                      color: CONFIG.primaryColor,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 30),
+                                    child: CText(
+                                      text: 'Does not tolerate',
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: CText(
+                                      text: 'Complexity of care:',
+                                      color: CONFIG.primaryColor,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 130),
+                                    child: CText(
+                                      text: 'Low',
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: facts.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 10, right: 10, bottom: 20),
+                                child: Container(
+                                  child: Text(facts[index]),
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
                   ),
-                );
-              }),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
