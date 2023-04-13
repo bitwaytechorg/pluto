@@ -150,7 +150,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
                   },
-                  child: ProductListTile(productName: "fds fhsdf", productPrice: 399.5, itemPic:foodList[index],));
+                  child: ProductListTile(productName: "Food", productPrice: 399.5, itemPic:foodList[index], productDescription: 'best product for pets animation',));
             }
           ),
         ): Container(
