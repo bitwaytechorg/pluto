@@ -1,15 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/Btns/customBtn.dart';
-import 'package:pluto/components/Btns/secondaryBtn.dart';
-import 'package:pluto/screens/store_page.dart';
-
-import '../components/avatar.dart';
 import '../components/cText.dart';
 import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
-import 'home.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
 class CategoryDetailPage extends StatefulWidget {

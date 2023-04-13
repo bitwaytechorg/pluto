@@ -110,7 +110,7 @@ class _NotificationPageState extends State<NotificationPage> {
                             SizedBox(
                               width: 25,
                             ),
-                            Container(
+                        Container(
                                 height: 35,
                                 width: 35,
                                 decoration: BoxDecoration(
@@ -123,14 +123,23 @@ class _NotificationPageState extends State<NotificationPage> {
                                 ),
                                 child: InkWell(
                                     onTap: () => {},
-                                    child: Icon(
-                                      Icons.more_vert_sharp,
-                                      color: CONFIG.primaryColor,
-                                      size: 25,
-                                    )))
+                                    child: PopupMenuButton(
+                                        itemBuilder: (BuildContext context) => [
+                                          PopupMenuItem(child: Text("Delete"),
+                                          ),
+                                          PopupMenuItem(child: Text("Delete All"),),
+                        ],
+                                      child: Icon(
+                                        Icons.more_vert_sharp,
+                                        color: CONFIG.primaryColor,
+                                        size: 25,
+                                      ),
+                                    ))),
+
                           ],
                         ),
                       ),
+
                     ]),
               ),
               Divider(color: Colors.grey),
