@@ -4,6 +4,7 @@ import 'package:pluto/components/product_list_tile.dart';
 import 'package:pluto/components/search_bar.dart';
 import 'package:pluto/screens/product_detail.dart';
 import '../../components/bottom_menu.dart';
+import '../../components/cText.dart';
 import '../../components/chips.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../../components/productCard.dart';
@@ -88,7 +89,16 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     ],
                   ),
                 ),
-
+                Container(
+                  height: 30,
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CText(text:"List"),
+                      CText(text:"Grid")
+                    ],),
+                ),
                 Container(
                   height: 60,
                   width: MediaQuery.of(context).size.width,
@@ -131,6 +141,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
   buildContent() {
       return Column(children: [
+
         /// List container and Grid container///
         viewType=="List" ? Container(
           height: MediaQuery.of(context).size.height-230,
