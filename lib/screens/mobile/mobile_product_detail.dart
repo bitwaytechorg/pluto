@@ -3,14 +3,14 @@ import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../../components/scroll_behaviour.dart';
 
-class Mobile_product_detail extends StatefulWidget {
-  const Mobile_product_detail({Key? key}) : super(key: key);
+class MobileProductDetail extends StatefulWidget {
+  const MobileProductDetail({Key? key}) : super(key: key);
 
   @override
-  State<Mobile_product_detail> createState() => _Mobile_product_detailState();
+  State<MobileProductDetail> createState() => _MobileProductDetailState();
 }
 
-class _Mobile_product_detailState extends State<Mobile_product_detail> {
+class _MobileProductDetailState extends State<MobileProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

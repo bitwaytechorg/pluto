@@ -226,7 +226,7 @@ class Slider_menu extends StatelessWidget {
                                 width: 10,
                               ),
                               Text(
-                                'Delete_account',
+                                'Delete Account',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -257,7 +257,7 @@ class Slider_menu extends StatelessWidget {
                                 });
                               },
                               child:const Text(
-                                'logout',
+                                'Logout',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,

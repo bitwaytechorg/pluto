@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/screens/add_product_form.dart';
 import 'package:pluto/screens/business_profile.dart';
+import 'package:pluto/screens/product_detail.dart';
 
 import '../components/productCard.dart';
 import '../components/scroll_behaviour.dart';
@@ -137,10 +138,14 @@ class StoreInfoState extends State<StoreInfo> {
         itemCount: 13,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, mainAxisSpacing: 4, crossAxisSpacing: 4),
-        itemBuilder: (context, index) => ProductCard(
-          productName: 'Good for food hghj gjk ',
-          itemPic:foodList[index],
-          productPrice: 435,
+        itemBuilder: (context, index) => InkWell(
+
+          onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail())),
+          child: ProductCard(
+            productName: 'Good Food for Pets ',
+            itemPic:foodList[index],
+            productPrice: 435,
+          ),
         ),
       ),
     );

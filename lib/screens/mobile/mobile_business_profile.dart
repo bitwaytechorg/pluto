@@ -5,6 +5,7 @@ import 'package:pluto/screens/store_page.dart';
 import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
 import '../../components/chips.dart';
+import '../../components/follow_list.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
@@ -107,27 +108,54 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                         children: [
                           Row(
                             children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "200",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                              InkWell(
+                                onTap: ()=> {},
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "200",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    'Posts',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
+                                    SizedBox(height: 5),
+                                    Text(
+                                      'Posts',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 14,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 25),
+                                child: InkWell(
+                                  onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'User name',))),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "200K",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        'Followers',
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 14,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>FollowList(profileURL: '', username: 'User name',))),
                                 child: Column(
                                   children: [
                                     Text(
@@ -138,7 +166,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                                     ),
                                     SizedBox(height: 5),
                                     Text(
-                                      'Followers',
+                                      'Following',
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14,
@@ -146,24 +174,6 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                                     )
                                   ],
                                 ),
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "200K",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    'Following',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
                               )
                             ],
                           ),
