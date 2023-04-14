@@ -22,6 +22,12 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
     "Their eyes also change colour – they’re blue at birth but they change to a grey, blue-grey or light amber as they get older.",
     "They’re referred to as the ‘grey ghost’ partly because of the colour of their coat, but also from their notorious, stealth-like hunting style.",
   ];
+   List images = [
+     "https://images.indianexpress.com/2021/04/puppy-1903313_1280.jpg",
+     "https://www.veterinarians.org/wp-content/uploads/2022/10/The-Weimaraner-Everything-You-Need-to-Know.jpg",
+     "https://dogisworld.com/wp-content/uploads/2019/09/Weimaraner.jpg",
+     "https://media.os.fressnapf.com/cms/2020/07/Ratgeber_Hund_RasseportraitsWeimaraner_1200x527.jpg?t=seoimg_703",
+   ];
 
   double xOffset = 0;
   double yOffset = 0;
@@ -58,7 +64,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
               child: Column(children: [
                 TopBar(
                   title: Padding(
-                    padding: const EdgeInsets.only(top: 6, right: 220, left: 5),
+                    padding: const EdgeInsets.only(top: 6, right: 230, left: 5),
                     child: Text(
                       "Details",
                       style:
@@ -93,7 +99,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           children: [
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(top: 10, left: 10, bottom: 10),
+                padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
                 child: Text(
                   "Weimaraner",
                   style: TextStyle(
@@ -110,38 +116,35 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         //width: 600,
 
         //),
+        SizedBox(height: 5,),
         Container(
-          height: 250,
+          height: 200,
           width: MediaQuery.of(context).size.width,
           child: ListView.builder(
               itemCount: 4,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 5, left: 10, right: 20),
-                  child: Container(
-                    height: 350,
-                    //width: 200,
-                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      color: Colors.grey.withAlpha(40),
-                    ),
-                    child: Column(
-                      children: [
-                        Image.network(
-                          "https://images.indianexpress.com/2021/04/puppy-1903313_1280.jpg",
-                          height: 200,
-                        ),
-                      ],
-                    ),
+                return Container(
+                  height: 200,
+                  //width: 200,
+                  margin: EdgeInsets.symmetric(horizontal: 5,),
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.all(Radius.circular(12)),
+                  //   color: Colors.grey.withAlpha(40),
+                  child: Column(
+                    children: [
+                      Image.network(
+                        images[index],
+                        height: 200,
+                      ),
+                    ],
                   ),
                 );
               }),
         ),
         SizedBox(
-          height: 5,
+          height: 10,
         ),
         DefaultTabController(
           length: 4, // length of tabs
@@ -151,7 +154,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
             children: <Widget>[
               Container(
                 child: TabBar(
-                  labelColor: Colors.green,
+                  labelColor: CONFIG.secondaryColor,
                   unselectedLabelColor: Colors.black,
                   tabs: [
                     Tab(text: 'Overview'),
