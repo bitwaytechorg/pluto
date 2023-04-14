@@ -24,8 +24,8 @@ class _MobileMessagesState extends State<MobileMessages> {
                     children: [
                       InkWell(
                           onTap:(){ Navigator.pop(context);},
-                          child: Icon(Icons.arrow_back, color: Colors.grey)),
-
+                          child: Icon(Icons.arrow_back, color: Colors.grey)
+                      ),
                       SizedBox(width: 15,),
                       Text("Username", style: TextStyle(
                         fontSize: 20, color: Colors.grey,
@@ -34,8 +34,6 @@ class _MobileMessagesState extends State<MobileMessages> {
                     ],
                   ),
                   Icon(Icons.more_vert, color: Colors.grey),
-
-                  // Icon(Icons.check, color: Colors.grey),
                 ],
               ),
             ),

@@ -85,14 +85,6 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     children: [
                       SearchBar(width: 240, onSearch: (String searchText) {  },),
                        Icon(Icons.filter_list_alt, color: Colors.black54,),
-
-                      // PopupMenuButton(
-                      //   color: Colors.black54,
-                      //   icon: Icon(Icons.filter_list_alt),
-                      //   itemBuilder: (ctx) => [
-                      //    _buildPopupMenuItem("menu");
-                      //   ],
-                      // ),
                     ],
                   ),
                 ),
@@ -150,7 +142,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
                   },
-                  child: ProductListTile(productName: "fds fhsdf", productPrice: 399.5, itemPic:foodList[index],));
+                  child: ProductListTile(productName: "Food for pets anima best product for pets animation", productPrice: 399.5, itemPic:foodList[index], productDescription: 'best product for pets anima best product for pets animation for pets anima best product for pets animation',));
             }
           ),
         ): Container(
@@ -174,17 +166,4 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
       ],);
 
   }
-
-  /// Filter Popup menu function///
-  // PopupMenuItem _buildPopupMenuItem(
-  //     String title) {
-  //   return PopupMenuItem(
-  //     onTap: (){
-  //       setState(() {
-  //
-  //       });
-  //     },
-  //     child:  Text(title),
-  //   );
-  // }
 }
