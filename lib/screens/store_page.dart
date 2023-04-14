@@ -131,7 +131,6 @@ class StoreInfoState extends State<StoreInfo> {
 
   buildContent() {
     return Container(
-      color: CONFIG.primaryColor,
       height: MediaQuery.of(context).size.height - 55,
       margin: EdgeInsets.symmetric(horizontal: 5),
       child: GridView.builder(
