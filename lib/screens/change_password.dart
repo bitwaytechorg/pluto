@@ -129,7 +129,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 10, top: 15, bottom: 10),
+                      left: 10, top: 15,),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: CText(text:
