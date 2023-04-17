@@ -11,6 +11,8 @@ import '../components/slider_menu.dart';
 import '../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
+import '../models/product.dart';
+
 class StoreInfo extends StatefulWidget {
   @override
   StoreInfoState createState() => StoreInfoState();
@@ -87,7 +89,7 @@ class StoreInfoState extends State<StoreInfo> {
                         onTap: () => Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AddProductForm())),
+                                builder: (context) => ProductForm(product: Product(),))),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 6,),
                           child: Icon(
