@@ -38,9 +38,32 @@ class ProductFormState extends State<ProductForm> {
 
   ProductRepo _repo = new ProductRepo();
   String productImage = "";
-  XFile file = XFile("");
+   XFile file = XFile("");
   String filepath = "";
   final ImagePicker _picker = ImagePicker();
+  // Future<void> pickMultiImage() async {
+  //   final List<XFile>? images = await ImagePicker().pickMultiImage();
+  //   if(images !=null) {
+  //
+  //   }
+  // }
+  // List<XFile> ? imagefiles;
+
+  // openImages() async {
+  //   try {
+  //     var pickedfiles = await _picker.pickMultiImage();
+  //     if (pickedfiles != null) {
+  //       imagefiles = pickedfiles;
+  //       setState(() {});
+  //     }
+  //     else {
+  //       print("No image is selected.");
+  //     }
+  //   }catch (e) {
+  //     print(" error while picking file.");
+  //   }
+  // }
+
   late UploadTask uploadTask;
   bool saving = false;
   String message = "";
@@ -133,7 +156,7 @@ Future<void> loadPhoto() async {
       child: Column(
         children: [
           InkWell(
-            onTap: () => pickImage(),
+            onTap: () => pickMultiImage(),
             child: Container(
               width: 600,
               height: 200,
@@ -282,6 +305,7 @@ Future<void> loadPhoto() async {
             : "",
         productTitle: _productTitleController.text,
         description: _descriptionController.text,
+        category: _categoryController.text,
         productImage: productImage,
         created_at: widget.product.created_at ?? "",
         created_by: widget.product.created_by ?? "",
@@ -296,6 +320,7 @@ Future<void> loadPhoto() async {
       if (widget.product.product_id == "") {
         _productTitleController.text = "";
         _descriptionController.text = "";
+        _categoryController.text = "";
         productImage = "";
         file = XFile("");
         filepath = "";
@@ -304,7 +329,7 @@ Future<void> loadPhoto() async {
       saving = false;
     });
   }
-  Future<void> pickImage() async {
+  Future<void> pickMultiImage() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
         source: ImageSource.gallery,);
