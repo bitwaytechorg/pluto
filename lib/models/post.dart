@@ -12,7 +12,10 @@ class Post{
       likeCount,
       upVoteCount,
       downVoteCount,
-      profileUrl;
+      profileUrl,
+      postDescription,
+      postCategory;
+
   //Map<String, dynamic> resource;
 
   Post({
@@ -28,8 +31,11 @@ class Post{
     this.upVoteCount='',
     this.downVoteCount='',
     this.profileUrl='',
+    this.postDescription='',
+    this.postCategory='',
    // required this.resource,
   });
+
   factory Post.fromJson(Map<String,dynamic> json){
     return Post(
         posterUserId:json['posterUserId'].toString(),
@@ -43,6 +49,8 @@ class Post{
         upVoteCount:json['upVoteCount'].toString(),
         downVoteCount:json['downVoteCount'].toString(),
         profileUrl:json['profileUrl'].toString(),
+       postDescription:json['postDescription'].toString(),
+      postCategory:json['postCategory'].toString(),
        // resource:json['resource'].toString(),
 
     );
@@ -60,8 +68,25 @@ class Post{
       upVoteCount:json['upVoteCount'].toString(),
       downVoteCount:json['downVoteCount'].toString(),
       profileUrl:json['profileUrl'].toString(),
+      postDescription:json['postDescription'].toString(),
+      postCategory:json['postCategory'].toString(),
      // resource:json['resource'].toString(),
 
     );
   }
+  Map<String, dynamic> toMap()=>{
+    posterUserId:"posterUserId",
+    posterName:"posterName",
+    posterDpUrl:"posterDpUrl",
+    postLocation:"postLocation",
+    postId:"postId",
+    postTitle:"postTitle",
+    commentsCount:"commentsCount",
+    likeCount:"likeCount",
+    upVoteCount:"upVoteCount",
+    downVoteCount:"downVoteCount",
+    profileUrl:"profileUrl",
+    postDescription:"postDescription",
+    postCategory:"postCategory"
+  };
 }

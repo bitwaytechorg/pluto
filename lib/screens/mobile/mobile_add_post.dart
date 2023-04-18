@@ -1,8 +1,15 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pluto/components/scroll_behaviour.dart';
+import '../../models/post.dart';
 import '../home.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
 
 
 class Mobile_Addpost extends StatefulWidget {
@@ -12,7 +19,12 @@ class Mobile_Addpost extends StatefulWidget {
 
 class Mobile_AddpostState extends State<Mobile_Addpost> {
   bool loading = false;
- final databaseRef = FirebaseDatabase.instance.ref("Post");
+
+  XFile file = XFile("");
+  String filePath = "";
+  final ImagePicker _picker = ImagePicker();
+  late UploadTask uploadTask;
+  String message = "";
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -50,7 +62,22 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                       ),
                       InkWell(
                           onTap: (){
+                          addPostHandler(Post(
+                            postTitle: titleController.text,
+                            postDescription: descriptionController.text,
+                            postCategory: categoryController.text,
+                            posterUserId:"posterUserId",
+                            posterName:"posterName",
+                            posterDpUrl:"posterDpUrl",
+                            postLocation:"postLocation",
+                            postId:"postId",
+                            commentsCount:"0",
+                            likeCount:"0",
+                            upVoteCount:"0",
+                            downVoteCount:"0",
+                            profileUrl:"profileUrl",
 
+                          ));
                           },
                           child: Icon(Icons.check, color: Colors.grey)),
                     ],
@@ -62,16 +89,19 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Column(
                     children: [
-                      Container(
-                        height: 250,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withAlpha(100),
-                            borderRadius: BorderRadius.all(Radius.circular(5))
+                      InkWell(
+                        onTap: (){
+                          imagePicker();
+                        },
+                        child: Container(
+                          height: 250,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withAlpha(100),
+                              borderRadius: BorderRadius.all(Radius.circular(5))
+                          ),
+                            child:Image.file(File(filePath),fit: BoxFit.cover,),
                         ),
-
-                       // child: Text("Image Container"),
-                        //child: ImagePicker(),
                       ),
                       SizedBox(height: 15,),
                       Align(alignment: Alignment.centerLeft,
@@ -109,5 +139,36 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
         ),
       ),
     );
+  }
+
+  void addPostHandler(Post post) async {
+
+    FirebaseFirestore.instance.collection(CONFIG.post_collection)
+        .add(post.toMap())
+        .then((docRef) {
+      FirebaseFirestore.instance.collection(CONFIG.post_collection).doc(docRef.id).update(
+          {"postId": docRef.id});
+        print("${post.toMap()} post added..");
+    }).catchError((e) {
+      print("$e this error appears...");
+    });
+
+  }
+
+
+  Future<void> imagePicker() async {
+    try {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+      );
+      setState(() {
+        file = pickedFile!;
+        filePath = pickedFile!.path;
+      });
+    } catch (e) {
+      setState(() {
+        // _pickImageError = e;
+      });
+    }
   }
 }
