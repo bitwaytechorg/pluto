@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/custom_image.dart';
-
+import 'package:pluto/config/config.dart' as CONFIG;
 
 import 'cText.dart';
 
@@ -52,25 +54,34 @@ class _PostSectionState extends State<PostSection> {
               children: [
                Row(
                  children: [
-                   Row(
-                     children: [
-                       Icon(Icons.thumb_up, color: Colors.black.withAlpha(140),size: 20,),
-                       SizedBox(width: 5,),
-                       Text("300"),
-                     ],
-                   ),
+                   LikeButton(
+                     likeCount: 23,
+                     likeBuilder: (bool isLiked) {
+                       return Icon(
+                         Icons.thumb_up_rounded,
+                         color: isLiked ? CONFIG.primaryColor : Colors.black.withAlpha(140),
+                         size: 22,
+                       );
+                     },),
+                      SizedBox(width: 5,),
+                   LikeButton(
+                     likeCount: 5,
+                     likeBuilder: (bool isLiked) {
+                       return Icon(
+                         Icons.thumb_down_alt_rounded,
+                         color: isLiked ? Colors.deepPurpleAccent : Colors.black.withAlpha(140),
+                         size: 22,
+                       );
+                     },),
+
                    Row(
                      children: [
                        SizedBox(width: 15,),
-                       Icon(Icons.thumb_down, color: Colors.black.withAlpha(140),size: 20,),
-                       SizedBox(width: 5,),
-                       Text("138")
-                     ],
-                   ),
-                   Row(
-                     children: [
-                       SizedBox(width: 15,),
-                       Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,),
+                       InkWell(
+                           onTap: (){
+
+                           },
+                           child: Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,)),
                        SizedBox(width:5,),
                        Text("35")
                      ],
@@ -78,7 +89,11 @@ class _PostSectionState extends State<PostSection> {
 
                  ],
                ),
-                Icon(Icons.share, size: 20, color: Colors.black.withAlpha(140),),
+                InkWell(
+                    onTap: (){
+
+                    },
+                    child: Icon(Icons.share, size: 20, color: Colors.black.withAlpha(140),)),
 
               ],
             ),
