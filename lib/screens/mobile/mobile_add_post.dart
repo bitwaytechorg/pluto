@@ -18,17 +18,15 @@ class Mobile_Addpost extends StatefulWidget {
 }
 
 class Mobile_AddpostState extends State<Mobile_Addpost> {
-  bool loading = false;
 
-  XFile file = XFile("");
-  String filePath = "";
-  final ImagePicker _picker = ImagePicker();
-  late UploadTask uploadTask;
-  String message = "";
+  final storageRef = FirebaseStorage.instance.ref();
+  String filePath = '';
+  String postImageURL= '';
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final categoryController = TextEditingController();
+  final sourceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +59,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                         ],
                       ),
                       InkWell(
-                          onTap: (){
+                          onTap: () async {
                           addPostHandler(Post(
                             postTitle: titleController.text,
                             postDescription: descriptionController.text,
@@ -75,9 +73,20 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                             likeCount:"0",
                             upVoteCount:"0",
                             downVoteCount:"0",
+                            postSource:postImageURL,
                             profileUrl:"profileUrl",
 
                           ));
+
+                            /// store file in firebase storage///
+                            Reference postDirImages = storageRef.child("postImages");
+                            Reference imageToUploadRef = postDirImages.child("images");
+                            try {
+                              await imageToUploadRef.putFile(File(filePath));
+                             postImageURL= await imageToUploadRef.getDownloadURL();
+                            }catch(e){
+                            print("firebase error: $e");
+                          }
                           },
                           child: Icon(Icons.check, color: Colors.grey)),
                     ],
@@ -100,7 +109,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                               color: Colors.grey.withAlpha(100),
                               borderRadius: BorderRadius.all(Radius.circular(5))
                           ),
-                            child:Image.file(File(filePath),fit: BoxFit.cover,),
+                            child: Image.file(File(filePath)),
                         ),
                       ),
                       SizedBox(height: 15,),
@@ -155,20 +164,14 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
 
   }
 
-
   Future<void> imagePicker() async {
-    try {
-      final XFile? pickedFile = await _picker.pickImage(
-        source: ImageSource.gallery,
-      );
-      setState(() {
-        file = pickedFile!;
-        filePath = pickedFile!.path;
-      });
-    } catch (e) {
-      setState(() {
-        // _pickImageError = e;
-      });
-    }
+    ImagePicker imagePicker = ImagePicker();
+    XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      filePath= file!.path;
+    });
+
   }
+
+
 }
