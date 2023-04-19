@@ -13,6 +13,8 @@ class PostSection extends StatefulWidget {
 }
 
 class _PostSectionState extends State<PostSection> {
+  late int upvote, downvote;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -55,7 +57,7 @@ class _PostSectionState extends State<PostSection> {
                Row(
                  children: [
                    LikeButton(
-                     likeCount: 23,
+                     likeCount: 223,
                      likeBuilder: (bool isLiked) {
                        return Icon(
                          Icons.thumb_up_rounded,
@@ -65,7 +67,7 @@ class _PostSectionState extends State<PostSection> {
                      },),
                       SizedBox(width: 5,),
                    LikeButton(
-                     likeCount: 5,
+                     likeCount: 43,
                      likeBuilder: (bool isLiked) {
                        return Icon(
                          Icons.thumb_down_alt_rounded,
@@ -91,7 +93,7 @@ class _PostSectionState extends State<PostSection> {
                ),
                 InkWell(
                     onTap: (){
-
+                     
                     },
                     child: Icon(Icons.share, size: 20, color: Colors.black.withAlpha(140),)),
 
@@ -104,4 +106,5 @@ class _PostSectionState extends State<PostSection> {
       ),
     );
   }
+
 }

@@ -14,7 +14,9 @@ class Post{
       downVoteCount,
       profileUrl,
       postDescription,
+      postSource,
       postCategory;
+
 
   //Map<String, dynamic> resource;
 
@@ -32,6 +34,7 @@ class Post{
     this.downVoteCount='',
     this.profileUrl='',
     this.postDescription='',
+    this.postSource='',
     this.postCategory='',
    // required this.resource,
   });
@@ -50,6 +53,7 @@ class Post{
         downVoteCount:json['downVoteCount'].toString(),
         profileUrl:json['profileUrl'].toString(),
        postDescription:json['postDescription'].toString(),
+       postSource:json['postSource'].toString(),
       postCategory:json['postCategory'].toString(),
        // resource:json['resource'].toString(),
 
@@ -69,24 +73,26 @@ class Post{
       downVoteCount:json['downVoteCount'].toString(),
       profileUrl:json['profileUrl'].toString(),
       postDescription:json['postDescription'].toString(),
+      postSource:json['postSource'].toString(),
       postCategory:json['postCategory'].toString(),
      // resource:json['resource'].toString(),
 
     );
   }
   Map<String, dynamic> toMap()=>{
-    posterUserId:"posterUserId",
-    posterName:"posterName",
-    posterDpUrl:"posterDpUrl",
-    postLocation:"postLocation",
-    postId:"postId",
-    postTitle:"postTitle",
-    commentsCount:"commentsCount",
-    likeCount:"likeCount",
-    upVoteCount:"upVoteCount",
-    downVoteCount:"downVoteCount",
-    profileUrl:"profileUrl",
-    postDescription:"postDescription",
-    postCategory:"postCategory"
+    "posterUserId":posterUserId,
+    "posterName":posterName,
+    "posterDpUrl":posterDpUrl,
+    "postLocation":postLocation,
+    "postId":postId,
+    "postTitle":postTitle,
+    "commentsCount":commentsCount,
+    "likeCount":likeCount,
+    "upVoteCount":upVoteCount,
+    "downVoteCount":downVoteCount,
+    "profileUrl":profileUrl,
+    "postDescription":postDescription,
+    "postSource":postSource,
+    "postCategory":postCategory
   };
 }
