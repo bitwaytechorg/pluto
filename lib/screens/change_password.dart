@@ -189,7 +189,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                             email: SESSION.email, password: oldPassword.text);
                         user?.reauthenticateWithCredential(cred).then((value) {
                           user.updatePassword(newPassword.text).then((_) {
-                            //Success, do something
                             oldPassword.text="";
                             newPassword.text="";
                             confirmPassword.text="";

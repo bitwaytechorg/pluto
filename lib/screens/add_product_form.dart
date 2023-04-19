@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,8 +12,6 @@ import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
 import '../models/product.dart';
-import '../repository/product_repository.dart';
-import 'business_profile.dart';
 import 'package:pluto/config/config.dart'as CONFIG;
 
 
@@ -33,41 +33,21 @@ class ProductFormState extends State<ProductForm> {
   TextEditingController _categoryController = new TextEditingController();
   TextEditingController _priceController = new TextEditingController();
 
-  String productImage = "";
+  bool loading = false;
    XFile file = XFile("");
-  String filepath = "";
+  String filePath ="";
   final ImagePicker _picker = ImagePicker();
   late UploadTask uploadTask;
-  bool saving = false;
-  String message = "";
 
 
-  get io => null;
+  // @override
+  // void initState() {
+  //   _productTitleController.text = widget.product.productTitle;
+  //   _descriptionController.text = widget.product.description;
+  //   _categoryController.text = widget.product.category;
+  // }
 
 
-  @override
-  void initState() {
-    _productTitleController.text = widget.product.productTitle;
-    _descriptionController.text = widget.product.description;
-    _categoryController.text = widget.product.category;
-  }
-
-
-  // Future<void> pickImage() async {
-  //   try {
-  //     final XFile? pickedFile = await _picker.pickImage(
-  //       source: ImageSource.gallery,
-  //     );
-  //     setState(() {
-  //       file = pickedFile!;
-  //       filepath = pickedFile!.path;
-  //     });
-  //   } catch (e) {
-  //     setState(() {
-  //       // _pickImageError = e;
-  //     });
-  //   }
-  //  }
 
   double xOffset = 0;
   double yOffset = 0;
@@ -130,6 +110,8 @@ class ProductFormState extends State<ProductForm> {
   }
 
   buildContent() {
+
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
@@ -137,12 +119,13 @@ class ProductFormState extends State<ProductForm> {
           InkWell(
             onTap: () => pickImage(),
             child: Container(
-              width: 600,
-              height: 200,
+              height: 300,
+                width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.grey[100]!,
               ),
+              child:Image.file(File(filePath), fit: BoxFit.cover,)
             ),
           ),
           SizedBox(height: 15,),
@@ -189,7 +172,13 @@ class ProductFormState extends State<ProductForm> {
             child: Row(
               children: [
                 InkWell(
-                  onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Business_Profile()),)},
+                    onTap: (){
+                      addProductHandler(Product(
+                        productTitle : _productTitleController.text,
+                        description: _descriptionController.text,
+                        category: _categoryController.text,
+                      ));
+                    },
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -204,7 +193,9 @@ class ProductFormState extends State<ProductForm> {
                   ),
                 ),
     ],
+
               ),
+
           ),
         ],
       ),
@@ -225,19 +216,20 @@ class ProductFormState extends State<ProductForm> {
 
   }
   Future<void> pickImage() async {
-    try {
-      final XFile? pickedFile = await _picker.pickImage(
-        source: ImageSource.gallery,
-      );
-      setState(() {
-        file = pickedFile!;
-        filepath = pickedFile!.path;
-      });
-    } catch (e) {
-      setState(() {
-        // _pickImageError = e;
-      });
-    }
-  }
+      try {
+        final XFile? pickedFile = await _picker.pickImage(
+          source: ImageSource.gallery,
+        );
+        setState(() {
+          file = pickedFile!;
+          filePath = pickedFile!.path;
+        });
+
+      } catch (e) {
+        setState(() {
+          // _pickImageError = e;
+        });
+      }
+     }
 }
 
