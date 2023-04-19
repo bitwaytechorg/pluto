@@ -11,12 +11,12 @@ class  ProductRepo {
       product.updated_at = DateTime.now().toUtc().toString();
       product.updated_by = FirebaseAuth.instance.currentUser!.uid.toString();
       product.updated_by_name = FirebaseAuth.instance.currentUser!.displayName??"";
-      await FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(product.product_id).update(product.toMap());
+      FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(product.product_id).update(product.toMap());
     } else {
       product.created_at = DateTime.now().toUtc().toString();
       product.created_by = FirebaseAuth.instance.currentUser!.uid;
       product.created_by_name = FirebaseAuth.instance.currentUser!.displayName??"";
-      await FirebaseFirestore.instance.collection(CONFIG.product_collection)
+      FirebaseFirestore.instance.collection(CONFIG.product_collection)
           .add(product.toMap())
           .then((docRef) {
         FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(docRef.id).update(
@@ -30,7 +30,7 @@ class  ProductRepo {
   }
 
   Future<bool> delete(productId) async {
-    await FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(productId).delete().catchError((e){
+    FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(productId).delete().catchError((e){
       return false;
     });
     return true;

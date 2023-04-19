@@ -1,10 +1,7 @@
-import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pluto/screens/store_page.dart';
@@ -36,34 +33,10 @@ class ProductFormState extends State<ProductForm> {
   TextEditingController _categoryController = new TextEditingController();
   TextEditingController _priceController = new TextEditingController();
 
-  ProductRepo _repo = new ProductRepo();
   String productImage = "";
    XFile file = XFile("");
   String filepath = "";
   final ImagePicker _picker = ImagePicker();
-  // Future<void> pickMultiImage() async {
-  //   final List<XFile>? images = await ImagePicker().pickMultiImage();
-  //   if(images !=null) {
-  //
-  //   }
-  // }
-  // List<XFile> ? imagefiles;
-
-  // openImages() async {
-  //   try {
-  //     var pickedfiles = await _picker.pickMultiImage();
-  //     if (pickedfiles != null) {
-  //       imagefiles = pickedfiles;
-  //       setState(() {});
-  //     }
-  //     else {
-  //       print("No image is selected.");
-  //     }
-  //   }catch (e) {
-  //     print(" error while picking file.");
-  //   }
-  // }
-
   late UploadTask uploadTask;
   bool saving = false;
   String message = "";
@@ -74,21 +47,27 @@ class ProductFormState extends State<ProductForm> {
 
   @override
   void initState() {
-    productImage = widget.product.productImage;
     _productTitleController.text = widget.product.productTitle;
     _descriptionController.text = widget.product.description;
     _categoryController.text = widget.product.category;
   }
 
 
-Future<void> loadPhoto() async {
-  String ref = await FirebaseStorage.instance.ref(
-      widget.product.productImage)
-      .getDownloadURL();
-  setState(() {
-    productImage = ref.toString();
-  });
-}
+  // Future<void> pickImage() async {
+  //   try {
+  //     final XFile? pickedFile = await _picker.pickImage(
+  //       source: ImageSource.gallery,
+  //     );
+  //     setState(() {
+  //       file = pickedFile!;
+  //       filepath = pickedFile!.path;
+  //     });
+  //   } catch (e) {
+  //     setState(() {
+  //       // _pickImageError = e;
+  //     });
+  //   }
+  //  }
 
   double xOffset = 0;
   double yOffset = 0;
@@ -156,22 +135,13 @@ Future<void> loadPhoto() async {
       child: Column(
         children: [
           InkWell(
-            onTap: () => pickMultiImage(),
+            onTap: () => pickImage(),
             child: Container(
               width: 600,
               height: 200,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.grey[100]!,
-              ),
-              child: Center(
-                child: productImage!= "" && filepath == "" ? Image(
-                    image: NetworkImage(productImage)) : filepath != ""
-                    ? kIsWeb
-                    ? Image.network(file.path)
-                    : Image.file(io.file(file.path))
-                    : Icon(Icons.photo, size: 100, color: Colors.grey,),
-
               ),
             ),
           ),
@@ -241,104 +211,32 @@ Future<void> loadPhoto() async {
     );
 
   }
-  Future<String?> uploadImage() async {
-    setState(() {
-      message = "Uploading Image...";
-      productImage = "product-images/" + file.name;
+  void addProductHandler(Product product) async {
+
+    FirebaseFirestore.instance.collection(CONFIG.product_collection)
+        .add(product.toMap())
+        .then((docRef) {
+      FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(docRef.id).update(
+          {"productId": docRef.id});
+      print("${product.toMap()} product added..");
+    }).catchError((e) {
+      print("$e this error appears...");
     });
-    Reference ref = FirebaseStorage.instance
-        .ref('product-images/' + file.name);
 
-    final metadata = SettableMetadata(
-      contentType: file.mimeType,
-    );
-    Uint8List bytes = await file.readAsBytes();
-    if (kIsWeb) {
-      try {
-        final uploadTask =  ref.putData(bytes,metadata);
-
-        uploadTask.snapshotEvents.listen((event) async {
-          double progress = (event.bytesTransferred.toDouble()/event.totalBytes.toDouble())*100;
-
-          setState(() {
-            message="Uploading Image...${progress.floor().toString()}%";
-          });
-          if(event.state==TaskState.success){
-            print("we got success");
-          }
-        });
-        await uploadTask.whenComplete((){
-          print("now completed");
-          return productImage;
-        });
-      } on FirebaseException catch (e) {
-        setState(() {
-          message="Error: "+e.toString();
-        });
-        print(e.message);
-      }
-      if(productImage!=""){
-        print("now return photo");
-        String tmp_path = await ref.getDownloadURL();
-        setState(() {
-          message="Image Uploaded! Preparing data to save";
-          productImage =  tmp_path;
-        });
-        return productImage;
-      }
-    } else {
-      uploadTask = ref.putFile(io.File(file.path), metadata);
-    }
   }
-
-  save() async {
-    if (file.path != '') {
-      var v = await uploadImage();
-      print("this is ... " + v.toString());
-    }
-    setState(() {
-      message = "Getting Product details...";
-    });
-    Product data = Product(
-        product_id: widget.product.product_id!= ""
-            ? widget.product.product_id
-            : "",
-        productTitle: _productTitleController.text,
-        description: _descriptionController.text,
-        category: _categoryController.text,
-        productImage: productImage,
-        created_at: widget.product.created_at ?? "",
-        created_by: widget.product.created_by ?? "",
-        created_by_name: widget.product.created_by_name ?? ""
-    );
-    setState(() {
-      message = 'Saving data....';
-    });
-    await  _repo.save(data);
-
-    setState(() {
-      if (widget.product.product_id == "") {
-        _productTitleController.text = "";
-        _descriptionController.text = "";
-        _categoryController.text = "";
-        productImage = "";
-        file = XFile("");
-        filepath = "";
-      }
-      message = "Product Saved!";
-      saving = false;
-    });
-  }
-  Future<void> pickMultiImage() async {
+  Future<void> pickImage() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
-        source: ImageSource.gallery,);
+        source: ImageSource.gallery,
+      );
       setState(() {
         file = pickedFile!;
         filepath = pickedFile!.path;
       });
     } catch (e) {
-      setState(() {});
+      setState(() {
+        // _pickImageError = e;
+      });
     }
   }
 }
