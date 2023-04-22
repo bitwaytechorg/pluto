@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/screens/business_profile.dart';
 import 'package:pluto/screens/change_password.dart';
+import 'package:pluto/screens/home.dart';
+import 'package:pluto/screens/leader_board.dart';
 import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import 'package:pluto/global/session.dart' as SESSION;
@@ -36,60 +38,178 @@ class Slider_menu extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 10,),
+
 
             ///Profile
-            Container(
-              margin: EdgeInsets.only(left: 70, top: 15),
-              child: Text("Edit Profile ",
-                  style: TextStyle(color: Colors.white, fontSize: 18)),
-            ),
-            InkWell(
-              onTap: () => Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => User_Profile())),
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 20,
-                  top: 20,
-                ),
-                child: Container(
-                  height: 40,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.greenAccent.withAlpha(100),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    child: Center(
-                      child: Text(
-                        "See Profile",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
 
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 15),
+                child: InkWell(
+                  onTap: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => User_Profile())),
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.user,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'See Profile',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            Container(
-              height: 40,
-              width: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: Colors.greenAccent.withAlpha(100),
-              ),
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: InkWell(
-                onTap: (){
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Mobile_Leaderboard()));
-                },
-                  child: Center(child: Text("LEADERBOARD", style: TextStyle(color: Colors.white),))
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 15),
+                child: InkWell(
+                  onTap: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Home())),
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.house,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Home',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 15),
+                child: InkWell(
+                  onTap: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Leaderboard())),
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.chartLine,
+                        color: Colors.white,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'LeaderBoard',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            // Container(
+            //   margin: EdgeInsets.only(left: 70, top: 15),
+            //   child: Text("Edit Profile ",
+            //       style: TextStyle(color: Colors.white, fontSize: 18)),
+            // ),
+            //  InkWell(
+            // onTap: () => Navigator.pushReplacement(context,
+            //       MaterialPageRoute(builder: (context) => User_Profile())),
+            //   child: Padding(
+            //     padding: EdgeInsets.only(
+            //       left: 20,
+            //       top: 20,
+            //     ),
+            //     child: Container(
+            //       height: 40,
+            //       width: 200,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(5),
+            //         color: Colors.greenAccent.withAlpha(100),
+            //       ),
+            //       child: Padding(
+            //         padding: const EdgeInsets.symmetric(
+            //             horizontal: 20, vertical: 10),
+            //         child: Center(
+            //           child: Text(
+            //             "See Profile",
+            //             style: TextStyle(
+            //               color: Colors.white,
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   height: 40,
+            //   width: 200,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(5),
+            //     color: Colors.greenAccent.withAlpha(100),
+            //   ),
+            //   margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            //   child: InkWell(
+            //     onTap: (){
+            //       Navigator.pushReplacement(context,
+            //           MaterialPageRoute(builder: (context) => Mobile_Leaderboard()));
+            //     },
+            //       child: Center(child: Text("LEADERBOARD", style: TextStyle(color: Colors.white),))
+            //   ),
+            // ),
+            // Container(
+            //   height: 40,
+            //   width: 200,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(5),
+            //     color: Colors.greenAccent.withAlpha(100),
+            //   ),
+            //   margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            //   child: InkWell(
+            //       onTap: (){
+            //         Navigator.pushReplacement(context,
+            //             MaterialPageRoute(builder: (context) => Home()));
+            //       },
+            //       child: Center(child: Text("Home", style: TextStyle(color: Colors.white),))
+            //   ),
+            // ),
 
             ///menu items
             Container(
@@ -98,7 +218,7 @@ class Slider_menu extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(0, 60, 0, 5),
+                    padding: EdgeInsets.fromLTRB(0, 30, 0, 5),
                     width: 250,
                     decoration: BoxDecoration(
                       border: Border(

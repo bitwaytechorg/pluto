@@ -311,7 +311,6 @@ class UserProfileFormState extends State<UserProfileForm> {
                           "lastName": SESSION.lastName,
                           "email": SESSION.email,
                           "phoneNumber": SESSION.phoneNumber,
-                          "gender": SESSION.gender,
                           "dob": SESSION.dob
                         });
                         setState(() {
