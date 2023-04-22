@@ -66,7 +66,7 @@ class _PostSectionState extends State<PostSection> {
                        );
                      },),
                       SizedBox(width: 5,),
-                   LikeButton(
+                    LikeButton(
                      likeCount: 43,
                      likeBuilder: (bool isLiked) {
                        return Icon(

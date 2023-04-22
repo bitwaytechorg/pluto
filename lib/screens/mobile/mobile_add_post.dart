@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                       ),
                       InkWell(
                           onTap: () async {
-                          addPostHandler(Post(
+                          addPostHandler( Post(
                             postTitle: titleController.text,
                             postDescription: descriptionController.text,
                             postCategory: categoryController.text,
@@ -86,7 +85,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                              postImageURL= await imageToUploadRef.getDownloadURL();
                             }catch(e){
                             print("firebase error: $e");
-                          }
+                            }
                           },
                           child: Icon(Icons.check, color: Colors.grey)),
                     ],

@@ -9,6 +9,7 @@ import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/global//session.dart' as SESSION;
 
 class MobileHome extends StatefulWidget {
   @override
@@ -17,23 +18,6 @@ class MobileHome extends StatefulWidget {
 
 class MobileHomeState extends State<MobileHome> {
   List<Post> results =[];
-  @override
-  void initState() {
-
-    Future<List<Post>> fetch() async {
-      var response = await FirebaseFirestore.instance.collection(CONFIG.post_collection).get().catchError((e) {
-        return false;
-      });
-      if(response.docs.length>0){
-        response.docs.forEach((element) {
-          results.add(Post.fromMap(element.data()));
-        });
-      }
-      return results;
-    }
-    fetch();
-    super.initState();
-  }
 
   double xOffset = 0;
   double yOffset = 0;
@@ -100,14 +84,24 @@ class MobileHomeState extends State<MobileHome> {
   }
 
   buildContent() {
-    print(results);
-    return ListView.builder(
-         shrinkWrap: true,
-         itemCount: 3,
-        itemBuilder: (BuildContext context, int index) {
-        return PostSection();
-      },
+    return StreamBuilder (
+      stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).where("posts",isEqualTo: SESSION.uid).snapshots(),
 
+        builder:(context, snapshot ) {
+          print("$snapshot this is snapshot data....");
+          if(snapshot!.hasData){
+           return Column(children: [
+             PostSection(),
+             PostSection(),
+             PostSection(),
+             PostSection(),
+           ],);
+
+          }
+          else{
+            return Container(child: Text("No Post"),);
+          }
+         }
     );
   }
 }
