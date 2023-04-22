@@ -285,8 +285,10 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                       },
                       child: Row(
                         children: [
-                          IconButton(onPressed: () { Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp"); },
-                          icon: Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey)),
+                          IconButton(onPressed: () { Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp");
+                            },
+                          icon: Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey)
+                          ),
                           SizedBox(width: 5,),
                           Text("Share Profile", style: TextStyle(color: onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),)
                         ],
