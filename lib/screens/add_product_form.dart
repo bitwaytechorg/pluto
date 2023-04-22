@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,21 +11,19 @@ import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
 import '../models/product.dart';
-import 'package:pluto/config/config.dart'as CONFIG;
-
+import 'package:pluto/config/config.dart' as CONFIG;
 
 class ProductForm extends StatefulWidget {
   final Product product;
 
   ProductForm({required this.product});
 
-
-
   @override
   ProductFormState createState() => ProductFormState();
 }
 
 class ProductFormState extends State<ProductForm> {
+  final storageRef = FirebaseStorage.instance.ref();
 
   TextEditingController _productTitleController = new TextEditingController();
   TextEditingController _descriptionController = new TextEditingController();
@@ -34,11 +31,11 @@ class ProductFormState extends State<ProductForm> {
   TextEditingController _priceController = new TextEditingController();
 
   bool loading = false;
-   XFile file = XFile("");
-  String filePath ="";
+  XFile file = XFile("");
+  String filePath = "";
   final ImagePicker _picker = ImagePicker();
   late UploadTask uploadTask;
-
+  String productImageURL = '';
 
   // @override
   // void initState() {
@@ -46,8 +43,6 @@ class ProductFormState extends State<ProductForm> {
   //   _descriptionController.text = widget.product.description;
   //   _categoryController.text = widget.product.category;
   // }
-
-
 
   double xOffset = 0;
   double yOffset = 0;
@@ -85,12 +80,16 @@ class ProductFormState extends State<ProductForm> {
                 TopBar(
                   title: Padding(
                     padding: const EdgeInsets.only(top: 6, right: 220, left: 5),
-                    child: Text("Add Product", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                    child: Text(
+                      "Add Product",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
                   ),
                   isDrawerOpen: isDrawerOpen,
                   isMainPage: false,
-                  onTap:()=> Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => StoreInfo())),
+                  onTap: () => Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => StoreInfo())),
                   background: Colors.transparent,
                 ),
                 Expanded(
@@ -110,8 +109,6 @@ class ProductFormState extends State<ProductForm> {
   }
 
   buildContent() {
-
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
@@ -119,66 +116,102 @@ class ProductFormState extends State<ProductForm> {
           InkWell(
             onTap: () => pickImage(),
             child: Container(
-              height: 300,
+                height: 300,
                 width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.grey[100]!,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100]!,
+                ),
+                child: Image.file(
+                  File(filePath),
+                  fit: BoxFit.cover,
+                )),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextFormField(
+              controller: _productTitleController,
+              style: TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: "Product Title",
+                hintText: 'Dog Shampoo',
               ),
-              child:Image.file(File(filePath), fit: BoxFit.cover,)
             ),
           ),
-          SizedBox(height: 15,),
-          Align(alignment: Alignment.centerLeft,
-              child: TextFormField(controller: _productTitleController, style: TextStyle(color: Colors.grey),
-            decoration: InputDecoration(
-              labelText: "Product Title",
-              hintText: 'Dog Shampoo',
+          SizedBox(
+            height: 10,
           ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextFormField(
+              controller: _descriptionController,
+              style: TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: "Description",
+                hintText: '--------',
               ),
-          ),
-          SizedBox(height: 10,),
-          Align(alignment: Alignment.centerLeft,
-              child: TextFormField(controller: _descriptionController, style: TextStyle(color: Colors.grey),
-            decoration: InputDecoration(
-              labelText: "Description",
-              hintText: '--------',
             ),
-              ),
           ),
-          SizedBox(height: 10,),
-          Align(alignment: Alignment.centerLeft,
-            child: TextFormField(controller: _categoryController, style: TextStyle(color: Colors.grey),
+          SizedBox(
+            height: 10,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextFormField(
+              controller: _categoryController,
+              style: TextStyle(color: Colors.grey),
               decoration: InputDecoration(
                 labelText: "Category",
                 hintText: '--------',
               ),
             ),
           ),
-
-
-          SizedBox(height: 10,),
-          Align(alignment: Alignment.centerLeft,
-              child: TextFormField(controller: _priceController, style: TextStyle(color: Colors.grey),
-            decoration: InputDecoration(
-              labelText: "Price",
-              hintText: 'Rs.200',
-            ),
-              ),
+          SizedBox(
+            height: 10,
           ),
-          SizedBox(height: 40,),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextFormField(
+              controller: _priceController,
+              style: TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: "Price",
+                hintText: 'Rs.200',
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
           Padding(
             padding: EdgeInsets.only(left: 100, right: 50, top: 20),
             child: Row(
               children: [
                 InkWell(
-                    onTap: (){
-                      addProductHandler(Product(
-                        productTitle : _productTitleController.text,
-                        description: _descriptionController.text,
-                        category: _categoryController.text,
-                      ));
-                    },
+                  onTap: () async {
+                    addProductHandler(Product(
+                      productTitle: _productTitleController.text,
+                      description: _descriptionController.text,
+                      category: _categoryController.text,
+                      productImage: productImageURL,
+                    ));
+
+                    /* --------------------- Store file in firebase storage-------*/
+
+                    Reference productDirImages =
+                        storageRef.child("productImages");
+                    Reference imageToUploadRef =
+                        productDirImages.child("images");
+                    try {
+                      await imageToUploadRef.putFile(File(filePath));
+                      productImageURL = await imageToUploadRef.getDownloadURL();
+                    } catch (e) {
+                      print("firebase error: $e");
+                    }
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -192,44 +225,42 @@ class ProductFormState extends State<ProductForm> {
                         color: CONFIG.primaryColor),
                   ),
                 ),
-    ],
-
-              ),
-
+              ],
+            ),
           ),
         ],
       ),
     );
-
   }
-  void addProductHandler(Product product) async {
 
-    FirebaseFirestore.instance.collection(CONFIG.product_collection)
+  void addProductHandler(Product product) async {
+    FirebaseFirestore.instance
+        .collection(CONFIG.product_collection)
         .add(product.toMap())
         .then((docRef) {
-      FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(docRef.id).update(
-          {"productId": docRef.id});
+      FirebaseFirestore.instance
+          .collection(CONFIG.product_collection)
+          .doc(docRef.id)
+          .update({"productId": docRef.id});
       print("${product.toMap()} product added..");
     }).catchError((e) {
       print("$e this error appears...");
     });
-
   }
+
   Future<void> pickImage() async {
-      try {
-        final XFile? pickedFile = await _picker.pickImage(
-          source: ImageSource.gallery,
-        );
-        setState(() {
-          file = pickedFile!;
-          filePath = pickedFile!.path;
-        });
-
-      } catch (e) {
-        setState(() {
-          // _pickImageError = e;
-        });
-      }
-     }
+    try {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+      );
+      setState(() {
+        file = pickedFile!;
+        filePath = pickedFile!.path;
+      });
+    } catch (e) {
+      setState(() {
+        // _pickImageError = e;
+      });
+    }
+  }
 }
-

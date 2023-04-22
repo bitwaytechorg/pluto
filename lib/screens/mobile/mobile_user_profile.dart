@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/screens/user_profile_form.dart';
+import 'package:share/share.dart';
 import '../../components/follow_list.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
@@ -284,7 +285,8 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                       },
                       child: Row(
                         children: [
-                          Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),
+                          IconButton(onPressed: () { Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp"); },
+                          icon: Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey)),
                           SizedBox(width: 5,),
                           Text("Share Profile", style: TextStyle(color: onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),)
                         ],
