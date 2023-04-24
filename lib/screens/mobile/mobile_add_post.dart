@@ -58,7 +58,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                         ],
                       ),
                       InkWell(
-                          onTap: () async {
+                          onTap: ()  {
                           addPostHandler( Post(
                             postTitle: titleController.text,
                             postDescription: descriptionController.text,
@@ -81,8 +81,8 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                             Reference postDirImages = storageRef.child("postImages");
                             Reference imageToUploadRef = postDirImages.child("images");
                             try {
-                              await imageToUploadRef.putFile(File(filePath));
-                             postImageURL= await imageToUploadRef.getDownloadURL();
+                               imageToUploadRef.putFile(File(filePath));
+                             postImageURL=  imageToUploadRef.getDownloadURL() as String;
                             }catch(e){
                             print("firebase error: $e");
                             }
@@ -156,7 +156,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
         .then((docRef) {
       FirebaseFirestore.instance.collection(CONFIG.post_collection).doc(docRef.id).update(
           {"postId": docRef.id});
-        print("${post.toMap()} post added..");
+
     }).catchError((e) {
       print("$e this error appears...");
     });

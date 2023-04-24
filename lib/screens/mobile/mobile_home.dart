@@ -84,25 +84,6 @@ class MobileHomeState extends State<MobileHome> {
   }
 
   buildContent() {
-    // return StreamBuilder (
-    //   stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).where("posts",isEqualTo: SESSION.uid).snapshots(),
-    //
-    //     builder:(context, snapshot ) {
-    //       print("$snapshot this is snapshot data....");
-    //       if(snapshot!.hasData){
-    //        return Column(children: [
-    //          PostSection(),
-    //          PostSection(),
-    //          PostSection(),
-    //          PostSection(),
-    //        ],);
-    //
-    //       }
-    //       else{
-    //         return Container(child: Text("No Post"),);
-    //       }
-    //      }
-    // );
 
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).snapshots(),
@@ -114,7 +95,7 @@ class MobileHomeState extends State<MobileHome> {
               itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index){
                 DocumentSnapshot post = snapshot.data!.docs[index];
-                return PostSection(postTitle: post["postTitle"],);
+                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post!["postSource"],);
               }
           );
         }else{

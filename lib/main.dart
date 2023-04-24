@@ -199,8 +199,6 @@ class AuthGate extends AnimatedWidget {
     var result =
         await FirebaseFirestore.instance.collection("users").doc(uid).get();
     userData = result.data() as Map<String, dynamic>;
-    //print("set user data");
-    // print(userData["subscription_started"]);
     SESSION.uid = uid;
     SESSION.email = userData.containsKey("email")
         ? userData['email']

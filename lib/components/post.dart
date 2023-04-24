@@ -8,9 +8,11 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
-  String postTitle;
+  String postTitle, postDescription, postImageURL;
   PostSection({
-    required this.postTitle
+    required this.postTitle,
+    required this.postDescription,
+    required this.postImageURL,
    });
 
   @override
@@ -53,7 +55,7 @@ class _PostSectionState extends State<PostSection> {
             child: Text(widget.postTitle,
               style: TextStyle(color: Colors.grey, fontSize: 15),),
           ),
-          Custom_Image(imageUrl: 'https://www.dogstrust.org.uk/images/800x600/assets/2022-08/sophia_sophie_sbt_puppies_leeds_dogstrust.jpg',),
+          Custom_Image(imageUrl: widget.postImageURL),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
