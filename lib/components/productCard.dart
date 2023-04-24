@@ -8,6 +8,7 @@ class ProductCard extends StatefulWidget {
   String itemPic;
   String productName;
   double productPrice;
+
   ProductCard({Key? key, required this.productName, required this.productPrice, this.itemPic=''}) : super(key: key);
 
   @override
@@ -29,9 +30,10 @@ class _ProductCardState extends State<ProductCard> {
       child: Column( children: [
         Stack(
           children: [
-            Image.network(widget.itemPic,
-             height: 100,
+            Container(
+              height: 100,
               width: 120,
+              child: Image.network(widget.itemPic,),
             ),
             Align(alignment: Alignment.topRight, child: Icon(Icons.favorite_border, color: Colors.pink,)),
           ], ),

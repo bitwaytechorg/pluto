@@ -22,9 +22,10 @@ class _ProductListTileState extends State<ProductListTile> {
         border: Border(bottom: BorderSide(width: 0.2))
       ),
       child: Row(children: [
-        Image.network(widget.itemPic,
+        Container(
           height: 85,
           width: 90,
+          child: Image.network(widget.itemPic,),
         ),
         SizedBox(width: 20,),
         Column(children: [

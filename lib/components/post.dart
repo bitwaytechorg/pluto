@@ -5,7 +5,6 @@ import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/custom_image.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
-import '../models/post.dart';
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
@@ -53,10 +52,21 @@ class _PostSectionState extends State<PostSection> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 8, 10, 15),
-            child: Text(widget.postTitle,
-              style: TextStyle(color: Colors.grey, fontSize: 15),),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(widget.postTitle,
+                style: TextStyle(color: Colors.grey, fontSize: 17),),
+            ),
           ),
-          Custom_Image(imageUrl: widget.postImageURL),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15,0, 10, 15),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text("One and only one response. A common usage of Future is to handle HTTP calls. What you can listen to on a Future is its state whether it’s done, finishe",
+                style: TextStyle(color: Colors.grey, fontSize: 15),),
+            ),
+          ),
+          widget.postImageURL==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.postImageURL),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(

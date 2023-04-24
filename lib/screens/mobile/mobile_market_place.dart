@@ -151,6 +151,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
               return Center(child: CircularProgressIndicator(),);
             }
             else if(snapshot.hasData){
+
               return viewType=="List" ? Container(
                 height: MediaQuery.of(context).size.height-230,
                 width: MediaQuery.of(context).size.width,
@@ -163,29 +164,33 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
                           },
-                          child: ProductListTile(productName: products["productName"], productPrice: products["price"], itemPic:products['imageUrld'], productDescription: products["productDescription"],));
+                          child: ProductListTile(productName: products["productTitle"], productPrice: products["price"], itemPic:products['productImage'], productDescription: products["description"],));
                     }
                 ),
-              ): Container(
+              ):  Container(
                 height: MediaQuery.of(context).size.height-210,
                 margin: EdgeInsets.symmetric(horizontal: 5),
                 child: GridView.builder(
+                  shrinkWrap: true,
                   itemCount: snapshot.data.docs.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 4,
                       crossAxisSpacing: 4
                   ),
-
-                  itemBuilder: (context, index) {
+                  itemBuilder: (BuildContext context, int index) {
                     DocumentSnapshot products = snapshot.data.docs[index];
-                    InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
+                      return InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>Product_detail()));
+                        },
+                        child: ProductCard(
+                            itemPic: products["productImage"],
+                            productName: products["productTitle"],
+                            productPrice: products["price"]),
+                      );
                       },
-                      child: ProductListTile(productName: products["productName"], productPrice: products["price"], itemPic:products['imageUrld'], productDescription: products["productDescription"],));
-                  },
-                ),
+                  ),
               );
             }else{
               return Center(child: Text("No Items"),);
