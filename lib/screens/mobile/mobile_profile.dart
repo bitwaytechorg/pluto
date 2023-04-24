@@ -306,7 +306,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
             ),
           ),
           Divider(thickness: 1, endIndent: 5, indent: 5,),
-          PostSection(),
+          PostSection(postTitle: 'post title',),
         ],
       ),
     );

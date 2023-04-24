@@ -8,6 +8,11 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
+  String postTitle;
+  PostSection({
+    required this.postTitle
+   });
+
   @override
   State<PostSection> createState() => _PostSectionState();
 }
@@ -45,7 +50,7 @@ class _PostSectionState extends State<PostSection> {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 8, 10, 15),
-            child: Text("Choose from our amazing collection of cute puppy pictures and images, all free to download! white and brown Cavalier King Charles Spaniel. 1616 248",
+            child: Text(widget.postTitle,
               style: TextStyle(color: Colors.grey, fontSize: 15),),
           ),
           Custom_Image(imageUrl: 'https://www.dogstrust.org.uk/images/800x600/assets/2022-08/sophia_sophie_sbt_puppies_leeds_dogstrust.jpg',),
