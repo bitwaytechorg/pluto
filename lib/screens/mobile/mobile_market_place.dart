@@ -20,21 +20,6 @@ class Mobile_MarketPlace extends StatefulWidget {
 
 class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
-  List foodList=[
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbMYdu_oc5Drpw7Xp80UM3D7TmF8-xVzEvug&usqp=CAU",
-    "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61GbjUN3rPL._SY879_.jpg",
-    "http://cdn.shopify.com/s/files/1/0589/8262/9516/products/doggos-mini-monster-492698.png?v=1679651795",
-    "https://i0.wp.com/pawcare.ind.in/wp-content/uploads/2023/02/1-8.png?fit=1762%2C2494&ssl=1",
-    "https://dogkart.in/ImageUploads/Orijen_Puppy_Recipe_A001.jpeg",
-    "https://cdn.shopify.com/s/files/1/0410/0744/8216/products/Untitleddesign-131_1080x.png?v=1609744055",
-    "https://cdn.shopify.com/s/files/1/0312/8826/2795/products/ACANADogPuppyRecipeFront2kgEMEAAPAC_700x700.jpg?v=1668589008",
-    "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
-    "https://rukminim1.flixcart.com/image/416/416/khp664w0-0/pet-food/c/r/b/30-dog-931567-canine-creek-original-imafxnh9fekbxgha.jpeg?q=70",
-    "https://dogkart.in/ImageUploads/Orijen_Puppy_Recipe_A001.jpeg",
-    "https://cdn.shopify.com/s/files/1/0410/0744/8216/products/Untitleddesign-131_1080x.png?v=1609744055",
-    "https://cdn.shopify.com/s/files/1/0312/8826/2795/products/ACANADogPuppyRecipeFront2kgEMEAAPAC_700x700.jpg?v=1668589008",
-    "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
-  ];
 
   String viewType='Grid';
   List chips =[
@@ -160,6 +145,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
         /// List container and Grid container///
         StreamBuilder(
+          stream: FirebaseFirestore.instance.collection(CONFIG.product_collection).snapshots(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if(snapshot.connectionState== ConnectionState.waiting){
               return Center(child: CircularProgressIndicator(),);
