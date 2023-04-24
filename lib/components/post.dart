@@ -5,6 +5,7 @@ import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/custom_image.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
+import '../models/post.dart';
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {

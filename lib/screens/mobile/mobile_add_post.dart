@@ -9,6 +9,7 @@ import 'package:pluto/components/scroll_behaviour.dart';
 import '../../models/post.dart';
 import '../home.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/global/session.dart' as SESSION;
 
 
 class Mobile_Addpost extends StatefulWidget {
@@ -25,7 +26,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
   final categoryController = TextEditingController();
-  final sourceController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +59,23 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                         ],
                       ),
                       InkWell(
-                          onTap: ()  {
-                          addPostHandler( Post(
+                          onTap: ()  async{
+                            /// store file in firebase storage///
+                            Reference postDirImages = storageRef.child("postImages");
+                            Reference imageToUploadRef = postDirImages.child("images");
+                            try {
+                              await imageToUploadRef.putFile(File(filePath));
+                              postImageURL= await imageToUploadRef.getDownloadURL() ;
+                            }catch(e){
+                              print("firebase error: $e");
+                            }
+
+                            addPostHandler( Post(
                             postTitle: titleController.text,
                             postDescription: descriptionController.text,
                             postCategory: categoryController.text,
-                            posterUserId:"posterUserId",
-                            posterName:"posterName",
+                            posterUserId:SESSION.uid,
+                            posterName: SESSION.firstName,
                             posterDpUrl:"posterDpUrl",
                             postLocation:"postLocation",
                             postId:"postId",
@@ -77,15 +88,6 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
 
                           ));
 
-                            /// store file in firebase storage///
-                            Reference postDirImages = storageRef.child("postImages");
-                            Reference imageToUploadRef = postDirImages.child("images");
-                            try {
-                               imageToUploadRef.putFile(File(filePath));
-                             postImageURL=  imageToUploadRef.getDownloadURL() as String;
-                            }catch(e){
-                            print("firebase error: $e");
-                            }
                           },
                           child: Icon(Icons.check, color: Colors.grey)),
                     ],

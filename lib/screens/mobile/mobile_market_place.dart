@@ -36,13 +36,16 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
     "https://m.media-amazon.com/images/I/71OMsaUqFyL._AC_SL1500_.jpg",
   ];
 
-  String viewType='List';
+  String viewType='Grid';
   List chips =[
     "Dogs",
     "Cats",
     "Birds",
     "Fishes",
-    "all pets"
+    "all pets",
+    "Cats",
+    "Birds",
+    "Fishes",
   ];
 
   double xOffset = 0;
@@ -96,8 +99,20 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CText(text:"List"),
-                      CText(text:"Grid")
+                      InkWell(
+                          onTap:(){
+                            setState(() {
+                              viewType= "List";
+                            });
+                        },
+                          child: CText(text:"List")),
+                      InkWell(
+                          onTap: (){
+                            setState(() {
+                              viewType= "Grid";
+                            });
+                          },
+                          child: CText(text:"Grid"))
                     ],),
                 ),
                 Container(
@@ -144,36 +159,53 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
       return Column(children: [
 
         /// List container and Grid container///
-        viewType=="List" ? Container(
-          height: MediaQuery.of(context).size.height-230,
-          width: MediaQuery.of(context).size.width,
-          child: ListView.builder(
-            itemCount: 13,
-            itemBuilder: (context, index) {
-              return InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
-                  },
-                  child: ProductListTile(productName: "Food for pets anima best product for pets animation", productPrice: 399.5, itemPic:foodList[index], productDescription: 'best product for pets anima best product for pets animation for pets anima best product for pets animation',));
+        StreamBuilder(
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            if(snapshot.connectionState== ConnectionState.waiting){
+              return Center(child: CircularProgressIndicator(),);
             }
-          ),
-        ): Container(
-          height: MediaQuery.of(context).size.height-210,
-          margin: EdgeInsets.symmetric(horizontal: 5),
-          child: GridView.builder(
-            itemCount: 13,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4
-            ),
+            else if(snapshot.hasData){
+              return viewType=="List" ? Container(
+                height: MediaQuery.of(context).size.height-230,
+                width: MediaQuery.of(context).size.width,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data.docs.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot products = snapshot.data.docs[index];
+                      return InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
+                          },
+                          child: ProductListTile(productName: products["productName"], productPrice: products["price"], itemPic:products['imageUrld'], productDescription: products["productDescription"],));
+                    }
+                ),
+              ): Container(
+                height: MediaQuery.of(context).size.height-210,
+                margin: EdgeInsets.symmetric(horizontal: 5),
+                child: GridView.builder(
+                  itemCount: snapshot.data.docs.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 4
+                  ),
 
-            itemBuilder: (context, index) => InkWell(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
-              },
-                child: ProductCard(productName: 'Good for dogs',itemPic: foodList[index], productPrice: 435,)),
-          ),
+                  itemBuilder: (context, index) {
+                    DocumentSnapshot products = snapshot.data.docs[index];
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
+                      },
+                      child: ProductListTile(productName: products["productName"], productPrice: products["price"], itemPic:products['imageUrld'], productDescription: products["productDescription"],));
+                  },
+                ),
+              );
+            }else{
+              return Center(child: Text("No Items"),);
+            }
+          },
+
         ),
       ],);
 
