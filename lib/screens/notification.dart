@@ -161,30 +161,30 @@ class _NotificationPageState extends State<NotificationPage> {
   buildContent() {
     return Column(
       children: [
-        Container(
-          margin: EdgeInsets.only(left: 15, top: 10, bottom: 5),
-          child: Row( children: [
-            Avatar(
-                size: 60,
-                ImageURL:
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
-            SizedBox(width: 10,),
-            Container(
-              child: Column(
-                children: [
-                  Align( alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: 150,
-                      child: CText( text:"Follow Request", fontSize: 17, fontWeight: FontWeight.w600,),
-                    ),
-                  ),
-                  SizedBox(height: 3,),
-                  CText( text:"Approve or ignore request", fontSize: 13,),
-                ],
-              ),
-            ),
-          ]),
-        ),
+        // Container(
+        //   margin: EdgeInsets.only(left: 15, top: 10, bottom: 5),
+        //   child: Row( children: [
+        //     Avatar(
+        //         size: 60,
+        //         ImageURL:
+        //             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReSQp9MqQWLBsNJQ0C9OA4uSKKkqlI6-hUog&usqp=CAU"),
+        //     SizedBox(width: 10,),
+        //     Container(
+        //       child: Column(
+        //         children: [
+        //           Align( alignment: Alignment.centerLeft,
+        //             child: Container(
+        //               width: 150,
+        //               child: CText( text:"Follow Request", fontSize: 17, fontWeight: FontWeight.w600,),
+        //             ),
+        //           ),
+        //           SizedBox(height: 3,),
+        //           CText( text:"Approve or ignore request", fontSize: 13,),
+        //         ],
+        //       ),
+        //     ),
+        //   ]),
+        // ),
         SizedBox(
           height: 10,
         ),

@@ -79,7 +79,7 @@ class ProductFormState extends State<ProductForm> {
               child: Column(children: [
                 TopBar(
                   title: Padding(
-                    padding: const EdgeInsets.only(top: 6, right: 220, left: 5),
+                    padding: const EdgeInsets.only(top: 6, right: 180, left: 5),
                     child: Text(
                       "Add Product",
                       style:
@@ -187,7 +187,7 @@ class ProductFormState extends State<ProductForm> {
             height: 40,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 100, right: 50, top: 20),
+            padding: EdgeInsets.only(left: 80, right: 50, top: 20),
             child: Row(
               children: [
                 InkWell(

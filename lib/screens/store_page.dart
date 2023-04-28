@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,7 +20,7 @@ class StoreInfo extends StatefulWidget {
 }
 
 class StoreInfoState extends State<StoreInfo> {
-  List foodList=[
+  List foodList = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbMYdu_oc5Drpw7Xp80UM3D7TmF8-xVzEvug&usqp=CAU",
     "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61GbjUN3rPL._SY879_.jpg",
     "http://cdn.shopify.com/s/files/1/0589/8262/9516/products/doggos-mini-monster-492698.png?v=1679651795",
@@ -69,7 +70,7 @@ class StoreInfoState extends State<StoreInfo> {
               child: Column(children: [
                 TopBar(
                   title: Padding(
-                    padding: const EdgeInsets.only(top: 6, right: 190),
+                    padding: const EdgeInsets.only(top: 6, right: 150),
                     child: Text(
                       "STORE",
                       style:
@@ -89,31 +90,39 @@ class StoreInfoState extends State<StoreInfo> {
                         onTap: () => Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProductForm(product: Product(),))),
+                                builder: (context) => ProductForm(
+                                      product: Product(),
+                                    ))),
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 6,),
+                          padding: const EdgeInsets.only(
+                            top: 6,
+                          ),
                           child: Icon(
                             FontAwesomeIcons.plus,
                             size: 20,
                           ),
                         ),
                       ),
-                      SizedBox(width: 30,),
+                      SizedBox(
+                        width: 20,
+                      ),
                       PopupMenuButton(
                         itemBuilder: (BuildContext context) => [
-                          PopupMenuItem(child: Text("ABCDE"),
+                          PopupMenuItem(
+                            child: Text("Delete"),
                           ),
-                          PopupMenuItem(child: Text("FGHI"),),
-                          PopupMenuItem(child: Text("KLMNO")),
-                          PopupMenuItem(child: Text("PQRST")),
-                          PopupMenuItem(child: Text("UVWXYZ")),
-
+                          PopupMenuItem(
+                            child: Text("Delete All"),
+                          ),
+                          // PopupMenuItem(child: Text("KLMNO")),
+                          // PopupMenuItem(child: Text("PQRST")),
+                          // PopupMenuItem(child: Text("UVWXYZ")),
                         ],
                         child: Container(
-                          margin: EdgeInsets.only(top: 5, right: 7),
-                                child: Icon(Icons.settings)),
+                            margin: EdgeInsets.only(top: 5, ),
+                            child: Icon(Icons.settings)),
                       ),
-    ],
+                    ],
                   ),
                 ),
                 Expanded(
