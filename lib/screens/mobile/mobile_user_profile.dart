@@ -193,7 +193,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-              SESSION.firstName + " " + SESSION.lastName,
+                  SESSION.firstName + " " + SESSION.lastName,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
@@ -218,8 +218,9 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
           ),
           SizedBox(height: 10,),
           Padding(
-            padding: EdgeInsets.only(left: 10, right: 8, top: 15),
+            padding: EdgeInsets.only(left: 20, right: 20, top: 15),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
                   onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> UserProfileForm())),
@@ -236,6 +237,18 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         color: CONFIG.primaryColor),
                   ),
                 ),
+
+                InkWell(
+                  onTap: (){
+                    Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp");
+                  },
+                  child: CustomBtn(
+                     borderRadius: 10,
+                      height: 40,
+                      width: 155,
+                      buttonTitle: "Share profile",
+                      color: CONFIG.primaryColor),
+                ),
               ],
             ),
           ),
@@ -248,56 +261,42 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          onTabActive = "activity";
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Icon(Icons.table_chart_outlined,
-                              color: onTabActive == "activity"
-                                  ? CONFIG.primaryColor
-                                  : Colors.grey),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Activity",
-                            style: TextStyle(
-                                color: onTabActive == "activity"
-                                    ? CONFIG.primaryColor
-                                    : Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 150,),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      onTabActive = "activity";
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.table_chart_outlined, size:18, color: onTabActive == "activity"? CONFIG.primaryColor:Colors.grey),
+                      SizedBox( width: 5),
+                      Text("Activity",
+                        style: TextStyle(
+                            color: onTabActive == "activity"
+                                ? CONFIG.primaryColor
+                                : Colors.grey))
+                    ],
+                  ),
+                ),
 
-                    InkWell(
-                      onTap: (){
-                        setState(() {
-                          onTabActive="Share Profile";
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          IconButton(onPressed: () { Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp");
-                            },
-                          icon: Icon(FontAwesomeIcons.shareNodes,size: 20,color:onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey)
-                          ),
-                          SizedBox(width: 5,),
-                          Text("Share Profile", style: TextStyle(color: onTabActive=="Share Profile"?CONFIG.primaryColor:Colors.grey),)
-                        ],
-                      ),
-                    ),
-                  ],
+
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      onTabActive="More";
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.read_more,size: 20,color:onTabActive=="More"?CONFIG.primaryColor:Colors.grey),
+                      SizedBox(width: 5,),
+                      Text("More", style: TextStyle(color: onTabActive=="More"?CONFIG.primaryColor:Colors.grey),)
+                    ],
+                  ),
                 ),
-                  ],
-                ),
+              ],
+            ),
           ),
       ],
             ),

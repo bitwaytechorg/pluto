@@ -183,7 +183,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            hintText: SESSION.firstName,
+                            hintText: "First Name",
                           ),
                         ),
                         Padding(
@@ -200,7 +200,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            hintText: SESSION.lastName,
+                            hintText: "Last Name",
                           ),
                         ),
                         Padding(
@@ -217,7 +217,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            hintText: SESSION.email,
+                            hintText: "Enter Email",
                           ),
                         ),
                         Padding(
@@ -234,7 +234,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            hintText: SESSION.phoneNumber,
+                            hintText: "Enter Phone",
                           ),
                         ),
                         Padding(
@@ -251,7 +251,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            hintText: SESSION.dob,
+                            hintText: "Enter DOB",
                           ),
                         ),
                       ],

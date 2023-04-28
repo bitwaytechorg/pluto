@@ -32,7 +32,7 @@ class Product {
       updated_by: json['updated_by'].toString(),
       created_by_name: json['created_by_name'].toString(),
       updated_by_name: json['updated_by_name'].toString(),
-      price: double.parse(json['price'].toString()),
+      price: double.parse(json['price']),
     );
   }
 
@@ -49,7 +49,7 @@ class Product {
       updated_by: json['updated_by'].toString(),
       created_by_name: json['created_by_name'].toString(),
       updated_by_name: json['updated_by_name'].toString(),
-      price: double.parse(json['price'].toString()),
+      price: double.parse(json['price']),
     );
   }
 

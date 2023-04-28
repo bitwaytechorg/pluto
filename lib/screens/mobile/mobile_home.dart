@@ -11,6 +11,8 @@ import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global//session.dart' as SESSION;
 
+import '../../models/users.dart';
+
 class MobileHome extends StatefulWidget {
   @override
   MobileHomeState createState() => MobileHomeState();
@@ -88,6 +90,8 @@ class MobileHomeState extends State<MobileHome> {
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).snapshots(),
       builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+
         if(snapshot.hasData){
           return ListView.builder(
             physics: ScrollPhysics(),
@@ -95,7 +99,7 @@ class MobileHomeState extends State<MobileHome> {
               itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index){
                 DocumentSnapshot post = snapshot.data!.docs[index];
-
+                print("${post.data()}");
                 return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post!["postSource"],);
               }
           );

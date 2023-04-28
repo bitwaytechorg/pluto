@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/product_list_tile.dart';
 import 'package:pluto/components/search_bar.dart';
-import 'package:pluto/screens/product_detail.dart';
 import '../../components/bottom_menu.dart';
 import '../../components/cText.dart';
 import '../../components/chips.dart';
@@ -12,6 +11,7 @@ import '../../components/productCard.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
+import 'mobile_product_detail.dart';
 
 class Mobile_MarketPlace extends StatefulWidget {
   @override
@@ -142,7 +142,6 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
   buildContent() {
       return Column(children: [
-
         /// List container and Grid container///
         StreamBuilder(
           stream: FirebaseFirestore.instance.collection(CONFIG.product_collection).snapshots(),
@@ -160,9 +159,10 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     itemCount: snapshot.data.docs.length,
                     itemBuilder: (context, index) {
                       DocumentSnapshot products = snapshot.data.docs[index];
+
                       return InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileProductDetail()));
                           },
                           child: ProductListTile(productName: products["productTitle"], productPrice: products["price"], itemPic:products['productImage'], productDescription: products["description"],));
                     }
@@ -182,7 +182,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     DocumentSnapshot products = snapshot.data.docs[index];
                       return InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>Product_detail()));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileProductDetail( )));
                         },
                         child: ProductCard(
                             itemPic: products["productImage"],
