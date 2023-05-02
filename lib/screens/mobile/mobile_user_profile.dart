@@ -279,8 +279,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     ],
                   ),
                 ),
-
-
                 InkWell(
                   onTap: (){
                     setState(() {

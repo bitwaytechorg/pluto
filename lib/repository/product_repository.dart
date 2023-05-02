@@ -28,12 +28,10 @@ class  ProductRepo {
     }
     return true;
   }
-
   Future<bool> delete(productId) async {
     FirebaseFirestore.instance.collection(CONFIG.product_collection).doc(productId).delete().catchError((e){
       return false;
     });
     return true;
     }
-
   }

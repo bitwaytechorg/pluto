@@ -143,6 +143,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                 );
               }),
         ),
+
+
         SizedBox(
           height: 10,
         ),
