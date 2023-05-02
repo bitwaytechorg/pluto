@@ -369,11 +369,7 @@ class Slider_menu extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: (){
-                                FirebaseAuth.instance.signOut().then((value) {
-
-                                }).catchError((e){
-                                  print(e);
-                                });
+                                FirebaseAuth.instance.signOut();
                               },
                               child:const Text(
                                 'Logout',

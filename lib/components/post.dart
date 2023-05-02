@@ -8,8 +8,9 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
-  String postTitle, postDescription, postImageURL;
+  String postTitle, postDescription, postImageURL, posterName;
   PostSection({
+    required this.posterName,
     required this.postTitle,
     required this.postDescription,
     required this.postImageURL,
@@ -21,9 +22,10 @@ class PostSection extends StatefulWidget {
 
 class _PostSectionState extends State<PostSection> {
   late int upvote, downvote;
-
   @override
   Widget build(BuildContext context) {
+    print("This is Image url.....");
+    print(widget.postImageURL);
     return Container(
       child: Column(
         children: [
@@ -38,7 +40,7 @@ class _PostSectionState extends State<PostSection> {
                  width: MediaQuery.of(context).size.width-200,
                  child: Column(
                    children: [
-                     Container( width: MediaQuery.of(context).size.width, child: CText(text:"Dileep Kumar")),
+                     Container( width: MediaQuery.of(context).size.width, child: CText( text:widget.posterName,)),
                      Container(width: MediaQuery.of(context).size.width, child: CText(text:"4h ago", fontSize: 12,)),
                    ],
                  ),
@@ -62,7 +64,7 @@ class _PostSectionState extends State<PostSection> {
             padding: const EdgeInsets.fromLTRB(15,0, 10, 15),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text("One and only one response. A common usage of Future is to handle HTTP calls. What you can listen to on a Future is its state whether it’s done, finishe",
+              child: Text(widget.postDescription,
                 style: TextStyle(color: Colors.grey, fontSize: 15),),
             ),
           ),

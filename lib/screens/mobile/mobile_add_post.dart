@@ -21,7 +21,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
 
   final storageRef = FirebaseStorage.instance.ref();
   String filePath = '';
-  String postImageURL= '';
+  String postImageURL='';
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();

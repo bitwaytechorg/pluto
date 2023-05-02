@@ -9,9 +9,8 @@ import '../../components/notification_alert.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
-import 'package:pluto/global//session.dart' as SESSION;
+import 'package:pluto/global/session.dart' as SESSION;
 
-import '../../models/users.dart';
 
 class MobileHome extends StatefulWidget {
   @override
@@ -99,8 +98,7 @@ class MobileHomeState extends State<MobileHome> {
               itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index){
                 DocumentSnapshot post = snapshot.data!.docs[index];
-                print("${post.data()}");
-                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post!["postSource"],);
+                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post["postSource"], posterName: post['posterName'],);
               }
           );
         }else{
