@@ -12,6 +12,7 @@ import '../../components/search_bar.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import '../../components/post.dart';
+import '../../models/post.dart';
 
 
 class Mobile_Profile extends StatefulWidget{
@@ -306,7 +307,7 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
             ),
           ),
           Divider(thickness: 1, endIndent: 5, indent: 5,),
-          PostSection(postTitle: 'post title', postDescription: 'post description..', postImageURL: '', posterName: 'posterName', profileImageURL: '',),
+          PostSection(post: Post(),),
         ],
       ),
     );

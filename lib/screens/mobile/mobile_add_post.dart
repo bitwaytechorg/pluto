@@ -84,7 +84,6 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                             upVoteCount:"0",
                             downVoteCount:"0",
                             postSource:postImageURL,
-                            profileUrl:"profileUrl",
 
                           ));
 

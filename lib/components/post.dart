@@ -5,17 +5,12 @@ import 'package:pluto/components/avatar.dart';
 import 'package:pluto/components/custom_image.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 
+import '../models/post.dart';
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
-  String postTitle, postDescription, postImageURL, posterName, profileImageURL;
-  PostSection({
-    required this.posterName,
-    required this.postTitle,
-    required this.postDescription,
-    required this.postImageURL,
-    required this.profileImageURL,
-   });
+  final Post post;
+  PostSection({ required this.post, });
 
   @override
   State<PostSection> createState() => _PostSectionState();
@@ -26,7 +21,7 @@ class _PostSectionState extends State<PostSection> {
   @override
   Widget build(BuildContext context) {
     print("This is Image url.....");
-    print(widget.postImageURL);
+    print(widget.post!.posterDpUrl);
     return Container(
       child: Column(
         children: [
@@ -35,13 +30,13 @@ class _PostSectionState extends State<PostSection> {
             children: [
              Row(children: [
                SizedBox(width: 5,),
-               Avatar(size: 50, ImageURL:widget.profileImageURL),
+               Avatar(size: 50, ImageURL:widget.post!.posterDpUrl),
                SizedBox(width: 10,),
                Container(
                  width: MediaQuery.of(context).size.width-200,
                  child: Column(
                    children: [
-                     Container( width: MediaQuery.of(context).size.width, child: CText( text:widget.posterName,)),
+                     Container( width: MediaQuery.of(context).size.width, child: CText( text:widget.post!.posterName,)),
                      Container(width: MediaQuery.of(context).size.width, child: CText(text:"4h ago", fontSize: 12,)),
                    ],
                  ),
@@ -57,7 +52,7 @@ class _PostSectionState extends State<PostSection> {
             padding: const EdgeInsets.fromLTRB(15, 8, 10, 15),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(widget.postTitle,
+              child: Text(widget.post!.postTitle,
                 style: TextStyle(color: Colors.grey, fontSize: 17),),
             ),
           ),
@@ -65,11 +60,11 @@ class _PostSectionState extends State<PostSection> {
             padding: const EdgeInsets.fromLTRB(15,0, 10, 15),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(widget.postDescription,
+              child: Text(widget.post!.postDescription,
                 style: TextStyle(color: Colors.grey, fontSize: 15),),
             ),
           ),
-          widget.postImageURL==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.postImageURL),
+          widget.post!.postSource==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.post!.postSource),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(

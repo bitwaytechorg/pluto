@@ -85,20 +85,18 @@ class MobileHomeState extends State<MobileHome> {
   }
 
   buildContent() {
-
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).snapshots(),
       builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
 
-
         if(snapshot.hasData){
+          List DocList = snapshot.data!.docs;
           return ListView.builder(
             physics: ScrollPhysics(),
               shrinkWrap: true,
-              itemCount: snapshot.data?.docs.length,
+              itemCount: DocList.length,
               itemBuilder: (context, index){
-                DocumentSnapshot post = snapshot.data!.docs[index];
-                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post["postSource"], posterName: post['posterName'], profileImageURL: post['posterDpUrl'],);
+                return PostSection(post: Post.fromMap(DocList[index].data()),);
               }
           );
         }else{
