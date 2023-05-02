@@ -98,7 +98,7 @@ class MobileHomeState extends State<MobileHome> {
               itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index){
                 DocumentSnapshot post = snapshot.data!.docs[index];
-                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post["postSource"], posterName: post['posterName'],);
+                return PostSection(postTitle: post["postTitle"], postDescription: post["postDescription"], postImageURL: post["postSource"], posterName: post['posterName'], profileImageURL: post['posterDpUrl'],);
               }
           );
         }else{

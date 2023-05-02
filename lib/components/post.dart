@@ -8,12 +8,13 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
-  String postTitle, postDescription, postImageURL, posterName;
+  String postTitle, postDescription, postImageURL, posterName, profileImageURL;
   PostSection({
     required this.posterName,
     required this.postTitle,
     required this.postDescription,
     required this.postImageURL,
+    required this.profileImageURL,
    });
 
   @override
@@ -34,7 +35,7 @@ class _PostSectionState extends State<PostSection> {
             children: [
              Row(children: [
                SizedBox(width: 5,),
-               Avatar(size: 50, ImageURL: 'https://people.com/thmb/SL7_3mF5irtEm4Kz8f63FWDrmPA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/dog-dating-1-a1a34ab3445740fcadf8699850c8333b.jpg'),
+               Avatar(size: 50, ImageURL:widget.profileImageURL),
                SizedBox(width: 10,),
                Container(
                  width: MediaQuery.of(context).size.width-200,

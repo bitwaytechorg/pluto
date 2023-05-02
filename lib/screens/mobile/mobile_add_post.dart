@@ -76,7 +76,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                             postCategory: categoryController.text,
                             posterUserId:SESSION.uid,
                             posterName: SESSION.firstName,
-                            posterDpUrl:"posterDpUrl",
+                            posterDpUrl:SESSION.profileUrl,
                             postLocation:"postLocation",
                             postId:"postId",
                             commentsCount:"0",
