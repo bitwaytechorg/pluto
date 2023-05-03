@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/screens/user_profile_form.dart';
@@ -26,6 +27,8 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
   double yOffset = 0;
   double scalefactor = 1;
   bool isDrawerOpen = false;
+  XFile file = XFile("");
+  String filePath = "";
 
   void toggleMenu() {
     bool tmpStatus = !isDrawerOpen;
@@ -95,7 +98,9 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     size: 100,
                     ImageURL:
                         // "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"
-                  SESSION.profileUrl
+                  SESSION.profileUrl,
+                  ImageFile: file,
+                  isFile: file.path != "" ? true : false,
                   ),
               ),
               Expanded(
@@ -207,8 +212,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                       style: TextStyle(
                           color: Colors.black.withAlpha(120), fontSize: 15),
                       children: <TextSpan>[
-                        TextSpan(text: 'Chandigarh, India             '),
-                        TextSpan(text: 'Flutter Developer'),
+                        TextSpan(text: SESSION.description),
                       ],
                     ),
                   ),
@@ -242,12 +246,15 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                   onTap: (){
                     Share.share("http://play.google.com/store/apps/details?id=com.instructivetech.testapp");
                   },
-                  child: CustomBtn(
-                     borderRadius: 10,
-                      height: 40,
-                      width: 155,
-                      buttonTitle: "Share profile",
-                      color: CONFIG.primaryColor),
+                  child: Padding(
+                    padding: EdgeInsets.only( right: 10),
+                    child: CustomBtn(
+                       borderRadius: 10,
+                        height: 40,
+                        width: 155,
+                        buttonTitle: "Share profile",
+                        color: CONFIG.primaryColor),
+                  ),
                 ),
               ],
             ),

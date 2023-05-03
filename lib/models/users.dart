@@ -7,6 +7,7 @@ class User{
       email,
       phone,
       dob,
+
       gender;
 
     User({

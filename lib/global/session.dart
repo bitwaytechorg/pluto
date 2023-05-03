@@ -1,6 +1,7 @@
 String uid ="";
 String firstName = "";
 String lastName = "";
+String description = "";
 String email = "";
 String phoneNumber = "";
 String dob = "";

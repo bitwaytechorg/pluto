@@ -145,9 +145,6 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
         ),
 
 
-        SizedBox(
-          height: 10,
-        ),
         DefaultTabController(
           length: 4, // length of tabs
           initialIndex: 0,
@@ -446,6 +443,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
               ),
             ],
           ),
+        ),
+        SizedBox(
+          height: 10,
         ),
       ],
     );

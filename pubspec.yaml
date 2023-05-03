@@ -58,6 +58,7 @@ dependencies:
   share: ^2.0.4
   fluttertoast: ^8.2.1
   settings_ui: ^2.0.2
+  multiple_images_picker: ^1.0.1
 
 
 

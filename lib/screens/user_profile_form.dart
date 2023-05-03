@@ -45,6 +45,7 @@ class UserProfileFormState extends State<UserProfileForm> {
 
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
+  TextEditingController description = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController dob = TextEditingController();
@@ -53,6 +54,7 @@ class UserProfileFormState extends State<UserProfileForm> {
   void initState() {
     firstname.text = SESSION.firstName;
     lastname.text = SESSION.lastName;
+    description.text = SESSION.description;
     email.text = SESSION.email;
     phone.text = SESSION.phoneNumber;
   }
@@ -62,6 +64,7 @@ class UserProfileFormState extends State<UserProfileForm> {
       final XFile? pickedFile = await _picker.pickImage(
         source: ImageSource.gallery,
       );
+      print("hello");
       setState(() {
         file = pickedFile!;
         filePath = pickedFile!.path;
@@ -181,7 +184,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                           controller: firstname,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             hintText: "First Name",
                           ),
@@ -198,9 +201,26 @@ class UserProfileFormState extends State<UserProfileForm> {
                           controller: lastname,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             hintText: "Last Name",
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10, top: 15, bottom: 10),
+                          child: Text(
+                            "Description",
+                            style: TextStyle(color: CONFIG.primaryColor),
+                          ),
+                        ),
+                        TextFormField(
+                          controller: description,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            hintText: "Description",
                           ),
                         ),
                         Padding(
@@ -215,7 +235,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                           controller: email,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             hintText: "Enter Email",
                           ),
@@ -232,7 +252,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                           controller: phone,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             hintText: "Enter Phone",
                           ),
@@ -249,7 +269,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                           controller: dob,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             hintText: "Enter DOB",
                           ),
@@ -289,7 +309,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                               FirebaseFirestore.instance
                                   .collection("users")
                                   .doc(FirebaseAuth.instance.currentUser!.uid)
-                                  .update({"profilePhoto": SESSION.profileUrl});
+                                  .update({"profileUrl": SESSION.profileUrl});
                               setState(() {
                                 message = "Image Uploaded!";
                               });
@@ -298,6 +318,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                         }
                         SESSION.firstName = firstname.text.toString();
                         SESSION.lastName = lastname.text;
+                        SESSION.description = description.text;
                         SESSION.email = email.text;
                         SESSION.phoneNumber = phone.text;
                         SESSION.dob = dob.text;
@@ -309,9 +330,10 @@ class UserProfileFormState extends State<UserProfileForm> {
                             .update({
                           "firstName": SESSION.firstName,
                           "lastName": SESSION.lastName,
+                          "description": SESSION.description,
                           "email": SESSION.email,
                           "phoneNumber": SESSION.phoneNumber,
-                          "dob": SESSION.dob
+                          "dob": SESSION.dob,
                         });
                         setState(() {
                           message = "Profile Updated!";
@@ -319,6 +341,10 @@ class UserProfileFormState extends State<UserProfileForm> {
                       },
                       child: Text("Update")),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(message),
               ],
             ),
           ),
