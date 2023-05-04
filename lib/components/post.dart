@@ -21,7 +21,7 @@ class _PostSectionState extends State<PostSection> {
   @override
   Widget build(BuildContext context) {
     print("This is Image url.....");
-    print(widget.post!.posterDpUrl);
+    print(widget.post!.postSource);
     return Container(
       child: Column(
         children: [
@@ -64,7 +64,7 @@ class _PostSectionState extends State<PostSection> {
                 style: TextStyle(color: Colors.grey, fontSize: 15),),
             ),
           ),
-          widget.post!.postSource==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.post!.postSource),
+          widget.post!.postSource==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.post.postSource),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(

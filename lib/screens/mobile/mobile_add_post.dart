@@ -21,7 +21,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
 
   final storageRef = FirebaseStorage.instance.ref();
   String filePath = '';
-  String postImageURL='';
+ late String postImageURL;
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -66,26 +66,25 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                             try {
                               await imageToUploadRef.putFile(File(filePath));
                               postImageURL= await imageToUploadRef.getDownloadURL() ;
+                              addPostHandler( Post(
+                                postTitle: titleController.text,
+                                postDescription: descriptionController.text,
+                                postCategory: categoryController.text,
+                                posterUserId:SESSION.uid,
+                                posterName: SESSION.firstName,
+                                posterDpUrl:SESSION.profileUrl,
+                                postLocation:"postLocation",
+                                postId:"postId",
+                                commentsCount:"0",
+                                likeCount:"0",
+                                upVoteCount:"0",
+                                downVoteCount:"0",
+                                postSource:postImageURL,
+
+                              ));
                             }catch(e){
                               print("firebase error: $e");
                             }
-
-                            addPostHandler( Post(
-                            postTitle: titleController.text,
-                            postDescription: descriptionController.text,
-                            postCategory: categoryController.text,
-                            posterUserId:SESSION.uid,
-                            posterName: SESSION.firstName,
-                            posterDpUrl:SESSION.profileUrl,
-                            postLocation:"postLocation",
-                            postId:"postId",
-                            commentsCount:"0",
-                            likeCount:"0",
-                            upVoteCount:"0",
-                            downVoteCount:"0",
-                            postSource:postImageURL,
-
-                          ));
 
                           },
                           child: Icon(Icons.check, color: Colors.grey)),

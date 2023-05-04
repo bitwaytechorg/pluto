@@ -192,12 +192,6 @@ class ProductFormState extends State<ProductForm> {
               children: [
                 InkWell(
                   onTap: () async {
-                    addProductHandler(Product(
-                      productTitle: _productTitleController.text,
-                      description: _descriptionController.text,
-                      category: _categoryController.text,
-                      productImage: productImageURL,
-                    ));
 
                     /* --------------------- Store file in firebase storage-------*/
 
@@ -211,6 +205,14 @@ class ProductFormState extends State<ProductForm> {
                     } catch (e) {
                       print("firebase error: $e");
                     }
+
+                    addProductHandler(Product(
+                      productTitle: _productTitleController.text,
+                      description: _descriptionController.text,
+                      category: _categoryController.text,
+                      productImage: productImageURL,
+                      price: double.parse(_priceController.text),
+                    ));
                   },
                   child: Container(
                     decoration: BoxDecoration(
