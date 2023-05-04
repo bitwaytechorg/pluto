@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:pluto/components/Btns/customBtn.dart';
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/screens/user_profile_form.dart';
@@ -27,8 +26,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
   double yOffset = 0;
   double scalefactor = 1;
   bool isDrawerOpen = false;
-  XFile file = XFile("");
-  String filePath = "";
 
   void toggleMenu() {
     bool tmpStatus = !isDrawerOpen;
@@ -99,8 +96,6 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                     ImageURL:
                         // "https://s3-prod.dogtopia.com/wp-content/uploads/2019/03/0.jpg"
                   SESSION.profileUrl,
-                  ImageFile: file,
-                  isFile: file.path != "" ? true : false,
                   ),
               ),
               Expanded(

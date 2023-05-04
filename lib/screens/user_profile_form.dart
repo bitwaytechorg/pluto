@@ -275,8 +275,6 @@ class UserProfileFormState extends State<UserProfileForm> {
                         ),
                       ],
                     )),
-
-                //add button to edit
                 SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.only(left: 120),
