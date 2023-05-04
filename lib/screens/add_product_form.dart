@@ -37,12 +37,6 @@ class ProductFormState extends State<ProductForm> {
   late UploadTask uploadTask;
   String productImageURL = '';
 
-  // @override
-  // void initState() {
-  //   _productTitleController.text = widget.product.productTitle;
-  //   _descriptionController.text = widget.product.description;
-  //   _categoryController.text = widget.product.category;
-  // }
 
   double xOffset = 0;
   double yOffset = 0;
