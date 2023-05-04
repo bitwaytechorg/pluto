@@ -64,7 +64,6 @@ class UserProfileFormState extends State<UserProfileForm> {
       final XFile? pickedFile = await _picker.pickImage(
         source: ImageSource.gallery,
       );
-      print("hello");
       setState(() {
         file = pickedFile!;
         filePath = pickedFile!.path;
