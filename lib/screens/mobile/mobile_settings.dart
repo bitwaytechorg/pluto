@@ -10,6 +10,8 @@ class MobileSettings extends StatefulWidget {
 }
 
 class _MobileSettingsState extends State<MobileSettings> {
+  bool _toggleNotification= false;
+  bool _toggleTheme= false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +37,26 @@ class _MobileSettingsState extends State<MobileSettings> {
               title: Text('Environment'),
               value: Text('Production'),
             ),
-            SettingsTile.navigation(
-              leading: Icon(Icons.warehouse_sharp),
-              title: Text('Platform'),
-              value: Text('Default'),
+
+            SettingsTile.switchTile(
+              onToggle: (value) {
+                setState(() {
+                 _toggleNotification= value;
+                });
+              },
+             initialValue:_toggleNotification,
+              leading: Icon(Icons.notifications),
+              title: Text('Notification'),
             ),
             SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: false,
-              leading: Icon(Icons.format_paint),
-              title: Text('Enable custom theme'),
+              onToggle: (value) {
+                setState(() {
+                  _toggleTheme= value;
+                });
+              },
+              initialValue:_toggleTheme,
+              leading: Icon(Icons.format_paint_outlined),
+              title: Text('Theme'),
             ),
           ],
         ),
@@ -54,17 +66,10 @@ class _MobileSettingsState extends State<MobileSettings> {
           ),),
             tiles:<SettingsTile>[
               SettingsTile.navigation(
-                leading: Icon(Icons.phone),
-                title: Text('Phone No.'),
+                leading: Icon(Icons.help_outline_outlined),
+                title: Text('Help'),
               ),
-              SettingsTile.navigation(
-                leading: Icon(Icons.email_outlined),
-                title: Text('Email'),
-              ),
-              SettingsTile.navigation(
-                leading: Icon(Icons.output_outlined),
-                title: Text('Sign Out'),
-              ),
+
 
             ])
 
