@@ -60,6 +60,7 @@ dependencies:
   settings_ui: ^2.0.2
   multiple_images_picker: ^1.0.1
   adaptive_theme: ^3.2.1
+  timeago: ^3.2.0
 
 
 
