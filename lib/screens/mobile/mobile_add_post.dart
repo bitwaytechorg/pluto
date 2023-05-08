@@ -74,7 +74,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                               print("firebase error: $e");
                             }
 
-                            addPostHandler( Post(
+                              addPostHandler( Post(
                               postTitle: titleController.text,
                               postDescription: descriptionController.text,
                               postCategory: categoryController.text,
@@ -104,7 +104,7 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                         },
                         child: Container(
                             width: MediaQuery.of(context).size.width,
-                            constraints: BoxConstraints(minHeight: 200),
+                            constraints: BoxConstraints(minHeight: 200, maxHeight: 400),
                             child: filePath==''?Image(fit: BoxFit.fill,image:AssetImage("assets/images/placeholder.jpg")):Image.file(File(filePath))
                         ),
                       ),

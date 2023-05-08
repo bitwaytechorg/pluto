@@ -286,7 +286,7 @@ class UserProfileFormState extends State<UserProfileForm> {
                         if (file.path != "") {
                           //upload file
                           Reference ref = FirebaseStorage.instance
-                              .ref('display-picture/'+ SESSION.uid + file.name);
+                              .ref('display-picture/'+ SESSION.uid + "profileImage");
                           final metadata = SettableMetadata(
                             contentType: file.mimeType,
                           );
