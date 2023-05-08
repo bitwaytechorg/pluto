@@ -11,10 +11,12 @@ import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
-
 import '../home.dart';
 
+
 class Mobile_UserProfile extends StatefulWidget {
+
+  Mobile_UserProfile({Key? key,}) : super(key: key);
   @override
   Mobile_UserProfileState createState() => Mobile_UserProfileState();
 }
