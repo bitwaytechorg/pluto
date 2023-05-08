@@ -155,7 +155,7 @@ class StoreInfoState extends State<StoreInfo> {
           child: ProductCard(
             productName: 'Good Food for Pets ',
             itemPic:foodList[index],
-            productPrice: 435,
+            productPrice: 435, productDescription: "",
           ),
         ),
       ),

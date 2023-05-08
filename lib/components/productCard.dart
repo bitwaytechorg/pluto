@@ -7,9 +7,10 @@ import 'cText.dart';
 class ProductCard extends StatefulWidget {
   String itemPic;
   String productName;
+  String productDescription;
   double productPrice;
 
-  ProductCard({Key? key, required this.productName, required this.productPrice, this.itemPic=''}) : super(key: key);
+  ProductCard({Key? key, required this.productName, required this.productDescription, required this.productPrice, this.itemPic=''}) : super(key: key);
 
   @override
   State<ProductCard> createState() => _ProductCardState();
@@ -43,6 +44,9 @@ class _ProductCardState extends State<ProductCard> {
         Container(
             margin: EdgeInsets.only(left: 10, top: 7, bottom: 4 ),
             child: Align(alignment: Alignment.centerLeft, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),))),
+        Container(
+            margin: EdgeInsets.only(left: 10),
+            child: Align(alignment: Alignment.centerLeft, child: CText(text:widget.productDescription, maxLines: 2, fontSize: 17,))),
       ],),
     );
   }

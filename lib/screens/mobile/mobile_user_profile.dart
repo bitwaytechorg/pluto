@@ -208,6 +208,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                           color: Colors.black.withAlpha(120), fontSize: 15),
                       children: <TextSpan>[
                         TextSpan(text: SESSION.description),
+                        TextSpan(text: SESSION.dob),
                       ],
                     ),
                   ),

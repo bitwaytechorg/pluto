@@ -187,7 +187,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                         child: ProductCard(
                             itemPic: products["productImage"],
                             productName: products["productTitle"],
-                            productPrice: products["price"]),
+                            productPrice: products["price"], productDescription: products['description'],),
                       );
                       },
                   ),
