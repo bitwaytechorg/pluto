@@ -12,6 +12,7 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import '../../models/users.dart';
 import '../home.dart';
 import 'mobile_Profile.dart';
+import 'mobile_user_profile.dart';
 
 class Mobile_PetFinder extends StatefulWidget {
   @override
@@ -188,7 +189,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
 
                     return InkWell(
                       onTap: (){
-
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=> Mobile_UserProfile( )));
                       },
                       child: Container(
                         height: 140,
