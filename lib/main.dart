@@ -204,8 +204,10 @@ class AuthGate extends AnimatedWidget {
         ? userData['email']
         : FirebaseAuth.instance.currentUser!.email;
     SESSION.dob = userData["dob"] ?? "";
+    SESSION.profileUrl = userData["profileUrl"] ?? "";
     SESSION.firstName = userData["firstName"] ?? "";
     SESSION.lastName = userData["lastName"] ?? "";
+    SESSION.description = userData["description"] ?? "";
     SESSION.phoneNumber = userData["phoneNumber"] ?? "";
     SESSION.age = userData['age'] ?? 0;
     SESSION.gender = userData["gender"] ?? "";

@@ -6,7 +6,6 @@ import '../../components/UserCard.dart';
 import '../../components/cText.dart';
 import '../../components/cta_banner.dart';
 import '../../components/scroll_behaviour.dart';
-import 'package:pluto/config/config.dart' as CONFIG;
 import '../home.dart';
 import 'mobile_Profile.dart';
 

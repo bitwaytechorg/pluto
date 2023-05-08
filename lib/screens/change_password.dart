@@ -127,6 +127,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                    fontSize: 20,
                   ),
                 ),
+                SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 10, top: 15,),
@@ -144,7 +145,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 10, top: 15, bottom: 10),
+                      left: 10, top: 15, bottom: 5),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: CText(text:
@@ -159,7 +160,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 10, top: 15, bottom: 10),
+                      left: 10, top: 15, bottom: 5),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: CText(text:

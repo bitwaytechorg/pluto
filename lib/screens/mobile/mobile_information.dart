@@ -20,9 +20,6 @@ class Mobile_Information extends StatefulWidget {
 }
 
 class Mobile_InformationState extends State<Mobile_Information> {
-
-
-
   double xOffset = 0;
   double yOffset = 0;
   double scalefactor = 1;
