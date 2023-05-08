@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
-import 'package:pluto/components/avatar.dart';
-import 'package:pluto/components/custom_image.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
-
 import '../models/post.dart';
+import 'avatar.dart';
 import 'cText.dart';
 
 class PostSection extends StatefulWidget {
@@ -20,28 +18,26 @@ class _PostSectionState extends State<PostSection> {
   late int upvote, downvote;
   @override
   Widget build(BuildContext context) {
-    print("This is Image url.....");
-    print(widget.post!.postSource);
     return Container(
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             Row(children: [
-               SizedBox(width: 5,),
-               Avatar(size: 50, ImageURL:widget.post!.posterDpUrl),
-               SizedBox(width: 10,),
-               Container(
-                 width: MediaQuery.of(context).size.width-200,
-                 child: Column(
-                   children: [
-                     Container( width: MediaQuery.of(context).size.width, child: CText( text:widget.post!.posterName,)),
-                     Container(width: MediaQuery.of(context).size.width, child: CText(text:"4h ago", fontSize: 12,)),
-                   ],
-                 ),
-               ),
-             ],),
+              Row(children: [
+                SizedBox(width: 5,),
+                Avatar(size: 50, ImageURL:widget.post!.posterDpUrl),
+                SizedBox(width: 10,),
+                Container(
+                  width: MediaQuery.of(context).size.width-200,
+                  child: Column(
+                    children: [
+                      Container( width: MediaQuery.of(context).size.width, child: CText( text:widget.post!.posterName,)),
+                      Container(width: MediaQuery.of(context).size.width, child: CText(text:"4h ago", fontSize: 12,)),
+                    ],
+                  ),
+                ),
+              ],),
               Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: Icon(Icons.more_vert),
@@ -64,52 +60,58 @@ class _PostSectionState extends State<PostSection> {
                 style: TextStyle(color: Colors.grey, fontSize: 15),),
             ),
           ),
-          widget.post!.postSource==""?Container(height:300, color:Colors.grey, child: Center(child: Text("No Image!"),)):Custom_Image(imageUrl: widget.post.postSource),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            constraints: BoxConstraints(minHeight: 300, maxHeight: 450),
+            child: CachedNetworkImage(imageUrl: widget.post!.postSource,fit: BoxFit.cover, placeholder:(context, url)=>Image(fit: BoxFit.fill,image:AssetImage("assets/images/No_Image.jpg")),
+            ),
+          ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-               Row(
-                 children: [
-                   LikeButton(
-                     likeCount: 223,
-                     likeBuilder: (bool isLiked) {
-                       return Icon(
-                         Icons.thumb_up_rounded,
-                         color: isLiked ? CONFIG.primaryColor : Colors.black.withAlpha(140),
-                         size: 22,
-                       );
-                     },),
-                      SizedBox(width: 5,),
+                Row(
+                  children: [
                     LikeButton(
-                     likeCount: 43,
-                     likeBuilder: (bool isLiked) {
-                       return Icon(
-                         Icons.thumb_down_alt_rounded,
-                         color: isLiked ? Colors.deepPurpleAccent : Colors.black.withAlpha(140),
-                         size: 22,
-                       );
-                     },),
+                      likeCount: widget.post!.likeCount,
+                      likeBuilder: (bool isLiked) {
+                        return Icon(
+                          Icons.thumb_up_rounded,
+                          color: isLiked ? CONFIG.primaryColor : Colors.black.withAlpha(140),
+                          size: 22,
+                        );
+                      },),
+                    SizedBox(width: 5,),
+                    LikeButton(
+                      likeCount: 43,
+                      likeBuilder: (bool isLiked) {
+                        return Icon(
+                          Icons.thumb_down_alt_rounded,
+                          color: isLiked ? Colors.deepPurpleAccent : Colors.black.withAlpha(140),
+                          size: 22,
+                        );
+                      },),
 
-                   Row(
-                     children: [
-                       SizedBox(width: 15,),
-                       InkWell(
-                           onTap: (){
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        InkWell(
+                            onTap: (){
 
-                           },
-                           child: Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,)),
-                       SizedBox(width:5,),
-                       Text("35")
-                     ],
-                   ),
+                            },
+                            child: Icon(Icons.comment, color: Colors.black.withAlpha(140),size: 20,)),
+                        SizedBox(width:5,),
+                        Text("35")
+                      ],
+                    ),
 
-                 ],
-               ),
+                  ],
+                ),
                 InkWell(
                     onTap: (){
-                     
+
                     },
                     child: Icon(Icons.share, size: 20, color: Colors.black.withAlpha(140),)),
 

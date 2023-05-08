@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pluto/components/scroll_behaviour.dart';
+import '../../components/scroll_behaviour.dart';
 import '../../models/post.dart';
 import '../home.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
@@ -21,7 +22,9 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
 
   final storageRef = FirebaseStorage.instance.ref();
   String filePath = '';
- late String postImageURL;
+  XFile file = XFile("");
+  String postImageURL = '';
+  final ImagePicker _picker = ImagePicker();
 
   final titleController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -62,29 +65,27 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                           onTap: ()  async{
                             /// store file in firebase storage///
                             Reference postDirImages = storageRef.child("postImages");
-                            Reference imageToUploadRef = postDirImages.child("images");
+                            Reference imageToUploadRef = postDirImages.child('images' + file.name);
                             try {
                               await imageToUploadRef.putFile(File(filePath));
-                              postImageURL= await imageToUploadRef.getDownloadURL() ;
-                              addPostHandler( Post(
-                                postTitle: titleController.text,
-                                postDescription: descriptionController.text,
-                                postCategory: categoryController.text,
-                                posterUserId:SESSION.uid,
-                                posterName: SESSION.firstName,
-                                posterDpUrl:SESSION.profileUrl,
-                                postLocation:"postLocation",
-                                postId:"postId",
-                                commentsCount:"0",
-                                likeCount:"0",
-                                upVoteCount:"0",
-                                downVoteCount:"0",
-                                postSource:postImageURL,
+                              postImageURL = await imageToUploadRef.getDownloadURL();
 
-                              ));
                             }catch(e){
                               print("firebase error: $e");
                             }
+
+                            addPostHandler( Post(
+                              postTitle: titleController.text,
+                              postDescription: descriptionController.text,
+                              postCategory: categoryController.text,
+                              posterUserId:SESSION.uid,
+                              posterName: SESSION.firstName,
+                              posterDpUrl:SESSION.profileUrl,
+                              postLocation:"postLocation",
+                              postId:"postId",
+                              postSource:postImageURL,
+
+                            ));
 
                           },
                           child: Icon(Icons.check, color: Colors.grey)),
@@ -102,13 +103,9 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
                           imagePicker();
                         },
                         child: Container(
-                          height: 250,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.withAlpha(100),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                          ),
-                            child: Image.file(File(filePath)),
+                            width: MediaQuery.of(context).size.width,
+                            constraints: BoxConstraints(minHeight: 200),
+                            child: filePath==''?Image(fit: BoxFit.fill,image:AssetImage("assets/images/placeholder.jpg")):Image.file(File(filePath))
                         ),
                       ),
                       SizedBox(height: 15,),
@@ -164,12 +161,19 @@ class Mobile_AddpostState extends State<Mobile_Addpost> {
   }
 
   Future<void> imagePicker() async {
-    ImagePicker imagePicker = ImagePicker();
-    XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
-    setState(() {
-      filePath= file!.path;
-    });
-
+    try {
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+      );
+      setState(() {
+        file = pickedFile!;
+        filePath = pickedFile!.path;
+      });
+    } catch (e) {
+      setState(() {
+        // _pickImageError = e;
+      });
+    }
   }
 
 

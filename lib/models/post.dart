@@ -1,19 +1,16 @@
 
 class Post{
   String posterUserId,
-     posterName,
-     posterDpUrl,
-     postLocation,
-     postGeoLocation,
+      posterName,
+      posterDpUrl,
+      postLocation,
+      postGeoLocation,
       postId,
       postTitle,
-      commentsCount,
-      likeCount,
-      upVoteCount,
-      downVoteCount,
       postDescription,
       postSource,
       postCategory;
+  int  commentsCount, likeCount, upVoteCount, downVoteCount;
 
 
   //Map<String, dynamic> resource;
@@ -26,32 +23,32 @@ class Post{
     this.postGeoLocation='',
     this.postId='',
     this.postTitle='',
-    this.commentsCount='',
-    this.likeCount='',
-    this.upVoteCount='',
-    this.downVoteCount='',
     this.postDescription='',
     this.postSource='',
     this.postCategory='',
-   // required this.resource,
+    this.commentsCount=0,
+    this.likeCount=0,
+    this.upVoteCount=0,
+    this.downVoteCount=0,
+    // required this.resource,
   });
 
   factory Post.fromJson(Map<String,dynamic> json){
     return Post(
-        posterUserId:json['posterUserId'].toString(),
-        posterName:json['posterName'].toString(),
-        posterDpUrl:json['posterDpUrl'].toString(),
-        postLocation:json['postLocation'].toString(),
-        postId:json['postId'].toString(),
-        postTitle:json['postTitle'].toString(),
-        commentsCount:json['commentsCount'].toString(),
-        likeCount:json['likeCount'].toString(),
-        upVoteCount:json['upVoteCount'].toString(),
-        downVoteCount:json['downVoteCount'].toString(),
-       postDescription:json['postDescription'].toString(),
-       postSource:json['postSource'].toString(),
+      posterUserId:json['posterUserId'].toString(),
+      posterName:json['posterName'].toString(),
+      posterDpUrl:json['posterDpUrl'].toString(),
+      postLocation:json['postLocation'].toString(),
+      postId:json['postId'].toString(),
+      postTitle:json['postTitle'].toString(),
+      postDescription:json['postDescription'].toString(),
+      postSource:json['postSource'].toString(),
       postCategory:json['postCategory'].toString(),
-       // resource:json['resource'].toString(),
+      commentsCount:int.parse(json['commentsCount'].toString(),),
+      likeCount:int.parse(json['likeCount'].toString()),
+      upVoteCount:int.parse(json['upVoteCount'].toString(),),
+      downVoteCount:int.parse(json['downVoteCount'].toString(),),
+      // resource:json['resource'].toString(),
 
     );
   }
@@ -63,14 +60,14 @@ class Post{
       postLocation:json['postLocation'].toString(),
       postId:json['postId'].toString(),
       postTitle:json['postTitle'].toString(),
-      commentsCount:json['commentsCount'].toString(),
-      likeCount:json['likeCount'].toString(),
-      upVoteCount:json['upVoteCount'].toString(),
-      downVoteCount:json['downVoteCount'].toString(),
       postDescription:json['postDescription'].toString(),
       postSource:json['postSource'].toString(),
       postCategory:json['postCategory'].toString(),
-     // resource:json['resource'].toString(),
+      commentsCount:int.parse(json['commentsCount'].toString(),),
+      likeCount:int.parse(json['likeCount'].toString(),),
+      upVoteCount:int.parse(json['upVoteCount'].toString(),),
+      downVoteCount:int.parse(json['downVoteCount'].toString(),),
+      // resource:json['resource'].toString(),
 
     );
   }
@@ -81,12 +78,12 @@ class Post{
     "postLocation":postLocation,
     "postId":postId,
     "postTitle":postTitle,
+    "postDescription":postDescription,
+    "postSource":postSource,
+    "postCategory":postCategory,
     "commentsCount":commentsCount,
     "likeCount":likeCount,
     "upVoteCount":upVoteCount,
     "downVoteCount":downVoteCount,
-    "postDescription":postDescription,
-    "postSource":postSource,
-    "postCategory":postCategory
   };
 }

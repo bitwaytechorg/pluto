@@ -1,15 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pluto/components/bottom_menu.dart';
-import 'package:pluto/components/post.dart';
-import 'package:pluto/components/slider_menu.dart';
-import 'package:pluto/models/post.dart';
+import '../../components/bottom_menu.dart';
 import '../../components/notification_alert.dart';
+import '../../components/post.dart';
 import '../../components/scroll_behaviour.dart';
+import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
+
+import '../../models/post.dart';
 
 
 class MobileHome extends StatefulWidget {
@@ -68,15 +69,15 @@ class MobileHomeState extends State<MobileHome> {
                   child: ScrollConfiguration(
                     behavior: MyBehavior(),
                     child: SingleChildScrollView(
-                    child: buildContent(),
+                      child: buildContent(),
+                    ),
                   ),
                 ),
-                ),
                 Align(
-                  alignment: Alignment.bottomCenter,
-                  child: BottomMenu(active: 'home',)
-              ),
-                ]),
+                    alignment: Alignment.bottomCenter,
+                    child: BottomMenu(active: 'home',)
+                ),
+              ]),
             ),
           ],
         ),
@@ -92,7 +93,7 @@ class MobileHomeState extends State<MobileHome> {
         if(snapshot.hasData){
           List DocList = snapshot.data!.docs;
           return ListView.builder(
-            physics: ScrollPhysics(),
+              physics: ScrollPhysics(),
               shrinkWrap: true,
               itemCount: DocList.length,
               itemBuilder: (context, index){

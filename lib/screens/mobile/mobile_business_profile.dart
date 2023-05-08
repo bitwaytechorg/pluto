@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/screens/home.dart';
@@ -6,10 +7,14 @@ import '../../components/Btns/customBtn.dart';
 import '../../components/avatar.dart';
 import '../../components/chips.dart';
 import '../../components/follow_list.dart';
+import '../../components/post.dart';
 import '../../components/scroll_behaviour.dart';
 import '../../components/slider_menu.dart';
 import '../../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/global/session.dart' as SESSION;
+
+import '../../models/post.dart';
 
 class Mobile_BusinessProfile extends StatefulWidget {
   @override
@@ -56,12 +61,12 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
               width: MediaQuery.of(context).size.width,
               transform: Matrix4.translationValues(xOffset, yOffset, 0)
                 ..scale(scalefactor)
-                ..rotateY(isDrawerOpen ? -0.5 : 0),
+                ..rotateY(isDrawerOpen ? - 0.5 : 0),
               duration: Duration(milliseconds: 250),
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
-              child: Column(children: [
+              child: Column( children: [
                 TopBar(
                   title: Text("Business Profile", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                   isDrawerOpen: isDrawerOpen,
@@ -193,7 +198,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Bhumika Tiwari",
+                    SESSION.firstName,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
@@ -335,7 +340,7 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
                             style: TextStyle(
                                 color: onTabActive == "activity"
                                     ? CONFIG.primaryColor
-                                    : Colors.grey),
+                                    : Colors.grey ),
                           )
                         ],
                       ),
@@ -347,6 +352,25 @@ class Mobile_BusinessProfileState extends State<Mobile_BusinessProfile> {
             ),
           ),
           Divider(thickness: 1, endIndent: 5, indent: 5,),
+          StreamBuilder(
+            stream: FirebaseFirestore.instance.collection(CONFIG.post_collection).where("posterUserId", isEqualTo: SESSION.uid).snapshots(),
+            builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+              if(snapshot.hasData){
+                List DocList = snapshot.data!.docs;
+                return ListView.builder(
+                    physics: ScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: DocList.length,
+                    itemBuilder: (context, index){
+                      return PostSection(post: Post.fromMap(DocList[index].data()),);
+                    }
+                );
+              }else{
+                return Container(child: Text("No Post"),);
+              }
+            },
+          ),
           // Container(
           //   height: MediaQuery.of(context).size.height-55,
           //   margin: EdgeInsets.symmetric(horizontal: 5),
