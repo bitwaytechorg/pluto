@@ -1,11 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/bottom_menu.dart';
 import 'package:pluto/components/search_bar.dart';
 import '../../components/UserCard.dart';
+import '../../components/avatar.dart';
 import '../../components/cText.dart';
 import '../../components/cta_banner.dart';
 import '../../components/scroll_behaviour.dart';
+import 'package:pluto/config/config.dart' as CONFIG;
+import '../../models/users.dart';
 import '../home.dart';
 import 'mobile_Profile.dart';
 
@@ -101,6 +105,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
     "Gujarat",
     "Puducherry"];
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,7 +146,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
           ),
           Align(
               alignment: Alignment.bottomCenter,
-              child: BottomMenu(active: 'Pet Finder',)
+              child: BottomMenu(active: 'PetFinder',)
           ),
         ]),
       ),
@@ -153,6 +158,74 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
       padding: EdgeInsets.only(bottom: 20, top: 5),
       child: Column(children: [
        CtaBanner(title: 'your pet, your responsibility', description: 'Make sure pets get regular veterinary care along with a good diet, fresh water, shelter, and exercise', imageURL: '',),
+
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: CText(text:"Popular Service providers",
+              fontSize: 25, fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+
+        StreamBuilder(
+          stream: FirebaseFirestore.instance.collection("users").snapshots(),
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+
+            if(snapshot.hasData){
+              return Container(
+                height: 140,
+                width: MediaQuery.of(context).size.width,
+                child: ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    DocumentSnapshot document = snapshot.data!.docs[index];
+                    Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+
+                    return InkWell(
+                      onTap: (){
+
+                      },
+                      child: Container(
+                        height: 140,
+                        width: 100,
+                        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                          color: Colors.grey.withAlpha(40),
+                        ),
+                        child: Column(children: [
+                          SizedBox(height: 5,),
+                          Avatar(size: 60, ImageURL: data['profilePhoto']??'assets/images/user_profile.jpg'),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: CText(text:data['firstName']??"No Name" , fontSize: 13, maxLines: 2,),
+                          ),
+                          SizedBox(height: 10,),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Align(
+                                alignment: Alignment.centerRight,
+                                child: CText(text: "More...", fontSize: 12, color: CONFIG.primaryColor,)),
+                          ),
+                        ],),
+                      ),
+                    );
+                  },
+
+                ),
+              );
+            }
+            else {
+              return Container();
+            }
+        },
+
+        ),
 
         Padding(
           padding: const EdgeInsets.only(left: 10, bottom: 10),
@@ -210,6 +283,7 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
 
           ),
         ),
+
 
         SizedBox(height: 20,),
         Padding(
