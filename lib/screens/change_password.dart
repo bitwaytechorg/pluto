@@ -185,11 +185,11 @@ class _ChangePasswordState extends State<ChangePassword> {
                           updating= true;
                           message="Please wait while we update your password...";
                         });
-                        final user = await FirebaseAuth.instance.currentUser;
+                        final user = await FirebaseAuth.instance.currentUser; // It gets the current user using FirebaseAuth//
                         final cred = EmailAuthProvider.credential(
                             email: SESSION.email, password: oldPassword.text);
-                        user?.reauthenticateWithCredential(cred).then((value) {
-                          user.updatePassword(newPassword.text).then((_) {
+                        user?.reauthenticateWithCredential(cred).then((value) { // it is used to reauthenticate the user with credentials//
+                          user.updatePassword(newPassword.text).then((_) { //here it updates the new password of user//
                             oldPassword.text="";
                             newPassword.text="";
                             confirmPassword.text="";
