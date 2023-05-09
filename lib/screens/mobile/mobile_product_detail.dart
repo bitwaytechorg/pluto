@@ -83,7 +83,7 @@ class _MobileProductDetailState extends State<MobileProductDetail> {
       Container(
         margin: EdgeInsets.only(left: 15, right: 20),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text("Rs. 349", style: TextStyle(
+          Text(widget.product['price'], style: TextStyle(
             fontSize: 15, color: Colors.black54,
           ),),
           Row(children: [
@@ -101,7 +101,7 @@ class _MobileProductDetailState extends State<MobileProductDetail> {
         child: Column(
           children: [
             Align( alignment: Alignment.centerLeft,
-              child: Text("Product description", style: TextStyle(
+              child: Text(widget.product['productDescription'], style: TextStyle(
                 fontSize: 18, color: Colors.black54,
               ),),
             ),

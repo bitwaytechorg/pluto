@@ -187,8 +187,6 @@ class ProductFormState extends State<ProductForm> {
                 InkWell(
                   onTap: () async {
 
-                    /* --------------------- Store file in firebase storage-------*/
-
                     Reference productDirImages =
                         storageRef.child("productImages");
                     Reference imageToUploadRef =
@@ -200,7 +198,7 @@ class ProductFormState extends State<ProductForm> {
                       print("firebase error: $e");
                     }
 
-                    addProductHandler(Product(
+                    addProductHandler( Product(
                       productTitle: _productTitleController.text,
                       description: _descriptionController.text,
                       category: _categoryController.text,

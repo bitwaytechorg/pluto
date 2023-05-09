@@ -176,6 +176,8 @@ class Mobile_PetFinderState extends State<Mobile_PetFinder> {
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
 
             if(snapshot.hasData){
+              print("Users list");
+              print(snapshot.data!.docs.length);
               return Container(
                 height: 140,
                 width: MediaQuery.of(context).size.width,
