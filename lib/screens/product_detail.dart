@@ -17,19 +17,21 @@ class Product_detailState extends State<Product_detail>{
     return Scaffold(
       body: SafeArea(
         top: true,
-        child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints){
-              if(constraints.maxWidth<=CONFIG.MOBILE_SCREEN_SIZE){
-                //device is mobile
-                return MobileProductDetail();
-              } else if(constraints.maxWidth>CONFIG.MOBILE_SCREEN_SIZE && constraints.maxWidth<=CONFIG.TABLET_SCREEN_SIZE){
-                //device is tablet
-                return Tablet_product_detail();
-              } else {
-                //device is web
-                return Web_product_detail();
-              }
-            }
+        child: Container(
+          // child: LayoutBuilder(
+          //     builder: (BuildContext context, BoxConstraints constraints){
+          //       if(constraints.maxWidth<=CONFIG.MOBILE_SCREEN_SIZE){
+          //         //device is mobile
+          //         return MobileProductDetail();
+          //       } else if(constraints.maxWidth>CONFIG.MOBILE_SCREEN_SIZE && constraints.maxWidth<=CONFIG.TABLET_SCREEN_SIZE){
+          //         //device is tablet
+          //         return Tablet_product_detail();
+          //       } else {
+          //         //device is web
+          //         return Web_product_detail();
+          //       }
+          //     }
+          // ),
         ),
       ),
     );

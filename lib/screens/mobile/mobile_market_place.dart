@@ -162,7 +162,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
                       return InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileProductDetail()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> MobileProductDetail(product: products, )));
                           },
                           child: ProductListTile(productName: products["productTitle"], productPrice: products["price"], itemPic:products['productImage'], productDescription: products["description"],));
                     }
@@ -182,7 +182,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     DocumentSnapshot products = snapshot.data.docs[index];
                       return InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileProductDetail( )));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileProductDetail(product: products, )));
                         },
                         child: ProductCard(
                             itemPic: products["productImage"],

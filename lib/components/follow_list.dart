@@ -23,6 +23,7 @@ class _FollowListState extends State<FollowList> {
           itemCount: 12,
           itemBuilder: (BuildContext context, int index) {
             return Container(
+              color: Colors.green.withAlpha(10),
               padding: EdgeInsets.only(bottom: 5),
               decoration: BoxDecoration(
                   border: Border(bottom: BorderSide(width: 0.1)),
@@ -32,7 +33,9 @@ class _FollowListState extends State<FollowList> {
               child: Row(
                 children: [
                   Padding(
+
                     padding: EdgeInsets.only(top: 5, left: 15),
+                    ///user profile////
                     child: Avatar(size: 40, ImageURL: widget.profileURL),
                   ),
                   Container(

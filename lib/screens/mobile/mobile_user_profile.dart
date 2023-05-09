@@ -236,7 +236,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         height: 40,
                         width: 155,
                         buttonTitle: "Edit Profile",
-                        color: CONFIG.primaryColor),
+                        color: CONFIG.primaryColor ),
                   ),
                 ),
 
@@ -251,7 +251,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
                         height: 40,
                         width: 155,
                         buttonTitle: "Share profile",
-                        color: CONFIG.primaryColor),
+                        color: CONFIG.primaryColor ),
                   ),
                 ),
               ],
@@ -262,7 +262,7 @@ class Mobile_UserProfileState extends State<Mobile_UserProfile> {
             indent: 5,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric( horizontal: 15, vertical: 10 ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

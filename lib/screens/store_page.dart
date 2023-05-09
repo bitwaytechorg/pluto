@@ -11,6 +11,7 @@ import '../components/scroll_behaviour.dart';
 import '../components/slider_menu.dart';
 import '../components/topbar.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
+import 'package:pluto/global/session.dart' as SESSION;
 
 import '../models/product.dart';
 
@@ -142,23 +143,27 @@ class StoreInfoState extends State<StoreInfo> {
   }
 
   buildContent() {
-    return Container(
-      height: MediaQuery.of(context).size.height - 55,
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      child: GridView.builder(
-        itemCount: 13,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, mainAxisSpacing: 4, crossAxisSpacing: 4),
-        itemBuilder: (context, index) => InkWell(
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance.collection(CONFIG.product_collection).where("uid",isEqualTo:SESSION.uid ).snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        return Container(
+          height: MediaQuery.of(context).size.height - 55,
+          margin: EdgeInsets.symmetric(horizontal: 5),
+          child: GridView.builder(
+            itemCount: 13,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, mainAxisSpacing: 4, crossAxisSpacing: 4),
+            itemBuilder: (context, index) => InkWell(
 
-          onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail())),
-          child: ProductCard(
-            productName: 'Good Food for Pets ',
-            itemPic:foodList[index],
-            productPrice: 435, productDescription: "",
+              onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Product_detail())),
+              child: ProductCard(
+                productName: 'Good Food for Pets',
+                itemPic:foodList[index],
+                productPrice: 435, productDescription:"",
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        );
+      }, );
   }
 }

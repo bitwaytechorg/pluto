@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pluto/components/Btns/primaryBtn.dart';
 import 'package:pluto/config/config.dart' as CONFIG;
 import '../../components/scroll_behaviour.dart';
 
 class MobileProductDetail extends StatefulWidget {
-  const MobileProductDetail({Key? key}) : super(key: key);
+  DocumentSnapshot product;
+  MobileProductDetail({Key? key, required this.product}) : super(key: key);
 
   @override
   State<MobileProductDetail> createState() => _MobileProductDetailState();
@@ -31,7 +33,7 @@ class _MobileProductDetailState extends State<MobileProductDetail> {
                           child: Icon(Icons.arrow_back, color: Colors.grey)),
 
                       SizedBox(width: 15,),
-                      Text("Product name", style: TextStyle(
+                      Text(widget.product['productTitle'], style: TextStyle(
                         fontSize: 20, color: Colors.grey,
                         fontWeight: FontWeight.w400,
                       ),),
@@ -64,7 +66,7 @@ class _MobileProductDetailState extends State<MobileProductDetail> {
         decoration: BoxDecoration(
             color: Colors.grey.withAlpha(100)
         ),
-        child: Center(child: Text("No image available!")),
+        child: Image.network(widget.product['productImage']),
       ),
        SizedBox(height: 20,),
       Container(
