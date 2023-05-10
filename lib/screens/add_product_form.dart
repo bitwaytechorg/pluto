@@ -131,7 +131,7 @@ class ProductFormState extends State<ProductForm> {
               style: TextStyle(color: Colors.grey),
               decoration: InputDecoration(
                 labelText: "Product Title",
-                hintText: 'Dog Shampoo',
+                hintText: 'Title of The Product',
               ),
             ),
           ),
@@ -173,7 +173,7 @@ class ProductFormState extends State<ProductForm> {
               style: TextStyle(color: Colors.grey),
               decoration: InputDecoration(
                 labelText: "Price",
-                hintText: 'Rs.200',
+                hintText: 'Rs.',
               ),
             ),
           ),

@@ -11,6 +11,10 @@ class MobileMessages extends StatefulWidget {
 }
 
 class _MobileMessagesState extends State<MobileMessages> {
+  TextEditingController textEditingController = TextEditingController();
+  late String senderMessage, receiverMessage;
+  ScrollController scrollController = ScrollController();
+
 
   double xOffset = 0;
   double yOffset = 0;
