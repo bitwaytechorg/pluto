@@ -18,18 +18,9 @@ class _MobileMessagesState extends State<MobileMessages> {
     Message(
       text: "Yes, years ago.",
       date: DateTime.now().subtract(Duration(minutes: 5)),
-      isSendByMe: true,
-    ),
-    Message(
-      text: "yes sure",
-      date: DateTime.now().subtract(Duration(minutes: 5)),
       isSendByMe: false,
     ),
-    Message(
-      text: "yes sure",
-      date: DateTime.now().subtract(Duration(minutes: 5)),
-      isSendByMe: true,
-    ),
+
 
 
   ].reversed.toList();
@@ -38,7 +29,13 @@ class _MobileMessagesState extends State<MobileMessages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chat"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(Icons.more_vert),
+          )
+        ],
+        title: const Text("another user name here."),
       ),
       body: Column(children: [
         Expanded(
