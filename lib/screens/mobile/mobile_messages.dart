@@ -12,6 +12,7 @@ class MobileMessages extends StatefulWidget {
 }
 
 class _MobileMessagesState extends State<MobileMessages> {
+  TextEditingController _msgController = new TextEditingController();
 
   List<Message> messages = [
 
@@ -88,6 +89,7 @@ class _MobileMessagesState extends State<MobileMessages> {
         Container(
           color: Colors.grey,
           child: TextField(
+            controller: _msgController,
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(7),
               hintText: "type your message here...",
@@ -100,6 +102,7 @@ class _MobileMessagesState extends State<MobileMessages> {
               );
               setState(() {
                 messages.add(message);
+                _msgController.text ='';
               });
             },
           ),
