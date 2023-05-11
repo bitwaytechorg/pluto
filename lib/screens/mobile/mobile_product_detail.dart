@@ -83,7 +83,7 @@ class _MobileProductDetailState extends State<MobileProductDetail> {
       Container(
         margin: EdgeInsets.only(left: 15, right: 20),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(widget.product['price'], style: TextStyle(
+          Text('', style: TextStyle(
             fontSize: 15, color: Colors.black54,
           ),),
           Row(children: [

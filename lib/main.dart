@@ -14,6 +14,7 @@ import 'package:pluto/global/session.dart' as SESSION;
 import 'package:pluto/screens/auth/verify_email.dart';
 import 'package:pluto/screens/home.dart';
 import 'package:pluto/screens/splash.dart';
+import 'package:pluto/screens/user_profile_form.dart';
 import 'components/auth_builder.dart';
 import 'config/firebase_config.dart';
 import 'config/firebase_remote_config.dart';
@@ -174,13 +175,15 @@ class AuthGate extends AnimatedWidget {
                 future: setSession(
                     FirebaseAuth.instance.currentUser!.uid), // async work
                 builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+
                   switch (snapshot.connectionState) {
                     case ConnectionState.waiting:
                       return Splash();
                     default:
-                      if (snapshot.hasError) {
+                     if (snapshot.hasError) {
                         print("ERROR");
                         return Center(child: Text('Error: ${snapshot.error}'));
+                        //return UserProfileForm();
                       } else {
                         return Home();
                       }

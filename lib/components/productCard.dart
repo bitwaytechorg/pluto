@@ -32,21 +32,16 @@ class _ProductCardState extends State<ProductCard> {
         Stack(
           children: [
             Container(
+              margin: EdgeInsets.only(left: 30, top: 5),
               height: 100,
-              width: 120,
+              width: 100,
               child: Image.network(widget.itemPic,),
             ),
             Align(alignment: Alignment.topRight, child: Icon(Icons.favorite_border, color: Colors.pink,)),
           ], ),
-        Container(
-            margin: EdgeInsets.only(left: 10),
-            child: Align(alignment: Alignment.centerLeft, child: CText(text:widget.productName, maxLines: 2, fontSize: 17,))),
-        Container(
-            margin: EdgeInsets.only(left: 10, top: 7, bottom: 4 ),
-            child: Align(alignment: Alignment.centerLeft, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),))),
-        Container(
-            margin: EdgeInsets.only(left: 10),
-            child: Align(alignment: Alignment.centerLeft, child: CText(text:widget.productDescription, maxLines: 2, fontSize: 17,))),
+        Align(alignment: Alignment.center, child: CText(text:widget.productName, maxLines: 2, fontSize: 17,)),
+        Align(alignment: Alignment.center, child: Text("Price: " + widget.productPrice.toString(), style: TextStyle(color: Colors.grey),)),
+        Align(alignment: Alignment.center, child: CText(text:widget.productDescription, maxLines: 1, fontSize: 17,)),
       ],),
     );
   }

@@ -11,6 +11,7 @@ import 'package:pluto/screens/mobile/mobile_leaderboard.dart';
 import 'package:pluto/screens/user_profile.dart';
 import 'package:pluto/global/session.dart' as SESSION;
 import '../screens/setting.dart';
+import '../screens/test_page.dart';
 import 'avatar.dart';
 
 class Slider_menu extends StatelessWidget {
@@ -381,6 +382,34 @@ class Slider_menu extends StatelessWidget {
                             )
                           ],
                         )),
+                  ),
+
+                  InkWell(
+                    onTap: () => {
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>TestPage())),
+                    },
+                    child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 15),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            const Text(
+                              'Test Page',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        )
+                    ),
                   )
                 ],
               ),

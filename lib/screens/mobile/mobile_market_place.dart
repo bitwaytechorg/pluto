@@ -21,6 +21,9 @@ class Mobile_MarketPlace extends StatefulWidget {
 class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
 
 
+ late DocumentReference _documentReference;
+ late Future<DocumentSnapshot> _futureDocument;
+
   String viewType='Grid';
   List chips =[
     "Dogs",
@@ -158,9 +161,16 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     shrinkWrap: true,
                     itemCount: snapshot.data.docs.length,
                     itemBuilder: (context, index) {
-                      DocumentSnapshot products = snapshot.data.docs[index];
+                      DocumentSnapshot products = snapshot.data!.docs[index];
 
                       return InkWell(
+                        onLongPress: (){
+                          _documentReference = FirebaseFirestore.instance.collection(CONFIG.product_collection).doc("product_id");
+                          _futureDocument = _documentReference.get();
+                          _documentReference.delete();
+
+                          print(_documentReference);
+                        },
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context)=> MobileProductDetail(product: products, )));
                           },
@@ -168,7 +178,7 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                     }
                 ),
               ):  Container(
-                height: MediaQuery.of(context).size.height-210,
+                height: MediaQuery.of(context).size.height-220,
                 margin: EdgeInsets.symmetric(horizontal: 5),
                 child: GridView.builder(
                   shrinkWrap: true,
@@ -179,10 +189,11 @@ class Mobile_MarketPlaceState extends State<Mobile_MarketPlace> {
                       crossAxisSpacing: 4
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    DocumentSnapshot products = snapshot.data.docs[index];
+                    DocumentSnapshot products = snapshot.data!.docs[index];
+                    print(products['price']);
                       return InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>MobileProductDetail(product: products, )));
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=> MobileProductDetail( product: products, )));
                         },
                         child: ProductCard(
                             itemPic: products["productImage"],
