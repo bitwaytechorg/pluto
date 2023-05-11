@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:grouped_list/grouped_list.dart';
+import 'package:intl/intl.dart';
 
-import '../../components/scroll_behaviour.dart';
-
+import '../../models/message.dart';
 
 class MobileMessages extends StatefulWidget {
   const MobileMessages({Key? key}) : super(key: key);
@@ -11,79 +12,102 @@ class MobileMessages extends StatefulWidget {
 }
 
 class _MobileMessagesState extends State<MobileMessages> {
-  TextEditingController textEditingController = TextEditingController();
-  late String senderMessage, receiverMessage;
-  ScrollController scrollController = ScrollController();
+
+  List<Message> messages = [
+
+    Message(
+      text: "Yes, years ago.",
+      date: DateTime.now().subtract(Duration(minutes: 5)),
+      isSendByMe: true,
+    ),
+    Message(
+      text: "yes sure",
+      date: DateTime.now().subtract(Duration(minutes: 5)),
+      isSendByMe: false,
+    ),
+    Message(
+      text: "yes sure",
+      date: DateTime.now().subtract(Duration(minutes: 5)),
+      isSendByMe: true,
+    ),
 
 
-  double xOffset = 0;
-  double yOffset = 0;
-  double scalefactor = 1;
-  bool isDrawerOpen = false;
-
-  void toggleMenu() {
-    bool tmpStatus = !isDrawerOpen;
-    setState(() {
-      xOffset = tmpStatus ? 250 : 0;
-      yOffset = tmpStatus ? 50 : 0;
-      scalefactor = tmpStatus ? 0.91 : 1;
-      isDrawerOpen = tmpStatus;
-    });
-  }
+  ].reversed.toList();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        top: true,
-        child: Column(children: [
-             Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    InkWell(
-                        onTap:(){ Navigator.pop(context);},
-                        child: Icon(Icons.arrow_back, color: Colors.grey)
-                    ),
-                    SizedBox(width: 15,),
-                    Text("Username", style: TextStyle(
-                      fontSize: 20, color: Colors.grey,
-                      fontWeight: FontWeight.w400,
-                    ),),
-                  ],
-                ),
-                Icon(Icons.more_vert, color: Colors.grey),
-              ],
-            ),
-          ),
-              Expanded(
-                child: ScrollConfiguration(
-                  behavior: MyBehavior(),
-                  child: SingleChildScrollView(
-                    child: buildContent(),
+      appBar: AppBar(
+        title: const Text("Chat"),
+      ),
+      body: Column(children: [
+        Expanded(
+            child: Container(
+              child: GroupedListView<Message, DateTime>(
+                reverse: true,
+                  order: GroupedListOrder.DESC,
+                  useStickyGroupSeparators: true,
+                  floatingHeader: true,
+                  elements: messages,
+                  groupBy: (message)=>DateTime(
+                    message.date.year,
+                    message.date.month,
+                    message.date.day,
                   ),
-                ),
+                 groupHeaderBuilder: (Message message)=>SizedBox(
+                   height: 40,
+                   child: Center(
+                     child: Padding(
+                       padding: const EdgeInsets.all(3),
+                       child: Card(
+                           color:Theme.of(context).primaryColor.withAlpha(10),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Text(DateFormat.yMMMd().format(message.date),
+                            style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                       ),
+                     ),
+                   ),
+                 ),
+                 itemBuilder: (context, message)=> Align(
+                   alignment: message.isSendByMe? Alignment.centerRight:Alignment.centerLeft,
+                   child: Card(
+                     color: message.isSendByMe?Colors.blue:Colors.white,
+                     elevation: 8,
+                     child: Padding(
+                       padding: const EdgeInsets.all(8.0),
+                       child: Text(message.text, style: TextStyle(
+                         color: message.isSendByMe?Colors.white:Colors.blue,
+                       ),),
+                     ),
+                   ),
+                 ),
               ),
-            ]),
+            )
         ),
-      );
-  }
-
-  buildContent() {
-    return Column(
-      children: [
 
         Container(
-          child: Text("Username", style: TextStyle(
-            fontSize: 20, color: Colors.grey,
-            fontWeight: FontWeight.w400,
-          ),),
+          color: Colors.grey,
+          child: TextField(
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.all(7),
+              hintText: "type your message here...",
+            ),
+            onSubmitted: (text){
+              final message = Message(
+                text: text,
+                date: DateTime.now(),
+                isSendByMe: true,
+              );
+              setState(() {
+                messages.add(message);
+              });
+            },
+          ),
         ),
-      ],
+      ],),
     );
   }
 }

@@ -63,6 +63,8 @@ dependencies:
   timeago: ^3.2.1
   cached_network_image: ^3.2.3
   flutter_chat_list: ^1.0.6
+  grouped_list: ^5.1.2
+  intl: ^0.17.0
 
 
 
