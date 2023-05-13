@@ -5,6 +5,7 @@ import 'package:pluto/config/config.dart' as CONFIG;
 import 'package:pluto/global/session.dart' as SESSION;
 import 'package:pluto/components/avatar.dart';
 import 'package:pluto/screens/mobile/mobile_messages.dart';
+import '../../components/Btns/primaryBtn.dart';
 import '../../components/chips.dart';
 import '../../components/follow_list.dart';
 import '../../components/scroll_behaviour.dart';
@@ -241,25 +242,25 @@ class Mobile_ProfileState extends State<Mobile_Profile>{
           ),
 
 
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          //   child: Row(
-          //     children: [
-          //       PrimaryBtn(ButtonTitle: 'store', width: 260,height: 45,),
-          //       SizedBox(width: 15,),
-          //       Container(
-          //           height: 42,
-          //           width: 42,
-          //           decoration: BoxDecoration(
-          //             borderRadius: BorderRadius.all(Radius.circular(40)),
-          //             border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
-          //
-          //           ),
-          //           child: Icon(Icons.more_horiz, color: CONFIG.primaryColor, size: 20,)
-          //       )
-          //     ],
-          //   ),
-          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Row(
+              children: [
+                PrimaryBtn(ButtonTitle: 'store', width: 260,height: 45,),
+                SizedBox(width: 15,),
+                Container(
+                    height: 42,
+                    width: 42,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      border: Border.all(width: 1, color: CONFIG.primaryColor.withAlpha(100)),
+
+                    ),
+                    child: Icon(Icons.more_horiz, color: CONFIG.primaryColor, size: 20,)
+                )
+              ],
+            ),
+          ),
 
           Divider(endIndent: 5, indent: 5,),
 

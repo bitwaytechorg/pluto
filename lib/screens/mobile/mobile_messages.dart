@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-
+import 'package:pluto/config/config.dart' as CONFIG;
 import '../../models/message.dart';
 
 class MobileMessages extends StatefulWidget {
@@ -22,14 +22,13 @@ class _MobileMessagesState extends State<MobileMessages> {
       isSendByMe: false,
     ),
 
-
-
   ].reversed.toList();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: CONFIG.primaryColor ,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
@@ -72,12 +71,12 @@ class _MobileMessagesState extends State<MobileMessages> {
                  itemBuilder: (context, message)=> Align(
                    alignment: message.isSendByMe? Alignment.centerRight:Alignment.centerLeft,
                    child: Card(
-                     color: message.isSendByMe?Colors.blue:Colors.white,
+                     color: message.isSendByMe?CONFIG.primaryColor:Colors.white,
                      elevation: 8,
                      child: Padding(
                        padding: const EdgeInsets.all(8.0),
                        child: Text(message.text, style: TextStyle(
-                         color: message.isSendByMe?Colors.white:Colors.blue,
+                         color: message.isSendByMe?Colors.white:CONFIG.primaryColor,
                        ),),
                      ),
                    ),
@@ -87,12 +86,17 @@ class _MobileMessagesState extends State<MobileMessages> {
         ),
 
         Container(
-          color: Colors.grey,
+          margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+
           child: TextField(
             controller: _msgController,
             decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(7),
-              hintText: "type your message here...",
+              hintText: "Type your message here...",
             ),
             onSubmitted: (text){
               final message = Message(
